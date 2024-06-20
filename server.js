@@ -27,6 +27,7 @@ app.use((request, response, next) => {
       response.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE GET');
     return response.status(200).json({});
   }
+  next();
 });
 
 connectDB();
