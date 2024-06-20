@@ -9,9 +9,17 @@ router.get('/', (request, response, next) => {
 
 
 router.post('/',(request, response, next)=>{
+  const employee = {
+    employee_id: request.body.employee_id,
+    employee_name: request.body.employee_name,
+    designation: request.body.designation,
+    phone_number: request.body.phone_number,
+  };
+
   response.status(200).json({
-    message: 'Post Request from an employee!'
-  })
+    message: 'Post Request from an employee!',
+    employee: employee,
+  });
 });
 
 

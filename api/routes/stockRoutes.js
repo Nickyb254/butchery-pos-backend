@@ -9,8 +9,17 @@ router.get('/',(request, response, next)=>{
 
 
 router.post('/', (request, response, next)=>{
+  const stockItem = {
+    product_name: request.body.product_name,
+    price: request.body.price,
+    mass_bought: request.body.mass_bought,
+    mass_available: request.body.mass_available,
+    supplier_name: request.body.supplier_name,
+  }
+
   response.status(200).json({
-    message: 'Post request from stock successful!'
+    message: 'Post request from stock successful!',
+    stockItem: stockItem,
   });
 });
 

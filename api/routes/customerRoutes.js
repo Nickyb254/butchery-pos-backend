@@ -9,8 +9,15 @@ router.get('/', (request, response, next) => {
 
 
 router.post('/', (request, response, next) => {
+  const customer = {
+    customer_id: request.body.customer_id,
+    customer_name: request.body.customer_name,
+    customer_phone: request.body.customer_phone,
+  };
+  
   response.status(200).json({
-    message: 'Post Reqest from a customer!'
+    message: 'Post Reqest from a customer!',
+    customer: customer
   });
 });
 
