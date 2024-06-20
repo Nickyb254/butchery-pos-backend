@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(morgan('dev'));
+//bodyParser helps access data in the body; handle incoming post request
+//app.use(bodyParser.urlencoded({extended: true}));
+//app.use(bodyParser.json());
 connectDB();
 
 app.use('/customers', customerRoutes);
