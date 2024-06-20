@@ -8,7 +8,7 @@ router.get('/', (request, response, next) => {
 });
 
 
-router.post('/:employeesId',(request, response, next)=>{
+router.post('/',(request, response, next)=>{
   response.status(200).json({
     message: 'Post Request from an employee!'
   })

@@ -8,7 +8,7 @@ router.get('/',(request, response, next)=>{
 });
 
 
-router.post('/:stockId', (request, response, next)=>{
+router.post('/', (request, response, next)=>{
   response.status(200).json({
     message: 'Post request from stock successful!'
   });

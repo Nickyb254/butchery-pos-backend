@@ -5,7 +5,7 @@ import customerRoutes from './api/routes/customerRoutes.js';
 import employeesRoutes from './api/routes/employeesRoutes.js';
 import salesRoutes from './api/routes/salesRoutes.js';
 import stockRoutes from './api/routes/stockRoutes.js';
-
+import morgan from "morgan";
 
 
 const app = express();
@@ -13,7 +13,8 @@ const PORT = process.env.MONGO_URI || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
- 
+
+app.use(morgan('dev'));
 connectDB();
 
 app.use('/customers', customerRoutes);
