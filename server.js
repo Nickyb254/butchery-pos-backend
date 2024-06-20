@@ -26,6 +26,25 @@ app.use('/employees/Id', employeesRoutes);
 app.use('/sales/Id', salesRoutes);
 app.use('/stock/Id', stockRoutes);
 
+
+//handling any request not in the above routers
+app.use((request, response, next)=>{
+  const error = new error('Not found');
+  error.status(404);
+  next(error);
+});
+
+//next passes 404 error and any other error down
+
+app.use((error, request, response, next)=>{
+  response.status(error.status || 500);
+  response.json({
+    error:{
+      message: error.message
+    }
+  });
+});
+
  
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
