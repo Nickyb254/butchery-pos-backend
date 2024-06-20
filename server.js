@@ -18,6 +18,17 @@ app.use(morgan('dev'));
 //bodyParser helps access data in the body; handle incoming post request
 //app.use(bodyParser.urlencoded({extended: true}));
 //app.use(bodyParser.json());
+
+//CORS errors- CROSS-ORIGIN RESOURCE SHARING
+app.use((request, response, next) => {
+  response.header('Access-Control-Allow-Origin', '*');
+  response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  if (request.method === 'OPTIONS'){
+      response.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE GET');
+    return response.status(200).json({});
+  }
+});
+
 connectDB();
 
 app.use('/customers', customerRoutes);
