@@ -15,4 +15,18 @@ router.post('/', (request, response, next) => {
 });
 
 
+router.patch('/:customersId',(request, response, next)=>{
+  response.status(200).json({
+    message: 'Patch Request from a customer!'
+  })
+});
+
+
+router.delete('/:customersId',(reqest, response, next)=>{
+  response.status(200).json({
+    message: 'Delete Request from a customer'
+  })
+});
+
+
 export default router;

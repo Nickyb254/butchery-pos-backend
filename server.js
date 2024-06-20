@@ -7,6 +7,7 @@ import salesRoutes from './api/routes/salesRoutes.js';
 import stockRoutes from './api/routes/stockRoutes.js';
 
 
+
 const app = express();
 const PORT = process.env.MONGO_URI || 3000;
 
@@ -19,6 +20,10 @@ app.use('/customers', customerRoutes);
 app.use('/employees', employeesRoutes);
 app.use('/sales', salesRoutes);
 app.use('/stock', stockRoutes);
+app.use('/customers/Id', customerRoutes);
+app.use('/employees/Id', employeesRoutes);
+app.use('/sales/Id', salesRoutes);
+app.use('/stock/Id', stockRoutes);
 
  
 app.listen(PORT, () => {
