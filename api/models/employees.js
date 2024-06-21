@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose  from 'mongoose';
 
 
 const EmployeeSchema = new mongoose.Schema({
@@ -8,4 +8,5 @@ const EmployeeSchema = new mongoose.Schema({
   phone_number: { type: string, max: 10},
 })
 
-module.exports = mongoose.model('Employees', EmployeeSchema)
+const EmployeeModel = mongoose.model('Employees', EmployeeSchema)
+export default EmployeeModel
