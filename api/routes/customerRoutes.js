@@ -20,9 +20,9 @@ router.get('/', (request, response, next) => {
         error:error
       });
     });
-  response.status(200).json({
-    message: 'Get Request from a customer!'
-  });
+  // response.status(200).json({
+  //   message: 'Get Request from a customer!'
+  // });
 });
 
 
