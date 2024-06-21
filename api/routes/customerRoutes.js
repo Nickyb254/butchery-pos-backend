@@ -74,7 +74,7 @@ router.post('/', (request, response, next) => {
 router.patch('/:customersId', async (req, res) => {
   try {
     const updateData = req.body;
-    const result = await CustomerModel.updateOne({ customer_id: req.params.id }, updateData);
+    const result = await CustomerModel.updateOne({ customer_id: req.params.customersId }, updateData);
 
     if (result.matchedCount === 0) {
       return res.status(404).json({ message: 'User not found' });
