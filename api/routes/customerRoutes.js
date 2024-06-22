@@ -47,40 +47,16 @@ router.post('/', (request, response, next) => {
 });
 
 
-
-
-// router.patch('/:customersId',(request, response, next)=>{
-//   const customer = [request.params.body];
-//   const id = request.params.customersId;
-//   const updateOps = {};
-//    for (const ops of request.body){
-//     updateOps[ops.propName] = ops.value;
-//    }
-//    customer.update({ _id: id}, { $set: updateOps })
-//    .exec()
-//    .then(result => {
-//     console.log(result);
-//     response.status(200).json({
-//       message: 'Patch Request from a customer!'
-//     })
-//    })
-//    .catch(error => {
-//     console.log(error);
-//     response.status(500)
-//    });
-  
-// });
-
 router.patch('/:customersId', async (req, res) => {
   try {
     const updateData = req.body;
-    const result = await CustomerModel.updateOne({ customer_id: req.params.customersId }, updateData);
+    const result = await CustomerModel.updateOne({ customer_id: req.params.customers_Id }, updateData);
 
-    if (result.matchedCount === 0) {
+    if (!result.matchedCount) {
       return res.status(404).json({ message: 'User not found' });
     }
-
-    res.status(200).json({ message: 'User updated successfully' });
+    else if (result.matchedCount === 1) {res.status(200).json({ message: 'User updated successfully' })}
+    //res.status(200).json({ message: 'User updated successfully' });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Server error', error });
@@ -95,11 +71,13 @@ router.delete('/:customersId', async (req, res) => {
   try {
     const result = await CustomerModel.deleteOne({ customer_id: req.params.id });
 
-    if (result.deletedCount === 0) {
-      return res.status(404).json({ message: 'User not found' });
+    if (result.deletedCount === 1) {
+      return res.status(200).json({ message: 'User deleted successfully' });
     }
-
-    res.status(200).json({ message: 'User deleted successfully' });
+    else if (!result.deletedCount ){
+      res.status(404).json({ message: 'User not found' });
+    }
+    
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Server error', error });

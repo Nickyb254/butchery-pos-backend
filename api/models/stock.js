@@ -1,13 +1,15 @@
-const mongoose = require('mongoose');
-// const { ObjectId } = mongoose.SchemaTypes;
+import mongoose from 'mongoose';
+
 
 const StockSchema = new mongoose.Schema({
-  product_name: { type: String },
-  price: { type: Number },
-  mass_bought: { type: Number },
-  mass_available: { type: Number },
-  supplier_name: { type: String },
+  product_id: mongoose.Types.ObjectId,
+  product_name: String,
+  price:  Number,
+  mass_bought:  Number,
+  mass_available:  Number,
+  supplier_name:  String,
   date: { type: Date, default: Date.now }
-})
+});
 
-module.exports = mongoose.model('Stock', StockSchema)
+const stockModel = mongoose.model('Stock', StockSchema);
+export default stockModel
