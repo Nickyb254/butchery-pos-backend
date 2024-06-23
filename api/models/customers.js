@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 
 const customerSchema = new mongoose.Schema({
   customer_id: mongoose.Types.ObjectId,
-  customer_name:  String,
-  customer_phone:  String,
+  customer_name:  {type: String, required: true, unique: true},
+  customer_phone: {type: String, required: true, minLength: 10 },
   });
 
  const CustomerModel = mongoose.model('Customer', customerSchema);
