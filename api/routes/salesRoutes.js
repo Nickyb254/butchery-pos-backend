@@ -2,12 +2,14 @@ import express, { json } from 'express';
 const router =  express.Router();
 import salesModel from '../models/sales.js';
 import mongoose from 'mongoose';
-
+import Employees from '../models/employees.js';
 //to filter for products in stock
 import Stock from '../models/stock.js';
 
 router.get('/', (request, response, next)=>{
   salesModel.find()
+    .populate('product','product_name')
+    .populate('transaction_by','employee_name')
     .select('product price mass_sold transaction_by')
     .exec()
     .then(result => {
@@ -44,9 +46,12 @@ router.get('/', (request, response, next)=>{
   });
 
 
+  //populate adds names using product_id from stock
 router.get ('/:salesId', (request, response, next) => {
   const id = request.params.salesId;
   salesModel.findById(id)
+  .populate('transaction_by', 'employee_name')
+  .populate('product', 'product_name')
   .exec()
   .then(result =>{    
     response.status(200).json({
