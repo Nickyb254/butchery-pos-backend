@@ -127,6 +127,28 @@ router.patch('/:salesId', async (request, response, next)=>{
 });
 
 
+
+// router.delete('/:salesId', async(request, response, next)=>{
+//   await salesModel.deleteOne({sales_id: request.params.salesId})
+//   .exec()
+//   .then(result => {
+//     response.status().json({
+//       message: 'Sale deleted!',
+//       request: {
+//         type: 'POST',
+//         url: 'http://localhost:3000/sales/' + 'salesId',
+//         body: { sales_id: "Id", product: "stock_id", price: "number", mass_sold: "number", transaction_by: "Employees_id" }
+//       }
+//     });
+//   })
+//   .catch(error =>{
+//     console.log(error);
+//     response.status(500).json({ message: 'Server error', error});
+//   })
+// });
+
+
+
 router.delete('/:salesId', async (request, response, next)=>{
   try{
     const result = await salesModel.deleteOne({sale_id: request.params.sale_id});
