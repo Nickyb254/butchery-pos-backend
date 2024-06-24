@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { json } from 'express';
 const router =  express.Router();
 import salesModel from '../models/sales.js';
 import mongoose from 'mongoose';
@@ -42,6 +42,32 @@ router.get('/', (request, response, next)=>{
       });
     });
   });
+
+
+router.get ('/:salesId', (request, response, next) => {
+  const id = request.params.salesId;
+  salesModel.findById(id)
+  .exec()
+  .then(result =>{    
+    response.status(200).json({
+      sale: result,
+      request: {
+        type: 'GET',
+        description: 'Get a sale',
+        url: '​http://localhost:3000/sales/salesId',
+      }
+    });
+  })  
+  .catch(error => {
+    console.log(error);
+    response.status(500).json({
+      message: 'No valid entry found for provided ID!',
+      error:error
+    });
+  })
+
+});
+
 
 
 router.post('/',  (request, response, next) => {
