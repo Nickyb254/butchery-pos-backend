@@ -3,9 +3,9 @@ import mongoose  from 'mongoose';
 
 const EmployeeSchema = new mongoose.Schema({
   employee_id: mongoose.Types.ObjectId,
-  employee_name:  String,
-  designation: String,
-  phone_number:  String,
+  employee_name:  {type: String, trim: true, required: true },
+  designation:  {type: String, trim: true},
+  phone_number:   {type: String, trim: true, required: true },
 
   email: {
     type: String,

@@ -2,11 +2,11 @@ import mongoose from 'mongoose';
 
 
 const salesSchema = new mongoose.Schema({
-  sales_id: mongoose.Types.ObjectId,
-  product_name:  String,
-  price:  Number,
-  mass_sold:  Number ,
-  supplier_name:  String,
+  sales_id:  mongoose.Types.ObjectId, 
+  product:  {type: mongoose.Types.ObjectId, ref:'Stock', required: true },
+  price:  {type: Number, required: true, trim: true, min:0},
+  mass_sold: {type: Number, required: true, trim: true, min:0},
+  transaction_by: {type: mongoose.Types.ObjectId, ref:'Employees', required: true },
   date: { type: Date, default: Date.now },
 });
 
