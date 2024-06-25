@@ -3,6 +3,40 @@ const router = express.Router();
 import mongoose from 'mongoose';
 import stockModel from '../models/stock.js';
 
+
+import multer from 'multer';
+//adjust how files are stored
+const storage = multer.diskStorage({
+  destination: function(req, file, callback){
+    callback(null, './uploads/');
+  },
+  filename: function(req, file, callback){
+    callback(null, file.originalname)
+    // callback(null, new Date().toISOString() + file.originalname);
+  }
+});
+
+const fileFilter = (req, file, callback) =>{
+//accept file
+  if(file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg" || file.mimetype == "image/webp"){
+    callback(null, true);
+  } else {
+    callback(null, false);
+    return callback(new Error('Only .png, .jpg and .jpeg format allowed!'));
+    //reject file
+  }  
+};
+
+//simple way
+//const upload = multer({dest: 'uploads/'});
+const upload = multer({
+  storage: storage, 
+  limits: {
+  fileSize: 1024 * 1024 * 5
+  },
+  fileFilter: fileFilter
+});
+
 router.get('/',(request, response, next)=>{
   stockModel.find()
     .exec()
@@ -23,13 +57,15 @@ router.get('/',(request, response, next)=>{
 });
 
 
-router.post('/', (request, response, next) =>{
+router.post('/', upload.single('stockImage'), (request, response, next) =>{
+  console.log(request.file);
   const stockItem = new stockModel ({
     product_name: request.body.product_name,
     price: request.body.price,
     mass_bought: request.body.mass_bought,
     mass_available: request.body.mass_available,
     supplier_name: request.body.supplier_name,
+    stock_image: request.file.path
   });
     stockItem
     .save()

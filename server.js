@@ -19,6 +19,10 @@ app.use(morgan('dev'));
 //app.use(bodyParser.urlencoded({extended: true}));
 //app.use(bodyParser.json());
 
+//making uploads folder publicly accessing for GET
+app.use('/uploads' ,express.static('uploads'));
+
+
 //CORS errors- CROSS-ORIGIN RESOURCE SHARING
 app.use((request, response, next) => {
   response.header('Access-Control-Allow-Origin', '*');
