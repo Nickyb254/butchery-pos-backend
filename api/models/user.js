@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
   user_id: { type: mongoose.Types.ObjectId, 
     default: new mongoose.Types.ObjectId()},
-  email: { type: String, 
+    email: { type: String, 
     required: [true, "Email required"],
     unique: true,
     validate: {

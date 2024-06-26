@@ -3,6 +3,7 @@ const router = express.Router();
 import mongoose from 'mongoose';
 import userModel from '../models/user.js';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 
 router.post('/signup', (request, response, next) => {
@@ -47,40 +48,50 @@ router.post('/signup', (request, response, next) => {
   });
 
 
- router.post('/login', (request, response, next) => {
-  userModel.find({ email: request.body.email })
-  .exec()
-  .then(result => {
-      if(result.length < 1){
+ 
+  
+  router.post('/login', async (request, response, next) => {
+    try {
+      const users = await userModel.find({ email: request.body.email }).exec();
+  
+      if (users.length < 1) {
         return response.status(401).json({
           message: 'Auth failed!'
-        })
+        });
       }
-      bcrypt.compare(request.body.password, result[0].password, (err, result) => {
-        if (err){
-          return response.status(401).json({
-          message: 'Auth failed!'
-        })
-        }
-        if(result){
-          return response.status(200).json({
-            message: 'Auth successful!'
-          })
-        }
+  
+      const user = users[0];
+      const passwordMatch = await bcrypt.compare(request.body.password, user.password);
+  
+      if (!passwordMatch) {
         return response.status(401).json({
-            message: 'Auth failed!',
-            //error:err
-          })  
-      })
-    })
-
-  .catch(error => {
-    console.log(error);
-    response.status(500).json({
-      error: error
-      })
+          message: 'Auth failed!'
+        });
+      }
+  
+      const token = jwt.sign(
+        {
+          email: user.email,
+          userId: user.user_id
+        },
+         `${process.env.JWT_SECRET}`,
+        {
+          expiresIn: "1h"
+        }
+      );
+  
+      return response.status(200).json({
+        message: 'Auth successful!',
+        token: token
+      });
+    } catch (error) {
+      console.log(error);
+      return response.status(500).json({
+        error: error
+      });
+    }
   });
-});
+  
 //security weakness if
 // return res.status(404).json({
 //message: 'Mail not found, user doesn\'t exist'})
