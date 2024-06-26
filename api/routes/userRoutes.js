@@ -51,35 +51,35 @@ router.post('/signup', (request, response, next) => {
   userModel.find({ email: request.body.email })
   .exec()
   .then(result => {
-    if(result.length < 1){
-      return response.status(401).json({
-        message: 'Auth failed!'
-      })
-    }
-    bcrypt.compare(request.body.password, result[0].password, (err, result) => {
-      if (err){
+      if(result.length < 1){
         return response.status(401).json({
-        message: 'Auth failed!'
+          message: 'Auth failed!'
+        })
+      }
+      bcrypt.compare(request.body.password, result[0].password, (err, result) => {
+        if (err){
+          return response.status(401).json({
+          message: 'Auth failed!'
+        })
+        }
+        if(result){
+          return response.status(200).json({
+            message: 'Auth successful!'
+          })
+        }
+        return response.status(401).json({
+            message: 'Auth failed!',
+            //error:err
+          })  
       })
-    }
-    if(result){
-      return response.status(200).json({
-        message: 'Auth successful!'
-      })
-    }
-    return response.status(401).json({
-        message: 'Auth failed!',
-        //error:err
-  })
- 
+    })
+
   .catch(error => {
     console.log(error);
     response.status(500).json({
       error: error
-    });
-  })
- });
- });
+      })
+  });
 });
 //security weakness if
 // return res.status(404).json({
