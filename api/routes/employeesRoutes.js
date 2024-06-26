@@ -54,21 +54,27 @@ router.post('/', async (request, response, next) => {
 });
 
 //GET by ID
-router.get('/:employeeId', async(request, response, next) => {
-  try{
-    const _Id = request.params.employee_Id;
-    const result = await EmployeeModel.findOne({ employeeId: _Id });
-
-    if (!result) {
-      console.log(request.params.body);
-      return response.status(404).json({ message: 'Employee not found' });
-    }
-    console.log(request.params.body);
-    response.status(200).json(result);    
-  } catch (error) {
-    console.log(error);
-    response.status(500).json({ message: 'Server error', error });
-  }
+router.get('/:employeeId', (request, response, next) => {
+  
+    const _Id = request.params.employeeId;
+    EmployeeModel.findById(_Id)
+    .exec()
+    .then(result => {
+      if (!result) {
+        console.log(request.params.body);
+        return response.status(404).json({ message: 'Employee not found' });
+      }
+      else{
+        console.log(request.params.body);
+        response.status(200).json({result});
+      }
+    })        
+    .catch (error => {
+      console.log(error);
+      response.status(500).json({ 
+      message: 'Server error', error
+     });
+  })
 });
 
 
@@ -79,10 +85,26 @@ router.patch('/:employeesId', (request, response, next)=>{
 });
 
 
-router.delete('/:employeesId', (request, response, next)=>{
-  response.status(200).json({
-    message: 'Delete Request from an employee'
-  })
+router.delete('/:employeesId', async (request, response, next)=>{
+  try{
+    const result = await EmployeeModel.deleteOne({_id: request.params.employeesId})
+    if (result.deletedCount === 1) {
+      return response.status(200).json({ 
+        message: 'Employee deleted successfully' 
+      });
+    }
+    else if (!result.deletedCount ){
+      response.status(404).json({ 
+        message: 'Employee not found' 
+      });
+    }
+  }
+  catch(error) {
+    console.log(error);
+    response.status(500).json({
+      error: error
+    })
+  }  
 });
 
 export default router;

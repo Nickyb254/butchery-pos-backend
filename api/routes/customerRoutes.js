@@ -47,7 +47,7 @@ router.get('/:customerId', (request, response, next) => {
     .select('customer_id customer_name customer_phone')
     .exec()
     .then(doc =>{
-      console.log('From database',doc);
+      //console.log('From database',doc);
       if(doc){
           response.status(200).json({
             customer: doc,
