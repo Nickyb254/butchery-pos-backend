@@ -15,10 +15,10 @@ router.post('/signup', (request, response, next) => {
       });
     }
     else {
-      bcrypt.hash(request.body.password, 10, (error, hash) => {
-        if(error){
+      bcrypt.hash(request.body.password, 2, (err, hash) => {
+        if(err){
           return response.status(500).json({
-            error: error
+            error: err
           });
         } else{
           const user = new userModel({
@@ -34,7 +34,7 @@ router.post('/signup', (request, response, next) => {
               message: 'User created!'
             });
           })
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
             response.status(500).json({
               error: error
@@ -46,5 +46,20 @@ router.post('/signup', (request, response, next) => {
   });  
   });
 
+router.delete ('/:userId', (request, response, next) => {
+  userModel.deleteOne({ _id: request.params.userId })
+  .exec()
+  .then(result => {
+    response.status(200).json({
+      message: 'User deleted!'
+    });
+  })
+  .catch(error => {
+    console.log(error);
+    response.status(500).json({
+      error: error
+    });
+  })
+});
 
 export default router;
