@@ -135,7 +135,7 @@ router.patch('/:customersId', async (req, res) => {
 
 router.delete('/:customersId', async (req, res) => {
   try {
-    const result = await CustomerModel.deleteOne({ customer_id: req.params.id });
+    const result = await CustomerModel.deleteOne({ _id: req.params.customersId });
 
     if (result.deletedCount === 1) {
       return res.status(200).json({ message: 'User deleted successfully' });

@@ -27,7 +27,7 @@ router.get('/', (request, response, next) => {
 router.post('/', async (request, response, next) => {
   try{
   const employee = new EmployeeModel ({
-    employee_Id: mongoose.Types.ObjectId,
+    employee_Id: new mongoose.Types.ObjectId,
     employee_name: request.body.employee_name,
     designation: request.body.designation,
     phone_number: request.body.phone_number,
