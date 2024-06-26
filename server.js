@@ -6,6 +6,7 @@ import employeesRoutes from './api/routes/employeesRoutes.js';
 import salesRoutes from './api/routes/salesRoutes.js';
 import stockRoutes from './api/routes/stockRoutes.js';
 import morgan from "morgan";
+import userRoutes from './api/routes/userRoutes.js';
 
 
 const app = express();
@@ -44,7 +45,7 @@ app.use('/customers/Id', customerRoutes);
 app.use('/employees/Id', employeesRoutes);
 app.use('/sales/Id', salesRoutes);
 app.use('/stock/Id', stockRoutes);
-
+app.use('/user', userRoutes);
 
 //handling any request not in the above routers
 app.use((request, response, next)=>{
