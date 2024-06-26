@@ -6,7 +6,16 @@ import bcrypt from 'bcrypt';
 
 
 router.post('/signup', (request, response, next) => {
-  bcrypt.hash(request.body.password, 10, (error, hash) => {
+  userModel.find({email: request.body.email})
+  .exec()
+  .then(user => {
+    if( user.length >= 1 ){
+      return response.status(409).json({
+        message: 'Mail exists'
+      });
+    }
+    else {
+      bcrypt.hash(request.body.password, 10, (error, hash) => {
         if(error){
           return response.status(500).json({
             error: error
@@ -33,6 +42,8 @@ router.post('/signup', (request, response, next) => {
           })
         }
     });
+    }
+  });  
   });
 
 
