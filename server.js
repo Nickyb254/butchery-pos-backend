@@ -7,6 +7,7 @@ import salesRoutes from './api/routes/salesRoutes.js';
 import stockRoutes from './api/routes/stockRoutes.js';
 import morgan from "morgan";
 import userRoutes from './api/routes/userRoutes.js';
+import { configDotenv } from "dotenv";
 
 
 const app = express();
