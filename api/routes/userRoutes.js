@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import userModel from '../models/user.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import checkAuth from '../middleware/check-auth.js';
 
 
 router.post('/signup', (request, response, next) => {
@@ -96,7 +97,7 @@ router.post('/signup', (request, response, next) => {
 // return res.status(404).json({
 //message: 'Mail not found, user doesn\'t exist'})
 
-router.delete ('/:userId', (request, response, next) => {
+router.delete ('/:userId',checkAuth, (request, response, next) => {
   userModel.deleteOne({ _id: request.params.userId })
   .exec()
   .then(result => {

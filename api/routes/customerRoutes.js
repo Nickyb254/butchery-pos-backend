@@ -3,7 +3,7 @@ const router = express.Router();
 
 import mongoose from "mongoose";
 import CustomerModel  from '../models/customers.js';
-
+import checkAuth from '../middleware/check-auth.js'
 
 
 
@@ -106,10 +106,10 @@ router.post('/', (request, response, next) => {
 });
 
 
-router.patch('/:customersId', async (req, res) => {
+router.patch('/:customersId', checkAuth, async (req, res) => {
    try {
     const updateData = req.body;
-    const result = await CustomerModel.updateOne({ customer_id: req.params.customers_Id }, updateData);    
+    const result = await CustomerModel.updateOne({ _id: req.params.customersId }, updateData);    
 
     if (!result.matchedCount) {
       return res.status(404).json({ message: 'User not found' });
@@ -133,7 +133,7 @@ router.patch('/:customersId', async (req, res) => {
 
 
 
-router.delete('/:customersId', async (req, res) => {
+router.delete('/:customersId', checkAuth,async (req, res) => {
   try {
     const result = await CustomerModel.deleteOne({ _id: req.params.customersId });
 

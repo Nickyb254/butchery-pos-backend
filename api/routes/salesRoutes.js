@@ -5,8 +5,9 @@ import mongoose from 'mongoose';
 import Employees from '../models/employees.js';
 //to filter for products in stock
 import Stock from '../models/stock.js';
+import checkAuth from '../middleware/check-auth.js'
 
-router.get('/', (request, response, next)=>{
+router.get('/', (request, response, next) => {
   salesModel.find()
     .populate('product','product_name')
     .populate('transaction_by','employee_name')
@@ -75,7 +76,7 @@ router.get ('/:salesId', (request, response, next) => {
 
 
 
-router.post('/',  (request, response, next) => {
+router.post('/', checkAuth, (request, response, next) => {
   Stock.findById(request.body.productId)
                 .then(product =>{
                   try{
@@ -113,10 +114,10 @@ router.post('/',  (request, response, next) => {
 });
 
 
-router.patch('/:salesId', async (request, response, next)=>{
+router.patch('/:salesId', checkAuth,  async (request, response, next)=>{
   try{
     const updateData = request.body;
-    const result = await salesModel.updateOne({ sales_id: request.params.sales_id }, updateData);
+    const result = await salesModel.updateOne({ _id: request.params.salesId }, updateData);
     if(!result.matchedCount){
       return response.status(404).json({ 
         error: error,
@@ -154,9 +155,9 @@ router.patch('/:salesId', async (request, response, next)=>{
 
 
 
-router.delete('/:salesId', async (request, response, next)=>{
+router.delete('/:salesId', checkAuth,  async (request, response, next)=>{
   try{
-    const result = await salesModel.deleteOne({sale_id: request.params.sale_id});
+    const result = await salesModel.deleteOne({_id: request.params.salesId});
     if(result.deletedCount === 1){
       return response.status(200).json({message: 'Sale item deleted!'})
     }

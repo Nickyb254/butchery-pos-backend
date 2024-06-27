@@ -2,6 +2,7 @@ import express from "express";
 const router = express.Router();
 import mongoose from "mongoose";
 import EmployeeModel from "../models/employees.js";
+import checkAuth from '../middleware/check-auth.js'
 
 router.get('/', (request, response, next) => {
   EmployeeModel
@@ -24,7 +25,7 @@ router.get('/', (request, response, next) => {
 //try block was added to catch validation errors. 
 //note {.} is removed in catch
 //made async thus used await
-router.post('/', async (request, response, next) => {
+router.post('/', checkAuth, async (request, response, next) => {
   try{
   const employee = new EmployeeModel ({
     employee_Id: new mongoose.Types.ObjectId,
@@ -78,14 +79,14 @@ router.get('/:employeeId', (request, response, next) => {
 });
 
 
-router.patch('/:employeesId', (request, response, next)=>{
+router.patch('/:employeesId', checkAuth, (request, response, next)=>{
   response.status(200).json({
     message: 'Patch Reqest from an employee!'
   });
 });
 
 
-router.delete('/:employeesId', async (request, response, next)=>{
+router.delete('/:employeesId', checkAuth, async (request, response, next)=>{
   try{
     const result = await EmployeeModel.deleteOne({_id: request.params.employeesId})
     if (result.deletedCount === 1) {

@@ -2,6 +2,7 @@ import express from 'express';
 const router = express.Router();
 import mongoose from 'mongoose';
 import stockModel from '../models/stock.js';
+import checkAuth from '../middleware/check-auth.js';
 
 
 import multer from 'multer';
@@ -57,7 +58,7 @@ router.get('/',(request, response, next)=>{
 });
 
 
-router.post('/', upload.single('stockImage'), (request, response, next) =>{
+router.post('/', checkAuth, upload.single('stockImage'), (request, response, next) =>{
   console.log(request.file);
   const stockItem = new stockModel ({
     product_name: request.body.product_name,
@@ -82,10 +83,10 @@ router.post('/', upload.single('stockImage'), (request, response, next) =>{
 });
 
 
-router.patch('/:stockId', async (request, response, next) => {
+router.patch('/:stockId', checkAuth, async (request, response, next) => {
   try{
       const updateData = request.body;
-      const result = await stockModel.updateOne({stock_id: request.params.stock_id}, updateData);
+      const result = await stockModel.updateOne({_id: request.params.stockId}, updateData);
    if (!result.matchedCount){
         return response.status(404).json({message: 'No item found!'})
    }
@@ -103,9 +104,9 @@ router.patch('/:stockId', async (request, response, next) => {
 });
 
 
-router.delete('/:stockId', async (request, response, next)=>{
+router.delete('/:stockId', checkAuth, async (request, response, next)=>{
   try{
-    const result = await stockModel.deleteOne({stock_id: request.params.id});
+    const result = await stockModel.deleteOne({_id: request.params.stockId});
     if (result.deletedCount === 1){
         return response.status(200).json({message: 'Item deleted!'})
     }
