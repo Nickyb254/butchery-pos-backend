@@ -1,0 +1,47 @@
+.navbar{
+  display: flex;
+  position: sticky;
+  top: 0;  
+  background: #a39898;
+  padding: 0 2em;  
+  border: 1px solid #fff;
+  margin-left: 0;
+}
+
+.nav-logo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+ }
+
+.nav-logo img{
+  /* width: 2em; */
+  /* height: 1em; */
+}
+.nav-menu{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #be2525;  
+}
+
+.nav-menu li{
+  margin-left: 2em;
+}
+
+.nav-login-cart{
+  width: 4em;
+  align-self: flex-end;
+  border: 1px solid #e7dada;
+  width: 5%;  
+  margin-left: 30%;
+}
+
+.nav-login-cart img{
+  width: 100%;
+ 
+}
