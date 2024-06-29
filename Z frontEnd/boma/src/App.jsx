@@ -1,17 +1,28 @@
 import React from 'react';
-import { useState } from 'react';
-//import Navbar from '/src/components/navbar/Navbar.jsx';
+
+import Navbar from './components/Navbar.jsx';
+import Sidebar from './components/sidebar.jsx';
+import { 
+  CustomerRegistration,
+  EmployeeRegistration,
+  Footer,
+  Hero,
+  SaleRegistration,
+  StockRegistration,
+  UserRegistration
+} from './section';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+    <main className='relative'>
+      <Navbar />
+      <Sidebar />
       
-    </>
+    </main>
   )
 }
 
