@@ -21,7 +21,7 @@ function App() {
     <main className='relative'>
       <Navbar />
       <Sidebar />
-      
+      <Hero />
     </main>
   )
 }

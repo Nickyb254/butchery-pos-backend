@@ -1,9 +1,10 @@
 import React from 'react'
+import './sidebar.css'
 //import { sideLinks } from "../constants/index.js";
 
 const Sidebar = () => {
   return (
-    <div className='flex-col flex place-self-start  gap-6 max-lg:hidden py-40 font-montserrat leading-normal text-lg text-slate-gray pl-7'>
+    <div className='sidebar'>
       <p>Beef Products</p>
       <p>Goat Products</p>
       <p>Chicken Products</p>
