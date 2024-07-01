@@ -1,0 +1,25 @@
+.footer{
+  width: 81.2%;
+  /* height: 390px; */
+  background-color: black;
+  position: relative;
+  bottom: 0;
+  z-index: -20;  
+  margin-left: 15%;
+  color: azure;  
+}
+
+.container{
+  display: flex;
+  /* flex-direction: column; */
+}
+
+.content {
+  padding: 5%;
+  font-size: 0.9rem;
+}
+
+.content span:before {
+  content:" \00a9 ";
+  font-size:0.9rem;
+}

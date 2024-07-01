@@ -22,6 +22,12 @@ function App() {
       <Navbar />
       <Sidebar />
       <Hero />
+      <CustomerRegistration />
+      <EmployeeRegistration />
+      <SaleRegistration />
+      <StockRegistration />
+      <UserRegistration />
+      <Footer />
     </main>
   )
 }

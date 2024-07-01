@@ -5,9 +5,11 @@
   width: 100%;
   position: fixed;
   top: 0;
-  margin-top: 2em;
-  padding: 0 1em;
+  /* margin-top: 2em; */
+  padding: 1em 2em;
   max-width: 95%;
+  background: rgb(240, 239, 239);
+  box-shadow: 0 4px 2px -2px rgb(184, 184, 184);
  }
 
  ul{

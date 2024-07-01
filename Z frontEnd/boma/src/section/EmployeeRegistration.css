@@ -1,0 +1,46 @@
+.emp-hero{
+  background: rgb(231, 231, 231);
+  padding-bottom: 10%;
+  width: 74%;
+  position: relative;
+  left: 15%;
+  padding: 2em;
+  margin: 1em 0;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px 4px rgb(212, 212, 212);
+  z-index: -3;
+}
+
+form {
+  padding-top: 1em;
+}
+
+.input-plc {
+  margin-right: 0.3em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+button {
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 0 0.6em;
+  cursor: pointer;
+}
+
+.profile-pic  {
+  width: 6em;
+  background: whitesmoke;
+  border-radius: 50%;
+}
+
+img {
+  width: 100%;
+}
+
+.emp-hero h2{
+  text-decoration:underline ;
+}
