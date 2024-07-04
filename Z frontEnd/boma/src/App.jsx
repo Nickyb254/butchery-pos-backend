@@ -16,8 +16,8 @@ import {BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 const fetchData = async () => {
-  const {data} = await axios.post('http://localhost:${PORT}');
-  console.log(data);
+  const {formData} = await axios.post('http://localhost:${PORT}');
+  console.log(formData);
 }
 
 function App() {
