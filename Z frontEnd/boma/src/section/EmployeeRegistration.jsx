@@ -28,7 +28,7 @@ const EmployeeRegistration = () => {
 
  const handleSubmit = (e) =>{
     e.preventDefault();
-    axios.post('/employees', {username, designation, phone, email, password})
+    axios.post('/', {username, designation, phone, email, password})
     .then(result => console.log(result))
     .catch(error => console.log(error))
   }
@@ -110,10 +110,12 @@ const EmployeeRegistration = () => {
                     Password:
           </label>
             <input 
-              className='input-plc'               
+              className='input-plc'    
+              name='password'           
               value={formData.password} 
               placeholder='Enter Password'
-              onChange={(e) => setPassword(e.target.value)}
+              //onChange={(e) => setPassword(e.target.value)}
+              onChange={onChangeHandler}
             />
         </div>
           
