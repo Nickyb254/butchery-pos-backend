@@ -14,35 +14,44 @@ import {
 
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import AllEmployees from './context/AllEmployees.jsx';
 
-const fetchData = async () => {
-  const {formData} = await axios.post('http://localhost:${PORT}');
-  console.log(formData);
+
+const fetchEmployeeData = async () => {
+  const {employeeData} = await axios.post('http://localhost:3000/employees');
+  //console.log(formData);
+}
+
+const fetchAllEmployees = async () => {
+  const {allEmployeesData} = await axios.get('http://localhost:3000/employees');  
+}
+
+const fetchUsers = async () => {
+  const {userData} = await axios.post('http://localhost:3000/login');  
 }
 
 function App() {
-  useEffect(() => {
-    fetchData();
-  }, [])
+  
 
   return (
     <main>
       <Navbar />
       <Sidebar />
       <Hero />
-    <BrowserRouter>
-      <div><Routes>
-      
-      
-        <Route path='/customers' element= {<CustomerRegistration />} />
-        <Route path='/employees' element= {<EmployeeRegistration />} />
-        <Route path='/sale' element= {<SaleRegistration />} />
-        <Route path='/stock' element= {<StockRegistration />} />
-        <Route path='/user' element= {<UserRegistration />} />
-        
-      </Routes>
-      </div>
-    </BrowserRouter>
+        <BrowserRouter>
+          <div><Routes>
+          
+          
+            <Route path='/customers' element= {<CustomerRegistration />} />
+            <Route path='/employees' element= {<EmployeeRegistration />} />
+            <Route path='/employees' element= {<AllEmployees />} />
+            <Route path='/sale' element= {<SaleRegistration />} />
+            <Route path='/stock' element= {<StockRegistration />} />
+            <Route path='/user' element= {<UserRegistration />} />
+            <Route path='/login' element= {<UserRegistration />} />
+          </Routes>
+          </div>
+        </BrowserRouter>
     <Footer />
     </main>
     // <main >
