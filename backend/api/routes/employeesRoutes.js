@@ -9,7 +9,7 @@ import {deleteEmployee} from '../controllers/employees.js';
 
 //controller
 router.get('/', getAllEmployees);
-router.post('/', checkAuth, createEmployee);
+router.post('/',  createEmployee);  //checkAuth,
 router.get('/:employeeId', getOneEmployee);
 router.patch('/:employeesId', checkAuth, updateEmployee);
 router.delete('/:employeesId', checkAuth, deleteEmployee);

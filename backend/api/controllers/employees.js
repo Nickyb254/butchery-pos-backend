@@ -6,8 +6,8 @@ export const getAllEmployees = (request, response, next) => {
   .find()
   .exec()
   .then(result => {
-    console.log(result);
-    response.status(200).json(result);
+    //console.log(result);
+    response.status(200).json({result});
   })
   .catch(error => {
     console.log(error);
