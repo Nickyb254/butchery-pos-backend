@@ -1,12 +1,12 @@
 .hero {
-/* margin-bottom: 190%; */
-width: 80%;
+/* margin-top: 10%; */
+min-width: 95vw;
 background: rgb(240, 240, 240);
 position: relative;
-/* top: 5%; */
-left: 15%;
+margin-top: 5em;
+margin-left: 9em;
 border-radius: 10px;
-z-index: -5;
+/* z-index: -5; */
 }
 
 .hero p{
@@ -17,7 +17,7 @@ z-index: -5;
 
 .hero-gallery{
   margin:  auto;
-  width: 90%;
+  width: 90vw;
   text-align: center;
   overflow: hidden;
 }
@@ -39,7 +39,7 @@ z-index: -5;
 }
 
 .next-btn, .back-btn{
-  position: relative;
+  position: absolute;
   top: 45%;
   right: 0;
   transform: translateY(-50%);
@@ -54,5 +54,9 @@ z-index: -5;
 .back-btn{
   right: auto;
   left: 0;
-  /* moves this button to the left */
+}
+
+.next-btn{
+  left: auto;
+  right: 0;
 }

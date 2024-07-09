@@ -1,25 +1,27 @@
-.footer{
-  width: 81.2%;
-  /* height: 390px; */
+.my-footer{
+  width: 99.5vw;
+  min-width: 98vw;
   background-color: black;
   position: relative;
   bottom: 0;
-  z-index: -20;  
-  margin-left: 15%;
-  color: azure;  
+  color: azure; 
+  /* right: 0; */
 }
 
 .container{
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
+  color: red;
+  max-height: 25vh;
+  /* min-width: 95vw; */
+  /* width: 99.5vw; */
+  
+  overflow: hidden;
 }
 
-.content {
-  padding: 5%;
-  font-size: 0.9rem;
-}
 
-.content span:before {
+
+ span:before {
   content:" \00a9 ";
   font-size:0.9rem;
 }

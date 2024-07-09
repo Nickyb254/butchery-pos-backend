@@ -1,15 +1,18 @@
 .sidebar{
-  position: sticky;
-  top: 15%;
-  bottom: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
   left: 0;
   background: rgb(224, 224, 224);
-  width: 10%; 
-  /* margin-top: 8%;  */
+  width: 5em;   
   border: 2px solid rgb(81, 255, 1);
   padding: 1em;
   border-radius: 5px;
-  z-index: -5;
+  z-index: 5;
+}
+
+.sidebar-container{
+  padding-top: 58%; 
 }
 
 .sidebar p{

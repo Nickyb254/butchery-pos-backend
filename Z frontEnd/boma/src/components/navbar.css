@@ -10,6 +10,7 @@
   max-width: 95%;
   background: rgb(240, 239, 239);
   box-shadow: 0 4px 2px -2px rgb(184, 184, 184);
+  z-index: 20;
  }
 
  ul{
