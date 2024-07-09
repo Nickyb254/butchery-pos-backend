@@ -5,12 +5,14 @@ import './sidebar.css'
 const Sidebar = () => {
   return (
     <div className='sidebar'>
+      <div className='sidebar-container'>
       <p>Beef Products</p>
       <p>Goat Products</p>
       <p>Chicken Products</p>
       <p>Seafoods</p>
       <p>Other products</p>
       <p>Delivery services</p>
+      </div>
     </div>
   )
 }

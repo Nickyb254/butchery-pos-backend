@@ -8,7 +8,11 @@
   margin: 1em 0;
   border-radius: 5px;
   box-shadow: 4px 4px 4px 4px rgb(212, 212, 212);
-  z-index: -3;
+  
+}
+
+.cust-hero-container{
+  padding-top: 8%;
 }
 
 form {
