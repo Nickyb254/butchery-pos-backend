@@ -34,37 +34,25 @@ function App() {
   
 
   return (
-    <main>
-      <Navbar />
-      <Sidebar />
-      <Hero />
+    <main>        
         <BrowserRouter>
-          <div><Routes>
-          
-          
+          <div>
+          <Navbar />
+          <Sidebar />  
+            <Routes>          
+            <Route path='/' element= {<Hero />} />
             <Route path='/customers' element= {<CustomerRegistration />} />
             <Route path='/employees' element= {<EmployeeRegistration />} />
-            <Route path='/employees' element= {<AllEmployees />} />
+            <Route path='/employees/find' element= {<AllEmployees />} />
             <Route path='/sale' element= {<SaleRegistration />} />
             <Route path='/stock' element= {<StockRegistration />} />
             <Route path='/user' element= {<UserRegistration />} />
             <Route path='/login' element= {<UserRegistration />} />
           </Routes>
+          <Footer />
           </div>
-        </BrowserRouter>
-    <Footer />
-    </main>
-    // <main >
-    //   <Navbar />
-    //   <Sidebar />
-    //   <Hero />
-    //   <CustomerRegistration />
-    //   <EmployeeRegistration />
-    //   <SaleRegistration />
-    //   <StockRegistration />
-    //   <UserRegistration />
-    //   <Footer />
-    // </main>
+        </BrowserRouter>    
+    </main>    
   )
 }
 
