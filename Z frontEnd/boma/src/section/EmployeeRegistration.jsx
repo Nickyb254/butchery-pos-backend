@@ -12,11 +12,11 @@ const createEmployeeProfile = () => {
   //   email:'names@gmail.com',
   //   password:'isitoshe',
   // });
-  const [username, setUsername] = useState();
-  const [designation, setDesignation] = useState();
-  const [phone, setPhone] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState('');
+  const [designation, setDesignation] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
  
 //  const onChangeHandler = (event) => {
@@ -54,8 +54,8 @@ const createEmployeeProfile = () => {
           User profile photo:
       <br />
 
-
-                <form onSubmit={handleSubmit}>            
+    
+                <form  onSubmit={handleSubmit}>            
                 {/* id and label should match */}
                   <div>
                     <label htmlFor="_username" className='form-label'>
