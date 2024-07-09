@@ -99,10 +99,7 @@ export const createCustomer = (request, response, next) => {
     })
     .catch(error => 
       console.log(error)     
-  );  
-  response.status(404).json(
-    error
-  )
+  );    
 }
 
 
