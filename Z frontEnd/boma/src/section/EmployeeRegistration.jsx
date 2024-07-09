@@ -12,9 +12,9 @@ const createEmployeeProfile = () => {
   //   email:'names@gmail.com',
   //   password:'isitoshe',
   // });
-  const [username, setUsername] = useState('');
+  const [employee_name, setEmployee_name] = useState('');
   const [designation, setDesignation] = useState('');
-  const [phone, setPhone] = useState('');
+  const [phone_number, setPhone_number] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -30,7 +30,7 @@ const createEmployeeProfile = () => {
  const handleSubmit = (e) => {
       e.preventDefault();
    
-      axios.post('http://localhost:3000/employees', {username, designation, phone, email, password})
+      axios.post("http://localhost:3000/employees", {employee_name, designation, phone_number, email, password})
       .then(result => console.log(result))
       .catch(error => console.log(error))
     // catch (error) {
@@ -42,6 +42,7 @@ const createEmployeeProfile = () => {
 
   return (
     <div className='emp-hero'>
+      <div className='emp-container'>
       <h2>Create Employee Profile</h2>
       <div className='icon-pic'>
             <img src={staffIcon} alt="" />
@@ -58,16 +59,16 @@ const createEmployeeProfile = () => {
                 <form  onSubmit={handleSubmit}>            
                 {/* id and label should match */}
                   <div>
-                    <label htmlFor="_username" className='form-label'>
+                    <label htmlFor="employee_name" className='form-label'>
                       Employee name:
                     </label>
                       <input 
                         type='text'
                         className='input-plc'             
-                        id='_username'
-                        value={username} 
+                        id='employee_name'
+                        value={employee_name} 
                         placeholder='Enter Name'
-                        onChange={(e) => setUsername(e.target.value)}
+                        onChange={(e) => setEmployee_name(e.target.value)}
                         // onChange={onChangeHandler}
                       />
                   </div>          
@@ -88,16 +89,16 @@ const createEmployeeProfile = () => {
                   </div>
                     
                   <div>
-                    <label htmlFor="_phone" className='form-label'>
+                    <label htmlFor="phone_number" className='form-label'>
                             Phone Number:
                     </label>
                       <input 
                         className='input-plc'  
                         type='text'             
-                        id='_phone'
-                        value={phone}
+                        id='phone_number'
+                        value={phone_number}
                         placeholder='Enter Phone Number'
-                        onChange={(e) => setPhone(e.target.value)}
+                        onChange={(e) => setPhone_number(e.target.value)}
                         // onChange={onChangeHandler}
                       />
                   </div>
@@ -137,9 +138,9 @@ const createEmployeeProfile = () => {
                     <br />
 
                     <p>Select area of residence for logistics options:</p>
-                    <button type='submit'>Submit</button>
-                  
+                    <button type='submit'>Submit</button>                  
                 </form>
+       </div>
     </div>
   )
 }
