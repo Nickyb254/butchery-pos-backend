@@ -8,6 +8,7 @@ import stockRoutes from './api/routes/stockRoutes.js';
 import morgan from "morgan";
 import userRoutes from './api/routes/userRoutes.js';
 import { configDotenv } from "dotenv";
+import cors from 'cors';
 
 
 const app = express();
@@ -15,7 +16,7 @@ const PORT = process.env.MONGO_URI || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors());
 app.use(morgan('dev'));
 //bodyParser helps access data in the body; handle incoming post request
 //app.use(bodyParser.urlencoded({extended: true}));
