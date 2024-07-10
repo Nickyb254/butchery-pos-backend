@@ -48,6 +48,7 @@ app.use('/employees/Id', employeesRoutes);
 app.use('/sales/Id', salesRoutes);
 app.use('/stock/Id', stockRoutes);
 app.use('/user', userRoutes);
+app.use('/login', userRoutes);
 
 //handling any request not in the above routers
 app.use((request, response, next)=>{
