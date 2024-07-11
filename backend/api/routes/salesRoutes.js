@@ -10,7 +10,7 @@ import {deleteSale} from  '../controllers/sales.js';
 //controllers
 router.get('/', getAllSales);
 router.get ('/:salesId', getOneSale);
-router.post('/', checkAuth, createSale);
+router.post('/',  createSale);//checkAuth,
 router.patch('/:salesId', checkAuth,  updateSale);
 router.delete('/:salesId', checkAuth,  deleteSale);
 

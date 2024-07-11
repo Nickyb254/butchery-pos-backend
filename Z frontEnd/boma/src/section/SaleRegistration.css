@@ -8,8 +8,13 @@
   margin: 1em 0;
   border-radius: 5px;
   box-shadow: 4px 4px 4px 4px rgb(212, 212, 212);
-  z-index: -3;
+  
 }
+
+.sale-container{
+  padding-top: 8%;
+}
+
 
 .icon-pic{
   width: 40px;

@@ -4,27 +4,27 @@ import './UserRegistration.css'
 import axios from 'axios';
 
 const UserLogin = () => {
-  const [userData, setUserData] = useState({
-   // username:'',
-    email:'',
-    password:'',
-  });
+  // const [userData, setUserData] = useState({
+  //  // username:'',
+  //   email:'',
+  //   password:'',
+  // });
   
   // const [name, setName] = useState();
-  // const [email, setEmail] = useState();
-  // const [password, setPassword] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
-  const onChangeHandler = (event) => {
-    setUserData(() => ({
-      ...userData,
-      [event.target.name]: event.target.value
-    }))
-   }
+  // const onChangeHandler = (event) => {
+  //   setUserData(() => ({
+  //     ...userData,
+  //     [event.target.name]: event.target.value
+  //   }))
+  //  }
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/login', { email, password})
+    axios.post("http://localhost:3000/user/login", { email, password})
     .then(result => console.log(result))
     .catch(error => console.log(error))
   }
@@ -59,11 +59,11 @@ const UserLogin = () => {
                   </label>
                     <input 
                       className='input-entry' 
-                      type='string' 
+                      type='String' 
                       name='email'
-                      value={userData.email} 
+                     // value={userData.email} 
                       placeholder='Enter Email'
-                      onChange={onChangeHandler}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
                 <div>
@@ -74,9 +74,9 @@ const UserLogin = () => {
                         className='input-entry' 
                         type='string' 
                         name='password'
-                        value={userData.password} 
+                       // value={userData.password} 
                         placeholder='Enter Password'
-                        onChange={onChangeHandler}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                 </div>
               <br />      
