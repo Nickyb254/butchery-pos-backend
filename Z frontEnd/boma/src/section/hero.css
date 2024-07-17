@@ -4,7 +4,7 @@ min-width: 95vw;
 background: rgb(240, 240, 240);
 position: relative;
 margin-top: 5em;
-margin-left: 9em;
+/* margin-left: 9em; */
 border-radius: 10px;
 /* z-index: -5; */
 }
