@@ -5,7 +5,7 @@ import employeeReducer from './actions/employees/AllEmployeesSlice.jsx'
 const store = configureStore({
   reducer: {
       user: userReducer,
-      employees: employeeReducer
+      employee: employeeReducer
   }
 })
 

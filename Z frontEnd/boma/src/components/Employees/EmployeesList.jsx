@@ -17,15 +17,15 @@ import { getEmployee } from '../../redux/actions/employees/AllEmployeesSlice';
 export default function EmployeeList() {
 
   const dispatch = useDispatch()
-  const employees = useSelector(state => state.employees.employees)
-  console.log(useSelector(state => state.employees.employees))
+  const employees = useSelector(state => state.employee.employees)
+  // console.log(useSelector(state => state.employee.employees))
 
   useEffect(() => {
     const fetchData = async() => {
       try{
         const response = await axios.get('http://localhost:3000/employees');
+        console.log(response.data);
         dispatch(getEmployee(response.data))
-
       } catch (error) {
         console.log(error)
       }
