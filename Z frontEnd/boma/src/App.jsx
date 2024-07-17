@@ -1,58 +1,44 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
+import * as React from 'react';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+
+
+
 import Navbar from './components/Navbar.jsx';
 import Sidebar from './components/sidebar.jsx';
-import { 
-  CustomerRegistration,
-  EmployeeRegistration,
-  Footer,
-  Hero,
-  SaleRegistration,
-  StockRegistration,
-  UserRegistration
-} from './section';
+import { CustomerRegistration, EmployeeRegistration, Footer, Hero, SaleRegistration, StockRegistration, UserRegistration} from './section';
 
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
+import EmployeeList from './components/Employees/EmployeesList.jsx';
 
-import AllEmployees from './context/AllEmployees.jsx';
 
 
-const fetchEmployeeData = async () => {
-  const {employeeData} = await axios.post('http://localhost:3000/employees');
-  //console.log(formData);
-}
 
-const fetchAllEmployees = async () => {
-  const {allEmployeesData} = await axios.get('http://localhost:3000/employees');  
-}
-
-const fetchUsers = async () => {
-  const {userData} = await axios.post('http://localhost:3000/login');  
-}
 
 function App() {
   
 
   return (
-    <main>        
+    <Container >        
         <BrowserRouter>
-          <div>
+          <Box>
           <Navbar />
-          <Sidebar />  
+          <Sidebar /> 
+          <EmployeeList />
             <Routes>          
             <Route path='/' element= {<Hero />} />
             <Route path='/customers' element= {<CustomerRegistration />} />
             <Route path='/employees' element= {<EmployeeRegistration />} />
-            <Route path='/allemployees' element= {<AllEmployees />} />
+           
             <Route path='/sale' element= {<SaleRegistration />} />
             <Route path='/stock' element= {<StockRegistration />} />
             <Route path='/user' element= {<UserRegistration />} />
             <Route path='/login' element= {<UserRegistration />} />
           </Routes>
           <Footer />
-          </div>
+          </Box>
         </BrowserRouter>    
-    </main>    
+    </Container>    
   )
 }
 
