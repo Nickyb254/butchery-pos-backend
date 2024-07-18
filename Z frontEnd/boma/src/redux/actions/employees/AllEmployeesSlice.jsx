@@ -7,7 +7,8 @@ const employeeSlice = createSlice({
   },
   reducers: {
     getEmployee: (state, action) => {
-      console.log(action.payload);
+     console.log(action.payload);
+      
       if (Array.isArray(action.payload)) {
         state.employees = action.payload.map(employee => ({
           id: employee._id,
