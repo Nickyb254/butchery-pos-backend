@@ -7,18 +7,20 @@ const employeeSlice = createSlice({
   },
   reducers: {
     getEmployee: (state, action) => {
-     console.log(action.payload);
-      
-      if (Array.isArray(action.payload)) {
-        state.employees = action.payload.map(employee => ({
+      const data = action.payload;
+      // console.log(data);
+      if ( data.length > 0) {
+        data.map(employee => ({
           id: employee._id,
           name: employee.employee_name,
           role: employee.designation,
           phone: employee.phone_number,
           email: employee.email
         }));
+        console.log(employee_id);
       } else {
         console.error("Payload is not an array or is undefined/null.");
+        return
       }
     }
     

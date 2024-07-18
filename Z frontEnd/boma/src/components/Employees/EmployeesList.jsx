@@ -24,15 +24,15 @@ export default function EmployeeList() {
     const fetchData = async() => {
       try{
         const response = await axios.get('http://localhost:3000/employees');
-        console.log(response.data);
-        dispatch(getEmployee(response.data))
+        // console.log(response.data.result);        
+        dispatch(getEmployee(response.data.result))
       } catch (error) {
         console.log(error)
       }
     }
     fetchData()
   }, [])
-
+console.log(employees);
   return (
     <Box>
       <Button>
@@ -50,7 +50,7 @@ export default function EmployeeList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            { employees && employees.map((employee) => (
+            { employees.map((employee) => (
               <TableRow
                 key={employee.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
