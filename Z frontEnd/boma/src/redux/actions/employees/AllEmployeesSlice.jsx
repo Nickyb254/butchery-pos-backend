@@ -1,31 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const employeeSlice = createSlice({
-  name: "employees",
+  name: 'employees',
   initialState: {
-    employees: []
+    data: [],
+    status: 'idle',
+    error: null,
   },
   reducers: {
-    getEmployee: (state, action) => {
-      const data = action.payload;
-      // console.log(data);
-      if ( data.length > 0) {
-        data.map(employee => ({
-          id: employee._id,
-          name: employee.employee_name,
-          role: employee.designation,
-          phone: employee.phone_number,
-          email: employee.email
-        }));
-        console.log(employee_id);
-      } else {
-        console.error("Payload is not an array or is undefined/null.");
-        return
-      }
-    }
-    
-  }
-})
+    fetchEmployeesStart: (state) => {
+      state.status = 'loading';
+    },
+    fetchEmployeesSuccess: (state, action) => {
+      state.status = 'succeeded';
+      state.data = action.payload;
+    },
+    fetchEmployeesFailure: (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload;
+    },
+  },
+});
 
-export const { getEmployee } = employeeSlice.actions;
+export const { fetchEmployeesStart } = employeeSlice.actions;
+export const { fetchEmployeesSuccess } = employeeSlice.actions;
+export const { fetchEmployeesFailure } = employeeSlice.actions;
 export default employeeSlice.reducer;

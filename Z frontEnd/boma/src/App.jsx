@@ -9,14 +9,18 @@ import Sidebar from './components/sidebar.jsx';
 import { CustomerRegistration, EmployeeRegistration, Footer, Hero, SaleRegistration, StockRegistration, UserRegistration} from './section';
 
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
-import EmployeeList from './components/Employees/EmployeesList.jsx';
+// import EmployeeList from './components/Employees/EmployeesList.jsx';
+// import EmployeeTable from './components/table/employeeTable.jsx';
 
 
-
+import { fetchEmployees } from '../api/index.jsx';
+import EmployeeFetcher from './redux/serverRequests/employees/getEmployees.jsx';
+// import EmployeeTable from './components/table/employeeTable.jsx';
 
 
 function App() {
-  
+ 
+
 
   return (
     <Container >        
@@ -24,7 +28,9 @@ function App() {
           <Box>
           <Navbar />
           <Sidebar /> 
-          <EmployeeList />
+          {/* <EmployeeList /> */}
+          {/* <EmployeeTable /> */}
+          <EmployeeFetcher />
             <Routes>          
             <Route path='/' element= {<Hero />} />
             <Route path='/customers' element= {<CustomerRegistration />} />
