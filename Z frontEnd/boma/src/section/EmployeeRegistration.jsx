@@ -1,4 +1,10 @@
 import * as React from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit';
+
+import { employeeAdded } from '../features/employee/employeeSlice';
+
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Avatar, Card, Stack, Typography, Button } from '@mui/material';
@@ -6,34 +12,51 @@ import staffIcon from '../components/assets/staff-icon.png';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 export default function BasicTextFields() {
+  const [employeeName, setEmployeeName] = useState('')
+  const [designation, setDesignation] = useState('')
+  const [phoneNumber, setphoneNumber] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const onNameChange = e => setEmployeeName(e.target.value)
+  const onDesignationChange = e => setDesignation(e.target.value)
+  const onPhoneNumberChange = e => setphoneNumber(e.target.value)
+  const onEmailChange = e => setEmail(e.target.value)
+  const onPasswordChange = e => setPassword(e.target.value)
+
+  const dispatch = useDispatch()
+  const onSaveButtonClick = () => {
+    if (employeeName && phoneNumber && password){
+        dispatch(employeeAdded(employeeName, designation, phoneNumber, email, password))
+          setEmployeeName('')
+          setDesignation('')
+          setphoneNumber('')
+          setEmail('')
+          setPassword('')
+    }
+  }
+
+  const canSave = Boolean(employeeName) && Boolean(phoneNumber) && Boolean(email) && Boolean(password);
+
   return (
     <Card sx={{gap: 7, mb: 4, p: 2, marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center', }} >
-       <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
-          </Avatar>
+        </Avatar>
           <Typography component="h1" variant="h5" >
             Enter details to Sign up as Employee
           </Typography>
       
-    {/* <Stack>
-      <Avatar src={staffIcon} alt="staff icon" />    
-    </Stack> */}
-    <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >      
+   
+    <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' }, }} noValidate autoComplete="off" >      
     
-      <TextField id="employee_name" label="Name" variant="filled" helperText="Please enter employee name:" />
-      <TextField id="designation" label="Designation" variant="filled" helperText="Please enter employee designation:"/>
-      <TextField id="phone_number" label="Phone" variant="filled" helperText="Please enter employee phone no:"/>
-      <TextField id="_email" label="Email" variant="filled" helperText="Please enter employee email:"/>
-      <TextField id="password" label="Password" variant="filled" helperText="Please enter password:"/>
+      <TextField onChange={onNameChange} value={employeeName} id="employee_name" label="Name" variant="filled" helperText="Please enter employee name:" />
+      <TextField onChange={onDesignationChange} value={designation} id="designation" label="Designation" variant="filled" helperText="Please enter employee designation:"/>
+      <TextField onChange={onPhoneNumberChange} value={phoneNumber} id="phone_number" label="Phone" variant="filled" helperText="Please enter employee phone no:"/>
+      <TextField onChange={onEmailChange} value={email} id="_email" label="Email" variant="filled" helperText="Please enter employee email:"/>
+      <TextField onChange={onPasswordChange} value={password} id="password" label="Password" variant="filled" helperText="Please enter password:"/>
     </Box>
-    <Button variant="outlined" type="submit" >Submit</Button>
+    <Button variant="outlined" type="submit" onClick={onSaveButtonClick} disabled={!canSave} >Submit</Button>
     </Card>
   );
 }

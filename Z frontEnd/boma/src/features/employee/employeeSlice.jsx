@@ -1,25 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { nanoid } from '@reduxjs/toolkit';
 
 const initialState =
      [
         {
-          employee_name: "Menza",
+          employeeName: "Menza",
           designation: "Boss mdogo",
-          phone_number: "0799345876",
+          phoneNumber: "0799345876",
           email: "menzae@yahoo.com",
           password: "naweza2024"
         },
         {
-            employee_name: "Menza",
+            employeeName: "Menza",
             designation: "Boss mdogo",
-            phone_number: "0799345876",
+            phoneNumber: "0799345876",
             email: "menzae@yahoo.com",
             password: "naweza2024"
           },
           {
-            employee_name: "Menza",
+            employeeName: "Menza",
             designation: "Boss mdogo",
-            phone_number: "0799345876",
+            phoneNumber: "0799345876",
             email: "menzae@yahoo.com",
             password: "naweza2024"
           },
@@ -33,6 +34,18 @@ const employeeSlice = createSlice({
         employeeAdded: {
             reducer(state, action){
                 state.push(action.payload)
+            },
+            prepare(employeeName, designation, phoneNumber, email, password){
+              return{
+                payload: {
+                  id: nanoid(),
+                  employeeName,
+                  designation,
+                  phoneNumber,
+                  email,
+                  password
+                }
+              }
             }
         }
     },
@@ -40,4 +53,5 @@ const employeeSlice = createSlice({
 
 
 export const selectAllEmployees = (state) => state.employees
+export const { employeeAdded } = employeeSlice.actions
 export default employeeSlice.reducer;

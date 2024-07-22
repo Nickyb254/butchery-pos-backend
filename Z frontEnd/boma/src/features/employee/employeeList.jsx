@@ -27,9 +27,9 @@ const EmployeeList = () => {
   const columns = React.useMemo(
     () => [
         {Header: 'Id', accessor: '_id'},
-        {Header: 'Employee Name', accessor: 'employee_name'},
+        {Header: 'Employee Name', accessor: 'employeeName'},
         {Header: 'Designation', accessor: 'designation'},
-        {Header: 'Phone', accessor: 'phone_number'},
+        {Header: 'Phone', accessor: 'phoneNumber'},
         {Header: 'Email', accessor: 'email'}
     ],
     []
