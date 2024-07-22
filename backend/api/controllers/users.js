@@ -68,14 +68,9 @@ export const createUser = (request, response, next) => {
       }
   
       const token = jwt.sign(
-        {
-          email: user.email,
-          userId: user.user_id
-        },
-         `${process.env.JWT_SECRET}`,
-        {
-          expiresIn: "1h"
-        }
+        {email: user.email, userId: user.user_id },
+      `${process.env.JWT_SECRET}`,
+        {expiresIn: "1h"}
       );
   
       return response.status(200).json({

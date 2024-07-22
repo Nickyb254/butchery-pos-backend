@@ -6,7 +6,7 @@ import { userLogIn } from '../controllers/users.js';
 import { deleteUser } from '../controllers/users.js';
 
 
-router.post('/signup', checkAuth, createUser);  
+router.post('/signup',  createUser);  
 router.post('/login', userLogIn);
 router.delete ('/:userId',checkAuth, deleteUser);
 
