@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
-
+import axios from 'axios';
 
 
 import Box from '@mui/material/Box';
@@ -12,31 +10,36 @@ import staffIcon from '../components/assets/staff-icon.png';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 export default function BasicTextFields() {
-  const [employeeName, setEmployeeName] = useState('')
+  const [employee_name, setEmployee_name] = useState('')
   const [designation, setDesignation] = useState('')
-  const [phoneNumber, setphoneNumber] = useState('')
+  const [phone_number, setPhone_number] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const onNameChange = e => setEmployeeName(e.target.value)
+  const onNameChange = e => setEmployee_name(e.target.value)
   const onDesignationChange = e => setDesignation(e.target.value)
-  const onPhoneNumberChange = e => setphoneNumber(e.target.value)
+  const onPhoneNumberChange = e => setPhone_number(e.target.value)
   const onEmailChange = e => setEmail(e.target.value)
   const onPasswordChange = e => setPassword(e.target.value)
 
-  const dispatch = useDispatch()
+
   const onSaveButtonClick = () => {
-    if (employeeName && phoneNumber && password){
-        dispatch(employeeAdded(employeeName, designation, phoneNumber, email, password))
-          setEmployeeName('')
+    const data = {employee_name, designation, phone_number, email, password}
+    if (employee_name && phone_number && password){
+        axios.post('http://localhost:3000/employees', data)
+        .then()
+        .catch((error) => {
+          console.log(error)
+        })
+          setEmployee_name('')
           setDesignation('')
-          setphoneNumber('')
+          setPhone_number('')
           setEmail('')
           setPassword('')
     }
   }
 
-  const canSave = Boolean(employeeName) && Boolean(phoneNumber) && Boolean(email) && Boolean(password);
+  const canSave = Boolean(employee_name) && Boolean(phone_number) && Boolean(email) && Boolean(password);
 
   return (
     <Card sx={{gap: 7, mb: 4, p: 2, marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center', }} >
@@ -50,9 +53,9 @@ export default function BasicTextFields() {
    
     <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' }, }} noValidate autoComplete="off" >      
     
-      <TextField onChange={onNameChange} value={employeeName} id="employee_name" label="Name" variant="filled" helperText="Please enter employee name:" />
+      <TextField onChange={onNameChange} value={employee_name} id="employee_name" label="Name" variant="filled" helperText="Please enter employee name:" />
       <TextField onChange={onDesignationChange} value={designation} id="designation" label="Designation" variant="filled" helperText="Please enter employee designation:"/>
-      <TextField onChange={onPhoneNumberChange} value={phoneNumber} id="phone_number" label="Phone" variant="filled" helperText="Please enter employee phone no:"/>
+      <TextField onChange={onPhoneNumberChange} value={phone_number} id="phone_number" label="Phone" variant="filled" helperText="Please enter employee phone no:"/>
       <TextField onChange={onEmailChange} value={email} id="_email" label="Email" variant="filled" helperText="Please enter employee email:"/>
       <TextField onChange={onPasswordChange} value={password} id="password" label="Password" variant="filled" helperText="Please enter password:"/>
     </Box>
