@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Navbar from './components/Navbar.jsx';
 import Sidebar from './components/sidebar.jsx';
 import { CustomerRegistration, EmployeeRegistration, Footer, Hero, SaleRegistration, StockRegistration, UserRegistration} from './section';
-
+import EmployeeList from './components/Employees/EmployeesList.jsx';
 
 function App() {
  
@@ -23,8 +23,8 @@ function App() {
             <Routes>          
             <Route path='/' element= {<Hero />} />
             <Route path='/customers' element= {<CustomerRegistration />} />
+            <Route path='/employees' element= {<EmployeeList />} />
             <Route path='/employees' element= {<EmployeeRegistration />} />
-           
             <Route path='/sale' element= {<SaleRegistration />} />
             <Route path='/stock' element= {<StockRegistration />} />
             <Route path='/user' element= {<UserRegistration />} />
