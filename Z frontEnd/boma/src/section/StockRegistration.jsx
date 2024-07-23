@@ -35,6 +35,7 @@ const StockRegistration = () => {
           <input 
             className='input-entry' 
             type='string' 
+            id='product_name'
             name='product_name'
             //value={String} 
             placeholder='Product Name'
@@ -49,6 +50,7 @@ const StockRegistration = () => {
             <input 
               className='input-entry' 
               type='number' 
+              id='price'
               name='price'
               //value={Number} 
               placeholder='Enter Buying Price'
@@ -63,6 +65,7 @@ const StockRegistration = () => {
             <input 
               className='input-entry' 
               type='number' 
+              id='mass_bought'
               name='mass_bought'
               //value={Number} 
               placeholder='Enter Quantity Bought'
@@ -77,6 +80,7 @@ const StockRegistration = () => {
             <input 
               className='input-entry' 
               type='number' 
+              id='mass_available'
               name='mass_available'
               //value={Number} 
               placeholder='Enter Quantity Available'
@@ -91,6 +95,7 @@ const StockRegistration = () => {
             <input 
               className='input-entry' 
               type='string' 
+              id='supplier_name'
               name='supplier_name'
               //value={String} 
               placeholder='Name of Supplier'
@@ -105,6 +110,7 @@ const StockRegistration = () => {
             <input 
               className='input-entry' 
               type='file' 
+              id='stock_image' 
               name='stock_image' 
               placeholder='Choose image'
             />
