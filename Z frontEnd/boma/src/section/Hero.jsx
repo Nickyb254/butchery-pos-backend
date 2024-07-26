@@ -1,51 +1,50 @@
-import React from 'react';
-import { useRef } from 'react';
+import Carousel from 'react-bootstrap/Carousel';
+import Card from 'react-bootstrap/Card';
 
-import './hero.css';
-import  photo_7 from '../components/assets/photo_7.jpg';
-import  photo_2 from '../components/assets/photo_2.jpg';
-import  photo_3 from '../components/assets/photo_3.jpg';
-import  photo_4 from '../components/assets/photo_4.jpg';
-import  photo_6 from '../components/assets/photo_6.jpg';
-import next_icon from '../components/assets/next-icon.png'
-import back_icon from '../components/assets/back-icon.png'
+import photo_1 from '../components/assets/photo_1.jpg';
+import photo_2 from '../components/assets/photo_2.jpg';
+import photo_3 from '../components/assets/photo_3.jpg';
 
+function Hero () {
+  // const container = {
+  //   height: '100vh',
+  // style={container}
+  // }
 
-const Hero = () => {
-  const slider = useRef();
-  let tx = 0;  //tx is translateX
-  const slideForward =()=>{
-    if(tx > -60){
-      tx -=40;
-    }
-    slider.current.style.transform= `translateX(${tx}%)`;
-  }
-  
-  const slideBackward =()=>{
-    if(tx < 0){
-      tx += 40;
-    }
-    slider.current.style.transform= `translateX(${tx}%)`;
+  const imgStyles ={
+    height: '80vh', objectFit: 'cover'
   }
   return (
-    <div className='hero'>
-      <p>Meat Your needs!</p>
-        <img src={next_icon} alt="" className='next-btn'onClick={slideForward}/>
-        <img src={back_icon} alt="" className='back-btn'onClick={slideBackward}/>
-      <div className='hero-gallery'>
-        
-      <div className="gallery" ref={slider}>        
-        <img src={photo_2} alt="" />
-        <img src={photo_3} alt="" />
-        <img src={photo_4} alt="" />
-        <img src={photo_6} alt="" />
-        <img src={photo_7} alt="" />
-       </div>  
-      </div>
-      <button>See more here </button>
-    
-    </div>
-  )
+    <Card className="text-center">
+      {/* <Card.Header>BOMA BUTCHERIES</Card.Header> */}
+        <Card.Body>
+          <Card.Title style={{fontSize: '2rem'}} >Meat Your Needs With Us!</Card.Title>
+        </Card.Body>
+      <Carousel >
+        <Carousel.Item>
+        <img src={photo_1} style={imgStyles} class="img-rounded img-responsive d-block w-100"/>
+          <Carousel.Caption>
+            <h3>Beef/ Steak</h3>
+            <p>1Kg 750/=</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+        <img src={photo_2} style={imgStyles} class="img-rounded img-responsive d-block w-100"/>
+          <Carousel.Caption>
+            <h3>Rump Steak</h3>
+            <p>1Kg 720/=</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+        <img src={photo_3} style={imgStyles} class="img-rounded img-responsive d-block w-100" />
+          <Carousel.Caption>
+            <h3>Beef CUbes/ Steak Only</h3>
+            <p> 1Kg 900/=</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </Card>
+  );
 }
 
-export default Hero
+export default Hero ;

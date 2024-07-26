@@ -1,39 +1,35 @@
 import * as React from 'react';
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-
-import Navbar from './components/Navbar.jsx';
-import Sidebar from './components/sidebar.jsx';
-import { CustomerRegistration, EmployeeRegistration, Footer, Hero, SaleRegistration, StockRegistration, UserRegistration} from './section';
+import MyNavbar from './components/Navbar.jsx';
+import { CustomerRegistration, EmployeeRegistration, Footer, Hero, SaleRegistration, StockRegistration, AdminLogin, EmployeeLogin} from './section';
 import EmployeeList from './components/Employees/EmployeesList.jsx';
+// import ProductDisplay from './components/Stock/ProductDisplay.jsx';
 
 function App() {
  
 
 
   return (
-    <Container >        
-        <BrowserRouter>
-          <Box>
-          <Navbar />
-          <Sidebar /> 
-          
+      <>
+        <BrowserRouter>         
+          <MyNavbar />         
+          {/* <ProductDisplay /> */}
             <Routes>          
             <Route path='/' element= {<Hero />} />
-            <Route path='/customers' element= {<CustomerRegistration />} />
-            <Route path='/employees' element= {<EmployeeList />} />
             <Route path='/employees' element= {<EmployeeRegistration />} />
+            <Route path='/employees/viewall' element= {<EmployeeList />} />
             <Route path='/sale' element= {<SaleRegistration />} />
             <Route path='/stock' element= {<StockRegistration />} />
-            <Route path='/user' element= {<UserRegistration />} />
-            <Route path='/login' element= {<UserRegistration />} />
+            <Route path='/employeelogin' element= {<EmployeeLogin />} />
+            
+            <Route path='/adminlogin' element= {<AdminLogin />} />
+            <Route path='/customers' element= {<CustomerRegistration />} />
           </Routes>
           <Footer />
-          </Box>
+         
         </BrowserRouter>    
-    </Container>    
+        </>
   )
 }
 
