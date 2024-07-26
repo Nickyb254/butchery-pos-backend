@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
-import './CustomerRegistration.css'
-import login_icon from '../components/assets/login_icon.png';
-import customerIcon from '../components/assets/customer_icon.png';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 
 
 const CustomerRegistration = () => {
   const [customer_name, setCustomer_name] = useState();
   const [customer_phone, setCustomer_phone] = useState();
-  //const [email, setEmail] = useState();
-
+  
   const handleSubmit = (e) =>{
     e.preventDefault();
     axios.post("http://localhost:3000/customers", {customer_name, customer_phone})
@@ -18,63 +17,29 @@ const CustomerRegistration = () => {
   }
 
   return (
-    <div className='cust-hero-container'>
-    <div className='cust-hero'>      
-      <h2>Customer Registration</h2>
-        <div  className='icon-pic'>
-          <img src={customerIcon} alt="" />
-        </div>
-      
-      <br />
-          <form onSubmit={handleSubmit}>        
-            <div className='profile-pic'>
-              <img src={login_icon} alt="" />
-            </div>
-          User profile photo:
-      <br />
-      <div>
-          <label htmlFor="customer_name" className='form-label'>
-               Customer name:
-          </label>
-          <input 
-            className='input-plc' 
-            type='text' 
-            name='customer_name' 
-            // value={username} 
-            placeholder='Enter Name'
-            onChange = {(e) => setCustomer_name(e.target.value)}
-            />
-      </div>
+    <Card style={{ width: '38vw', padding: '3em', margin: 'auto'}}>
+       <Card.Body>
+        <Card.Title >Please Enter Customer Details:</Card.Title>
+          <small>This helps in recording orders.</small>
+          <Form onSubmit={handleSubmit} style={{paddingTop: '2em'}} >
 
-      <div>
-          <label htmlFor="customer_phone" className='form-label'>
-                      Phone Number:
-          </label>
-          <input 
-            className='input-plc' 
-            type='text' 
-            name='customer_phone' 
-            // value={phone} 
-            placeholder='Enter Phone Number'
-            onChange = {(e) => setCustomer_phone(e.target.value)}
-            />
-        </div>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Customer Names</Form.Label>
+              <Form.Control type="string" placeholder="Enter Customer Name" onChange = {(e) => setCustomer_name(e.target.value)}/>
+            </Form.Group>
 
-          {/* <input 
-            className='input-plc' 
-            type='text' 
-            name='email' 
-            value= {String} 
-            placeholder='Enter Email Address' 
-            onChange = {(e) => setEmail(e.target.value)} /> */}
-          <br />
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Customer Phone Number</Form.Label>
+              <Form.Control type="string" placeholder="Enter Customer Phone No." onChange = {(e) => setCustomer_phone(e.target.value)}/>
+            </Form.Group>
 
-          <p>Select area of residence for delivery options:</p>
-          <button type='submit'>Submit</button>
-          </form>
-          
-          </div>
-      </div>
+            <Button variant="primary" type='submit' style={{marginTop: '3em'}}>Submit</Button>
+
+            {/* <p>Select area of residence for delivery options:</p> */}
+
+          </Form>
+      </Card.Body>
+    </Card>
   )
 }
 
