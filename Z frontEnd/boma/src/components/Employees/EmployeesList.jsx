@@ -1,14 +1,10 @@
 import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Box, Button } from '@mui/material';
+import Table from 'react-bootstrap/Table';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/esm/Button';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+
 
 
 export default function EmployeeList() {
@@ -26,40 +22,40 @@ export default function EmployeeList() {
     }, [])
 
   return (
-    <Box>
-      <Button>
-        Add +
-        </Button>
-        
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Name of Staff </TableCell>
-              <TableCell align="right">Designation</TableCell>
-              <TableCell align="right">Phone Number</TableCell>
-              <TableCell align="right">Email</TableCell>
-              <TableCell align="right">Password</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            { employees.map((employee) => (
-              <TableRow
-                key={employee._id}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {employee.employee_name}
-                </TableCell>
-                <TableCell align="right">{employee.designation}</TableCell>
-                <TableCell align="right">{employee.phone_number}</TableCell>
-                <TableCell align="right">{employee.email}</TableCell>
-                
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Box>
+    <div class="container mt-3">
+      
+      <ListGroup>
+        <ListGroup.Item><h1>List of Boma Butchery Employees</h1> </ListGroup.Item>
+      </ListGroup>
+
+    
+    <Table striped bordered hover>
+      <thead class="table-success">
+        <tr>
+          <th>#</th>
+          <th>Employee Names</th>
+          <th>Designation</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th colSpan={2}>Modify Entry</th>
+        </tr>
+      </thead>
+      <tbody>
+      {employees.map((employee, index) => (
+          <tr key={employee._id}>
+            <td>{index + 1}</td> 
+            <td>{employee.employee_name}</td>
+            <td>{employee.designation}</td>
+            <td>{employee.phone_number}</td>
+            <td>{employee.email}</td>
+            <td><Button> Edit </Button></td> 
+            <td><Button variant='danger'> Delete </Button></td>
+          </tr>          
+        ))}
+        <Button variant='success' style={{paddingLeft: '4em', paddingRight: '5em', marginTop: '3em'}}> Add + </Button>
+      </tbody>
+    </Table>
+  
+      </div>
   );
 }
