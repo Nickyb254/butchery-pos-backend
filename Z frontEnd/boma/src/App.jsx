@@ -1,9 +1,12 @@
 import * as React from 'react';
-import {BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-import MyNavbar from './components/Navbar.jsx';
-import { CustomerRegistration, EmployeeRegistration, Footer, Hero, SaleRegistration, StockRegistration, AdminLogin, EmployeeLogin} from './section';
-import EmployeeList from './components/Employees/EmployeesList.jsx';
+import Layout from './Layout.jsx';
+import AdminLayout from './section/AdminLayout.jsx';
+import Welcome from './Features/Auth/Welcome.jsx';
+import { CustomerRegistration, EmployeeRegistration, Public, SaleRegistration, StockRegistration, EmployeeLogin} from './section';
+import AdminLogin from './Features/Auth/AdminLogin.jsx';
+import EmployeeList from './Features/Employees/EmployeesList.jsx';
 // import ProductDisplay from './components/Stock/ProductDisplay.jsx';
 
 function App() {
@@ -11,25 +14,39 @@ function App() {
 
 
   return (
-      <>
-        <BrowserRouter>         
-          <MyNavbar />         
-          {/* <ProductDisplay /> */}
-            <Routes>          
-            <Route path='/' element= {<Hero />} />
-            <Route path='/employees' element= {<EmployeeRegistration />} />
-            <Route path='/employees/viewall' element= {<EmployeeList />} />
-            <Route path='/sale' element= {<SaleRegistration />} />
-            <Route path='/stock' element= {<StockRegistration />} />
-            <Route path='/employeelogin' element= {<EmployeeLogin />} />
-            
-            <Route path='/adminlogin' element= {<AdminLogin />} />
-            <Route path='/customers' element= {<CustomerRegistration />} />
-          </Routes>
-          <Footer />
-         
-        </BrowserRouter>    
-        </>
+        <Routes>          
+            <Route path='/' element= {<Layout />}>
+              <Route index element= {<Public />} />
+              <Route path='/adminlogin' element= {<AdminLogin />} />
+
+              <Route path='admin' element={AdminLayout}>  
+
+                <Route index element={<Welcome/>} />   
+
+                <Route path='employees'>
+                  <Route index element= {<EmployeeList />} />
+                  <Route path='register' element= {<EmployeeRegistration />} />
+                </Route>
+
+                <Route path='customers'>
+                  <Route index element= {<CustomerRegistration />} />
+                </Route>
+
+                <Route path='sales'>
+                  <Route index element= {<SaleRegistration />} />
+                </Route>
+
+                <Route path='stock'>
+                  <Route index element= {<StockRegistration />} />
+                </Route>
+
+              </Route> {/* End of Admin Access*/}
+              
+                <Route path='employeelogin' element= {<EmployeeLogin />} />
+
+            </Route>
+        </Routes>
+     
   )
 }
 
