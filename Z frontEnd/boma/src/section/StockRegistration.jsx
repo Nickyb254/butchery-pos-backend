@@ -2,18 +2,22 @@ import React, { useState } from 'react';
 import './StockRegistration.css';
 import stockIcon from '../components/assets/stock_icon.png';
 import axios from 'axios';
+import axiosInstance from '../Authorization/Auth';
 
 const StockRegistration = () => {
-  const [product_name, setProduct_name] = useState();
-  const [price, setPrice] = useState();
-  const [mass_bought, setMass_bought] = useState();
-  const [mass_available, setMass_available] = useState();
-  const [supplier_name, setSupplier_name] = useState();
-  const [stock_image, setStock_image] = useState();
+  const [product_name, setProduct_name] = useState('');
+  const [price, setPrice] = useState('');
+  const [mass_bought, setMass_bought] = useState('');
+  const [mass_available, setMass_available] = useState('');
+  const [supplier_name, setSupplier_name] = useState('');
+  const [transaction_by, setTransaction_by] = useState('');
+  const [stock_image, setStock_image] = useState('');
 
+  const data = {product_name, price, mass_bought, mass_available, supplier_name, transaction_by, stock_image}
+  
   const handleSubmit = (e) =>{
     e.preventDefault();
-    axios.post("http://localhost:3000/stock", {product_name, price, mass_bought, mass_available, supplier_name, stock_image})
+    axiosInstance.post("/stock", data)
     .then(result => console.log(result))
     .catch(error => console.log(error))
   }
@@ -102,6 +106,20 @@ const StockRegistration = () => {
               onChange={(e) => setSupplier_name(e.target.value)}
             />
           </div>
+          <div>
+            <label htmlFor="supplier_name" className='form-label'>
+              Supplier name:
+            </label> 
+            <input 
+              className='input-entry' 
+              type='string' 
+              id='transaction_by'
+              name='transaction_by'
+              //value={String} 
+              placeholder='Name of Employee'
+              onChange={(e) => setTransaction_by(e.target.value)}
+            />
+          </div>
 
           <div>
             <label htmlFor="stock_image" className='form-label'>
@@ -113,6 +131,7 @@ const StockRegistration = () => {
               id='stock_image' 
               name='stock_image' 
               placeholder='Choose image'
+              onChange={(e) => setStock_image(e.target.value)}
             />
           </div>
         {/* <br />
