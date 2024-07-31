@@ -67,15 +67,33 @@ export const createUser = (request, response, next) => {
         });
       }
   
-      const token = jwt.sign(
+      const accesstoken = jwt.sign(
         {email: user.email, userId: user.user_id },
       `${process.env.JWT_SECRET}`,
         {expiresIn: "1h"}
       );
+
+
+      const refreshToken = jwt.sign(
+        { userId: user.user_id  },
+        `${process.env.REFRESH_TOKEN_SECRET}`,
+        { expiresIn: '7d' }
+    )
+
+    // Create secure cookie with refresh token 
+    response.cookie('jwt', refreshToken, {
+        httpOnly: true, //accessible only by web server 
+        secure: true, //https
+        sameSite: 'None', //cross-site cookie 
+        maxAge: 7 * 24 * 60 * 60 * 1000 //cookie expiry: set to match rT
+    })
+
+
+
   
       return response.status(200).json({
         message: 'Auth successful!',
-        token: token
+        token: accesstoken
       });
     } catch (error) {
       console.log(error);
@@ -88,6 +106,39 @@ export const createUser = (request, response, next) => {
 //security weakness if
 // return res.status(404).json({
 //message: 'Mail not found, user doesn\'t exist'})
+
+const refresh = (req, res) => {
+  const cookies = req.cookies
+
+  if (!cookies?.jwt) return res.status(401).json({ message: 'Unauthorized' })
+
+  const refreshToken = cookies.jwt
+
+  jwt.verify(
+      refreshToken,
+      process.env.REFRESH_TOKEN_SECRET,
+      async (err, decoded) => {
+          if (err) return res.status(403).json({ message: 'Forbidden' })
+
+          const currentUser = await User.findOne({ userId: decoded.user.user_id }).exec()
+
+          if (!currentUser) return res.status(401).json({ message: 'Unauthorized' })
+
+          const accessToken = jwt.sign(
+              {
+                  "UserInfo": {
+                      "userId": currentUser.user_id,
+                      "roles": currentUser.roles
+                  }
+              },
+              process.env.ACCESS_TOKEN_SECRET,
+              { expiresIn: '15m' }
+          )
+
+          res.json({ accessToken })
+      }
+  )
+}
 
 
 export const deleteUser = (request, response, next) => {
