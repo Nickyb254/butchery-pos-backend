@@ -6,7 +6,8 @@ const EmployeeSchema = new mongoose.Schema({
   employee_name:  {type: String, trim: true, required: true },
   designation:  {type: String, trim: true},
   phone_number:   {type: String, trim: true, required: true },
-
+  roles: {type: [String], default: ["Employee"]},
+  active: {type: Boolean, default: true},
   email: {
     type: String,
     required: [true, "Email is a required field"],
