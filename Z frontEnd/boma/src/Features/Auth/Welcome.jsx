@@ -10,7 +10,7 @@ const Welcome = () => {
     <>
         <h1>Welcome</h1>
         <p>{today}</p>
-        <p><Link to="/employees/viewall">View/Add/Edit/Disable employee(s) in the list</Link></p>
+        <p><Link to="employees">View/Add/Edit/Disable employee(s) in the list</Link></p>
     </>
   )
 }

@@ -7,6 +7,7 @@ import Welcome from './Features/Auth/Welcome.jsx';
 import { CustomerRegistration, EmployeeRegistration, Public, SaleRegistration, StockRegistration, EmployeeLogin} from './section';
 import AdminLogin from './Features/Auth/AdminLogin.jsx';
 import EmployeeList from './Features/Employees/EmployeesList.jsx';
+import EmployeeUpdate from './Features/Employees/EmployeeUpdate.jsx';
 // import ProductDisplay from './components/Stock/ProductDisplay.jsx';
 
 function App() {
@@ -15,16 +16,20 @@ function App() {
 
   return (
         <Routes>          
-            <Route path='/' element= {<Layout />}>
-              <Route index element= {<Public />} />
-              <Route path='/adminlogin' element= {<AdminLogin />} />
+          <Route path='/' element= {<Layout />}>
+            <Route index element= {<Public />} />  
 
-              <Route path='admin' element={AdminLayout}>  
-
+              <Route path='login'>
+                <Route index element= {<AdminLogin/>} />
+                <Route path='welcome' element={<AdminLayout/>} >   
                 <Route index element={<Welcome/>} />   
+                <Route path='employees' element={<EmployeeList/>} />   
+                {/* <Route path='update' element={<EmployeeUpdate/>} />    */}
+                </Route>
+              </Route>
 
                 <Route path='employees'>
-                  <Route index element= {<EmployeeList />} />
+                  <Route index element= {<EmployeeLogin />} />
                   <Route path='register' element= {<EmployeeRegistration />} />
                 </Route>
 
@@ -38,13 +43,12 @@ function App() {
 
                 <Route path='stock'>
                   <Route index element= {<StockRegistration />} />
-                </Route>
-
-              </Route> {/* End of Admin Access*/}
+                </Route>              
               
-                <Route path='employeelogin' element= {<EmployeeLogin />} />
+                
 
-            </Route>
+            
+          </Route>
         </Routes>
      
   )
