@@ -19,17 +19,16 @@ const AdminFooter = () => {
 
     const content = (
         <Card>
-        {/* <Card.Header>Quote</Card.Header> */}
-        <Card.Body>
-            {goHomeButton}
+        <Card.Header></Card.Header>
+        <Card.Body>            
           <blockquote className="blockquote mb-0">
             <p>
               {' '}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              posuere erat a ante.{' '}
+              ‘Success requires heart-and-soul effort, and you can put your heart and soul only into something you really desire.’{' '}
             </p>
+
             <footer className="blockquote-footer">
-              Someone famous in <cite title="Source Title">Source Title</cite>
+              Schwartz <cite title="Think Big">‘The Magic of Thinking Big’</cite>
             </footer>
           </blockquote>
         </Card.Body>

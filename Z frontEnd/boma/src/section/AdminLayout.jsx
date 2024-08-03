@@ -1,14 +1,15 @@
 import React from 'react'
-import Container from 'react-bootstrap/esm/Container'
-import { Outlet } from 'react-router-dom'
+
+import { Outlet, Link } from 'react-router-dom'
 import AdminHeader from './AdminHeader'
 import AdminFooter from './AdminFooter'
+import Container from 'react-bootstrap/esm/Container'
 
 const AdminLayout = () => {
   return (
     <>
     <AdminHeader/>
-        <Container>
+       <Container>
             <Outlet/>
         </Container>
     <AdminFooter/>
