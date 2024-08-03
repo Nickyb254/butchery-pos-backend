@@ -28,13 +28,13 @@ function MyNavbar() {
             <Nav.Link href="#link5">Delivery Services</Nav.Link>
 
             <NavDropdown title="Portals" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/adminlogin">Admin</NavDropdown.Item>
-              <NavDropdown.Item href="/employeelogin"> Employees </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Customers</NavDropdown.Item>
+              <NavDropdown.Item href="/login">Admin</NavDropdown.Item>
+              <NavDropdown.Item href="/employees"> Employees </NavDropdown.Item>
+              <NavDropdown.Item href="/customers">Customers</NavDropdown.Item>
 
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4"> Stock </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4"> Sales </NavDropdown.Item>
+              <NavDropdown.Item href="/stock"> Stock </NavDropdown.Item>
+              <NavDropdown.Item href="/sales"> Sales </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
