@@ -67,7 +67,7 @@ export const createUser = (request, response, next) => {
         });
       }
   
-      const accesstoken = jwt.sign(
+      const accessToken = jwt.sign(
         {email: user.email, userId: user.user_id },
       `${process.env.JWT_SECRET}`,
         {expiresIn: "1h"}
@@ -92,8 +92,7 @@ export const createUser = (request, response, next) => {
 
   
       return response.status(200).json({
-        message: 'Auth successful!',
-        token: accesstoken
+         accessToken
       });
     } catch (error) {
       console.log(error);
@@ -107,7 +106,7 @@ export const createUser = (request, response, next) => {
 // return res.status(404).json({
 //message: 'Mail not found, user doesn\'t exist'})
 
-const refresh = (req, res) => {
+export const refresh = (req, res) => {
   const cookies = req.cookies
 
   if (!cookies?.jwt) return res.status(401).json({ message: 'Unauthorized' })
