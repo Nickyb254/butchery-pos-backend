@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import loginIcon from '../components/assets/login_icon.png';
+import { useNavigate, Link } from 'react-router-dom';
 import './UserRegistration.css'
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
@@ -30,7 +29,7 @@ const EmployeeLogin = () => {
   return (
     <Card style={{ width: '48rem', margin: 'auto', padding: '3em', background: 'f3f3f3' }}>
         <CardBody>
-            <Card.Title>Enter details to log in as employee:</Card.Title>
+            <Card.Title style={{marginBottom: '2em'}}>Enter details to log in as employee:</Card.Title>
 
             <Form >
                 <Form.Label htmlFor="inputEmail">Email</Form.Label>
@@ -53,63 +52,15 @@ const EmployeeLogin = () => {
                 Your password must be 8-20 characters long, contain letters and numbers,
                 and must not contain spaces, special characters, or emoji.
                 </Form.Text>
-                <Button onClick={handleSubmit}>Log in</Button>
+                <br></br>
+                <Button style={{marginTop: '2em'}}  onClick={handleSubmit}>Log in</Button>
+                <section style={{paddingTop: '2em'}} >
+                <Link to="register" >Register</Link>
+                </section>
             </Form>
         </CardBody>
   </Card>
-    // <div className='user-hero'>
-    //   <h2>User Login</h2> 
-    //   <div className='icon-pic'>
-    //         <img src={loginIcon} alt="" />
-    //     </div>
-    //     User details: 
-    //    <br />
-
-    //           <form onSubmit={handleSubmit}>           
-    //             {/* <div>
-    //               <label htmlFor='username' className='form-label'>
-    //                 User Name:
-    //               </label>
-    //                 <input 
-    //                   className='input-entry' 
-    //                   type='string' 
-    //                   name='username'
-    //                   value={e.target.username} 
-    //                   placeholder='User Name'
-    //                   onChange={onChangeHandler}
-    //                 />
-    //             </div> */}
-                 
-    //             <div>
-    //               <label htmlFor='email' className='form-label'>
-    //                Email: 
-    //               </label>
-    //                 <input 
-    //                   className='input-entry' 
-    //                   type='String' 
-    //                   name='email'
-    //                  // value={userData.email} 
-    //                   placeholder='Enter Email'
-    //                   onChange={(e) => setEmail(e.target.value)}
-    //                 />
-    //             </div>
-    //             <div>
-    //               <label htmlFor='password' className='form-label'>
-    //                 Password:
-    //               </label>
-    //                   <input 
-    //                     className='input-entry' 
-    //                     type='string' 
-    //                     name='password'
-    //                    // value={userData.password} 
-    //                     placeholder='Enter Password'
-    //                     onChange={(e) => setPassword(e.target.value)}
-    //                   />
-    //             </div>
-    //           <br />      
-    //           <button type='submit'>Submit</button>
-    //           </form>
-    // </div>
+    
   )
 }
 

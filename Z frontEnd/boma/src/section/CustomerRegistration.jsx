@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 const CustomerRegistration = () => {
@@ -37,6 +38,9 @@ const CustomerRegistration = () => {
 
             {/* <p>Select area of residence for delivery options:</p> */}
 
+            <div style={{paddingTop: '2em'}} >
+             <Link to="" >Log in</Link>
+          </div>
           </Form>
       </Card.Body>
     </Card>

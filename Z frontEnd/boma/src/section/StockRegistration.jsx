@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './StockRegistration.css';
 import stockIcon from '../components/assets/stock_icon.png';
 import axios from 'axios';
-import axiosInstance from '../Authorization/Auth';
+import axiosInstance from '../api/axios';
 
 const StockRegistration = () => {
   const [product_name, setProduct_name] = useState('');
