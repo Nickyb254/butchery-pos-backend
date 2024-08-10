@@ -1,21 +1,35 @@
 import React, { useState } from 'react';
-// import loginIcon from '../components/assets/login_icon.png';
-// import './UserRegistration.css'
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../api/axios';
+import { useAuth } from '../../context/AuthProvider';
+
+const LOGIN_URL = "/user/login";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 function AdminLogin () {
+  // const axiosPrivate = useAxiosPrivate();
+  const { setAuth } = useAuth();
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
  
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/user/login', { email, password})
-    .then(result => console.log(result))
-    .catch(error => console.log(error))
+    try{
+      const  response  = await axiosInstance.post(LOGIN_URL, { email, password})
+      const token = response.data.accessToken
+     
+      setAuth(JSON.stringify({token, email}));
+      console.log(response)
+      navigate('welcome')
+    }catch  (error) {
+      console.log(error)
+    }
+    
   }
 
 
