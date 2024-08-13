@@ -16,9 +16,9 @@ const EmployeeLogin = () => {
 
   
   
-  const handleSubmit = (e) => {
+  const handleLogIn = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/user/login', { email, password})
+    axios.post('http://localhost:3000/employees/login', { email, password})
     .then((result) => {
        console.log(result)
        navigate('/employees/viewall')
@@ -53,7 +53,7 @@ const EmployeeLogin = () => {
                 and must not contain spaces, special characters, or emoji.
                 </Form.Text>
                 <br></br>
-                <Button style={{marginTop: '2em'}}  onClick={handleSubmit}>Log in</Button>
+                <Button style={{marginTop: '2em'}}  onClick={handleLogIn}>Log in</Button>
                 <section style={{paddingTop: '2em'}} >
                 <Link to="register" >Register</Link>
                 </section>
