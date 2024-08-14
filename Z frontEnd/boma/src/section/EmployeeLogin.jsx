@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './UserRegistration.css'
-import axios from 'axios';
+import axiosInstance from '../api/axios';
 import Form from 'react-bootstrap/Form';
 import CardBody from 'react-bootstrap/esm/CardBody';
 import Card from 'react-bootstrap/Card';
@@ -16,9 +16,9 @@ const EmployeeLogin = () => {
 
   
   
-  const handleLogIn = (e) => {
+  const handleLogIn = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/employees/login', { email, password})
+    await axiosInstance.post('/employees/login', { email, password})
     .then((result) => {
        console.log(result)
        navigate('/employees/viewall')

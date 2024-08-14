@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import EmployeeModel from "../models/employees.js";
+import bcrypt from 'bcrypt';
 
 export const getAllEmployees = (request, response, next) => {
   EmployeeModel
@@ -17,38 +18,53 @@ export const getAllEmployees = (request, response, next) => {
   });  
 }
 
-//try block was added to catch validation errors. 
-//note {.} is removed in catch
-//made async thus used await
 
 
-export const createEmployee = async (request, response, next) => {
-  try{
-  const employee = new EmployeeModel ({
-    employee_Id: new mongoose.Types.ObjectId,
-    employee_name: request.body.employee_name,
-    designation: request.body.designation,
-    phone_number: request.body.phone_number,
-    email: request.body.email,
-    password: request.body.password
-  });
-
-  await employee
-  .save()
-  .then(result => {
-      console.log(result);    
-      response.status(200).json({
-      message: 'New Employee created!',
-      employee: employee,
+//create Employee
+export const createEmployee = (request, response, next) => {
+  EmployeeModel.find({email: request.body.email})
+  .exec()
+  .then(user => {
+    if( user.length >= 1 ){
+      return response.status(409).json({
+        message: 'Mail exists'
+      });
+    }
+    else {
+      bcrypt.hash(request.body.password, 2, (err, hash) => {
+        if(err){
+          return response.status(500).json({
+            error: err
+          });
+        } else{
+          const employee = new EmployeeModel ({
+            // employee_Id: new mongoose.Types.ObjectId,
+            employee_name: request.body.employee_name,
+            designation: request.body.designation,
+            phone_number: request.body.phone_number,
+            email: request.body.email,
+            password: hash
+          });
+          employee
+          .save()
+          .then(result => {
+            console.log(result);
+            response.status(201).json({
+              message: 'New Employee created!',
+              employee: employee,
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            response.status(500).json({
+              error: error
+            });
+          })
+        }
     });
-  })}
-  //.catch(error => console.log(error));
-  catch (error) {    
-    response.status(500).json(error);
+    }
+  });  
   }
-}
-
-
 
 
 
@@ -77,15 +93,15 @@ export const getOneEmployee = (request, response, next) => {
 
 
 
-export const updateEmployee = async (req, res) => {
+export const updateEmployee = async (request, response) => {
   try {
-   const updateData = req.body;
-   const result = await EmployeeModel.updateOne({ _id: req.params.employeesId }, updateData);    
+   const updateData = request.body;
+   const result = await EmployeeModel.updateOne({ _id: request.params.employeesId }, updateData);    
 
    if (!result.matchedCount) {
-     return res.status(404).json({ message: 'Employee not found' });
+     return response.status(404).json({ message: 'Employee not found' });
    }
-   else if (result.matchedCount === 1) {res.status(200).json({ 
+   else if (result.matchedCount === 1) {response.status(200).json({ 
      message: 'Employee updated successfully', 
      request: {
        type: 'GET',
@@ -95,9 +111,42 @@ export const updateEmployee = async (req, res) => {
    })}   
  } catch (error) {
    console.log(error);
-   res.status(500).json({ message: 'Server error', error });
+   response.status(500).json({ message: 'Server error', error });
  }
 }
+
+
+export const employeeLogIn = async (request, response, next) => {
+  try {
+    const employees = await EmployeeModel.find({ email: request.body.email }).exec();
+
+    if (employees.length < 1) {
+      return response.status(401).json({
+        message: 'Auth failed!'
+      });
+    }
+
+    const employee = employees[0];
+    const isPasswordMatch = await bcrypt.compare(request.body.password, employee.password);
+    if(isPasswordMatch){
+      console.log('login successful!')
+      return response.status(200).json({
+        message: 'Login successful!'
+    
+      });
+      } else {
+      return response.status(401).json({
+        message: 'Auth failed!'
+      });
+    }  
+    } catch (error) {
+      console.log(error);
+      return response.status(500).json({
+        error: error
+      });
+    }
+}
+  
 
 
 export const deleteEmployee = async (request, response, next)=>{
