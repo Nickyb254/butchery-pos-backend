@@ -1,8 +1,10 @@
 import mongoose  from 'mongoose';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const EmployeeSchema = new mongoose.Schema({
-  employee_id: mongoose.Types.ObjectId,
+  // employee_id: mongoose.Types.ObjectId, -objectId not working well in params
+  _id: { type: String, default: uuidv4, required: true },
   employee_name:  {type: String, trim: true, required: true },
   designation:  {type: String, trim: true},
   phone_number:   {type: String, trim: true, required: true },
