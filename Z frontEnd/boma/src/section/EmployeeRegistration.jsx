@@ -1,18 +1,19 @@
-import * as React from 'react';
-import { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axiosInstance from '../api/axios';
 
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import {Form, Button, Card} from 'react-bootstrap';
+
 
 
 export default function EmployeeRegistration() {
+  
+ 
   const [employee_name, setEmployee_name] = useState()
-  const [designation, setDesignation] = useState('')
-  const [phone_number, setPhone_number] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [designation, setDesignation] = useState()
+  const [phone_number, setPhone_number] = useState()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+ 
 
   const onNameChange = e => setEmployee_name(e.target.value)
   const onDesignationChange = e => setDesignation(e.target.value)
@@ -22,29 +23,25 @@ export default function EmployeeRegistration() {
 
   const data = {employee_name, designation, phone_number, email, password}
 
-  const onSaveButtonClick = (e) => {
-    e.preventDefault()    
-        axios.post('http://localhost:3000/employees', data)
-        .then()
-        .catch((error) => {
-          console.log(error)
-        })
-          setEmployee_name('')
-          setDesignation('')
-          setPhone_number('')
-          setEmail('')
-          setPassword('')
-    }
-  
+  const handleRegister = (e) => {
+    e.preventDefault();
+    axiosInstance.post('/employees/signup', data)
+    .then((result) => {
+       console.log(result)
+      //  navigate('/employees/viewall')
+    })
+    .catch(error => console.log(error))
+  }
 
   // const canSave = Boolean(employee_name) && Boolean(phone_number) && Boolean(password);
+  
 
   return ( 
 <Card style={{ width: '38vw', padding: '0.15em', margin: 'auto'}}>
 <Card.Body>
- <Card.Title >Please Register Here:</Card.Title>
-   <small>* means required fields.</small>
-   <Form onSubmit={onSaveButtonClick} style={{paddingTop: '2em'}} >
+ <Card.Title >Register As Employee:</Card.Title>
+   <small>* required fields.</small>
+   <Form onSubmit={handleRegister} style={{paddingTop: '2em'}} >
 
      <Form.Group className="mb-3" controlId="employee_name">
        <Form.Label>* Enter Full Names:</Form.Label>
@@ -71,7 +68,7 @@ export default function EmployeeRegistration() {
        <Form.Control type="string" onChange={onPasswordChange}  />
      </Form.Group>
 
-     <Button variant="primary" type='submit' style={{marginTop: '3em'}}>Submit</Button>
+     <Button variant="primary" type='submit' style={{marginTop: '3em'}}>Register</Button>
      {/* <p>Select area of residence for delivery options:</p> */}
 
    </Form>
@@ -80,21 +77,3 @@ export default function EmployeeRegistration() {
 
   );
 }
-
-{/* <Div >
-        
-          <p component="h1" variant="h5" >
-            Enter details to Sign up as Employee
-          </p>
-      
-   
-    <Div component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' }, }} noValidate autoComplete="off" >      
-    
-      <Input  id="employee_name" label="Name" variant="filled" helperText="Please enter employee name:" />
-      <Input id="designation" label="Designation" variant="filled" helperText="Please enter employee designation:"/>
-      <Input id="phone_number" label="Phone" variant="filled" helperText="Please enter employee phone no:"/>
-      <Input  label="Email" variant="filled" helperText="Please enter employee email:"/>
-      <Input id="password" label="Password" variant="filled" helperText="Please enter password:"/>
-    </Div>
-    <Button variant="outlined" type="submit" onClick={onSaveButtonClick} disabled={!canSave} >Submit</Button>
-    </Div> */}

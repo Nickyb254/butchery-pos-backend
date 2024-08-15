@@ -20,8 +20,8 @@ const EmployeeLogin = () => {
     e.preventDefault();
     await axiosInstance.post('/employees/login', { email, password})
     .then((result) => {
-       console.log(result)
-       navigate('/employees/viewall')
+      //  console.log(result)
+       navigate('profile')
     })
     .catch(error => console.log(error))
   }
