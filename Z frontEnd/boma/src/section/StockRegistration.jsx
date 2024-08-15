@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './StockRegistration.css';
+import {  Card, Form, Button } from 'react-bootstrap';
 import stockIcon from '../components/assets/stock_icon.png';
 import axios from 'axios';
 import axiosInstance from '../api/axios';
@@ -11,135 +11,73 @@ const StockRegistration = () => {
   const [mass_available, setMass_available] = useState('');
   const [supplier_name, setSupplier_name] = useState('');
   const [transaction_by, setTransaction_by] = useState('');
-  const [stock_image, setStock_image] = useState('');
+  const [stock_image, setStock_image] = useState();
+
+  const onProductChange = (e) => setProduct_name(e.target.value)
+  const onPriceChange = (e) => setPrice(e.target.value)
+  const onMassBoughtChange = (e) => setMass_bought(e.target.value)
+  const onMassChange = (e) => setMass_available(e.target.value)
+  const onSupplierChange = (e) => setSupplier_name(e.target.value)
+  const onTransactionByChange = (e) => setTransaction_by(e.target.value)
+  const onFileChange = (e) => setStock_image(e.target.value)
+
 
   const data = {product_name, price, mass_bought, mass_available, supplier_name, transaction_by, stock_image}
   
   const handleSubmit = (e) =>{
     e.preventDefault();
-    axiosInstance.post("/stock", data)
+    axios.post("/stock", data)
     .then(result => console.log(result))
     .catch(error => console.log(error))
   }
 
   return (
-  <div className='stock-hero'>
-      
-    <h2>Stock Entry</h2> 
-    <form onSubmit={handleSubmit}>        
-      <div className='icon-pic'>
-          <img src={stockIcon} alt="" />
-      </div>
-      Stock details: 
-      <br />
-        <div>
-          <label htmlFor="product_name" className='form-label'>
-            Product name:
-          </label>
-          <input 
-            className='input-entry' 
-            type='string' 
-            id='product_name'
-            name='product_name'
-            //value={String} 
-            placeholder='Product Name'
-            onChange={(e) => setProduct_name(e.target.value)}
-          />
-          </div>
+<div style={{ marginTop: '3%' }}>
+  <Card style={{ width: '48%', margin: 'auto', paddingTop: '2%' }}>
+    <Card.Img variant="top" style={{ width: '5%', margin: 'auto' }} src={stockIcon} />
+    <Card.Body>
+      <Card.Title style={{ width: '90%', margin: 'auto' }}> Enter Stock Records: </Card.Title>
+        
+      <Form style={{paddingTop: '2em'}} >
 
-          <div>
-            <label htmlFor="price" className='form-label'>
-              Price:
-            </label>          
-            <input 
-              className='input-entry' 
-              type='number' 
-              id='price'
-              name='price'
-              //value={Number} 
-              placeholder='Enter Buying Price'
-              onChange={(e) => setPrice(e.target.value)}
-            />
-          </div>
+        <Form.Group className="mb-3" controlId="product_name">
+        <Form.Label>* Enter Product Names:</Form.Label>
+        <Form.Control type="string" onChange={onProductChange}  />
+        </Form.Group>
 
-          <div>
-            <label htmlFor="mass_bought" className='form-label'>
-              Mass bought:
-            </label>          
-            <input 
-              className='input-entry' 
-              type='number' 
-              id='mass_bought'
-              name='mass_bought'
-              //value={Number} 
-              placeholder='Enter Quantity Bought'
-              onChange={(e) => setMass_bought(e.target.value)}
-            />
-          </div>
+        <Form.Group className="mb-3" controlId="price">
+        <Form.Label>* Price in Ksh./ role:</Form.Label>
+        <Form.Control type="string" onChange={onPriceChange}  />
+        </Form.Group>
 
-          <div>
-            <label htmlFor="mass_available" className='form-label'>
-              Mass available:
-            </label> 
-            <input 
-              className='input-entry' 
-              type='number' 
-              id='mass_available'
-              name='mass_available'
-              //value={Number} 
-              placeholder='Enter Quantity Available'
-              onChange={(e) => setMass_available(e.target.value)}
-            />
-          </div>
+        <Form.Group className="mb-3" controlId="mass_bought">
+        <Form.Label>* Mass bought:</Form.Label>
+        <Form.Control type="string" onChange={onMassBoughtChange}   />
+        </Form.Group>
 
-          <div>
-            <label htmlFor="supplier_name" className='form-label'>
-              Supplier name:
-            </label> 
-            <input 
-              className='input-entry' 
-              type='string' 
-              id='supplier_name'
-              name='supplier_name'
-              //value={String} 
-              placeholder='Name of Supplier'
-              onChange={(e) => setSupplier_name(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="supplier_name" className='form-label'>
-              Supplier name:
-            </label> 
-            <input 
-              className='input-entry' 
-              type='string' 
-              id='transaction_by'
-              name='transaction_by'
-              //value={String} 
-              placeholder='Name of Employee'
-              onChange={(e) => setTransaction_by(e.target.value)}
-            />
-          </div>
+        <Form.Group className="mb-3" controlId="email">
+        <Form.Label>Mass available:</Form.Label>
+        <Form.Control type="email"  onChange={onMassChange}  />
+        </Form.Group>
 
-          <div>
-            <label htmlFor="stock_image" className='form-label'>
-              Stock item image:
-            </label> 
-            <input 
-              className='input-entry' 
-              type='file' 
-              id='stock_image' 
-              name='stock_image' 
-              placeholder='Choose image'
-              onChange={(e) => setStock_image(e.target.value)}
-            />
-          </div>
-        {/* <br />
-        <p>Enter notes/ comments:</p>
-        <textarea name="comments" id=""></textarea>
-        <br /> */}
-        <button>Submit</button>
-    </form>
+        <Form.Group className="mb-3" controlId="supplier_name">
+        <Form.Label>* Supplier name:</Form.Label>
+        <Form.Control type="string" onChange={onSupplierChange}  />
+        </Form.Group>
+        
+        <Form.Group className="mb-3" controlId="transaction_by">
+        <Form.Label>* Supplier name:</Form.Label>
+        <Form.Control type="string" onChange={onTransactionByChange}  />
+        </Form.Group>
+
+        <Form.Group controlId="formFile" className="mb-3">
+        <Form.Label>Default file input example</Form.Label>
+        <Form.Control type="file" onChange={onFileChange} />
+        </Form.Group>
+        <Button variant="primary" onClick={handleSubmit}> Save Changes</Button>
+      </Form>
+      </Card.Body>
+  </Card>
   </div>
   )
 }
