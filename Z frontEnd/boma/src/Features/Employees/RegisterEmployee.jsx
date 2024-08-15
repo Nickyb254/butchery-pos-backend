@@ -2,17 +2,17 @@ import { useState } from 'react';
 import {Form, Button,  Modal} from 'react-bootstrap';
 import axiosInstance from '../../api/axios';
 
-function RegisterEmployee(props) {
+function RegisterEmployee() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
    
-  const [employee_name, setEmployee_name] = useState(props.employee_name)
-  const [designation, setDesignation] = useState(props.designation)
-  const [phone_number, setPhone_number] = useState(props.phone_number)
-  const [email, setEmail] = useState(props.email)
-  const [password, setPassword] = useState(props.password)
+  const [employee_name, setEmployee_name] = useState()
+  const [designation, setDesignation] = useState()
+  const [phone_number, setPhone_number] = useState()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
   
 
   const onNameChange = e => setEmployee_name(e.target.value)
@@ -35,7 +35,7 @@ function RegisterEmployee(props) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant='success' style={{paddingLeft: '4em', paddingRight: '5em', marginTop: '3em'}} onClick={handleShow}>
         Add +
       </Button>
 
