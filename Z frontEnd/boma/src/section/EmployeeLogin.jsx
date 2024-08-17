@@ -7,23 +7,22 @@ import CardBody from 'react-bootstrap/esm/CardBody';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/esm/Button';
 
-const EmployeeLogin = () => { 
+const EmployeeLogin = (props) => { 
   
   const navigate = useNavigate()
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   
   
   const handleLogIn = async (e) => {
     e.preventDefault();
-    await axiosInstance.post('/employees/login', { email, password})
-    .then((result) => {
-      //  console.log(result)
-       navigate('profile')
-    })
-    .catch(error => console.log(error))
+    try{
+      const employee = await axiosInstance.post('/employees/login', { email, password})
+      props.onClick(employee)
+      navigate('profile')
+
+    }catch(error) {console.log(error)}
   }
 
   return (
@@ -45,6 +44,7 @@ const EmployeeLogin = () => {
                 type="password"
                 id="inputPassword5"
                 aria-describedby="passwordHelpBlock"
+                autoComplete='none'
                 onChange={(e) => setPassword(e.target.value)}
                 />
 
