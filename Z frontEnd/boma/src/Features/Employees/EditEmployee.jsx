@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {Form, Button,  Modal} from 'react-bootstrap';
 import axiosInstance from '../../api/axios';
 
@@ -8,13 +8,11 @@ function EditEmployee(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
    
-  const [employee_name, setEmployee_name] = useState(props.employee_name)
-  const [designation, setDesignation] = useState(props.designation)
-  const [phone_number, setPhone_number] = useState(props.phone_number)
-  const [email, setEmail] = useState(props.email)
-  const [password, setPassword] = useState(props.password)
-  
-  
+  const [employee_name, setEmployee_name] = useState(props.employee.employee_name)
+  const [designation, setDesignation] = useState(props.employee.designation)
+  const [phone_number, setPhone_number] = useState(props.employee.phone_number)
+  const [email, setEmail] = useState(props.employee.email)
+  const [password, setPassword] = useState(props.employee.password)
 
   const onNameChange = e => setEmployee_name(e.target.value)
   const onDesignationChange = e => setDesignation(e.target.value)
@@ -23,15 +21,17 @@ function EditEmployee(props) {
   const onPasswordChange = e => setPassword(e.target.value)
 
   const data = {employee_name, designation, phone_number, email, password}
+
     
-  const UpdateEmployee = async (employeesId) => {
-    console.log('_id:', employeesId); // Log _id to check its value
-    console.log('data:', data); // Log data to ensure it's correctly formatted
-    try{
-      await axiosInstance.patch(`/employees/${employeesId}`, data)
-      .then((result) => {
+  
+  const UpdateEmployee = async (e) => {  
+  e.preventDefault()
+  try{
+    await axiosInstance.patch(`/employees/${props.employee._id}`, data)
+    .then((result) => {
+        setFetchData(true)
         handleClose()
-         console.log(result)
+        console.log(result)
       })
     }catch(error) {console.log(error)}
   }
@@ -83,7 +83,7 @@ function EditEmployee(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => {UpdateEmployee}} >
+          <Button variant="primary" onClick={UpdateEmployee} >
             Save Changes
           </Button>
         </Modal.Footer>
