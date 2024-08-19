@@ -2,7 +2,7 @@ import { useState } from 'react';
 import {Form, Button,  Modal} from 'react-bootstrap';
 import axiosInstance from '../../api/axios';
 
-function RegisterCustomer() {
+function RegisterCustomer({postCustomer}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -19,12 +19,8 @@ function RegisterCustomer() {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    axiosInstance.post('/customers', data)
-    .then((result) => {
-      handleClose()
-    //    console.log(result)
-    })
-    .catch(error => console.log(error))
+    postCustomer(data)
+    handleClose()
   }
 
   return (

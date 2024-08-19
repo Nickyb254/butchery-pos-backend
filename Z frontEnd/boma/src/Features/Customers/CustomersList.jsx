@@ -9,25 +9,47 @@ import EditCustomer from './EditCustomer';
 
 
 export default function CustomersList() {
-  const [customers, setCustomers] = useState([])
-  const [fetchData, setFetchData] = useState(true); // State to trigger data re-fetch
-      
+  const [customers, setCustomers] = useState([])  
   
-    //fetch All customers
- useEffect(() => { 
-  if (fetchData) {
-    axiosInstance.get('/customers')
+  const postCustomer = async(data) => {
+    try{
+    await axiosInstance.post('/customers', data)
+    .then((result) => {      
+      fetchCustomers()
+      //  console.log(result)
+    })
+    }catch(error) {console.log(error)}
+  }
+
+  const fetchCustomers =async ()=>{
+    try{
+   await axiosInstance.get('/customers')
     .then(response => {
         setCustomers(response.data.customers)
-        // console.log(response.data.customers)
-        setFetchData(false); // Reset fetchData to avoid continuous re-fetch       
+        // console.log(response.data.customers)     
     })      
-    .catch((error) => {
+    }catch(error) {
         console.log(error);
-    })
-  }}, [fetchData])
+    }
+  }
+
+    //fetch All customers
+ useEffect(() => {   
+  fetchCustomers()
+  }, [])
 
   
+    const UpdateCustomer = async (customer) => {  
+      try{
+        await axiosInstance.patch(`/customers/${customer.customer_id}`, customer)
+        .then((result) => {
+            fetchCustomers()
+            handleClose()
+            console.log(result)
+          })
+        }catch(error) {console.log(error)}
+      }
+
 
 
   return (
@@ -48,17 +70,17 @@ export default function CustomersList() {
         </tr>
       </thead>
       <tbody>
-      {customers.map((customer, index) => (
-          <tr key={index}>
+      {customers.map((customer, index) => ( 
+          <tr key={customer.customer_id}>
             <td>{index + 1}</td> 
             <td>{customer.customer_name}</td>
             <td>{customer.customer_phone}</td>                    
-            <td><EditCustomer customers={customers} id={customer._id} customer_name={customer.customer_name} customer_phone={customer.customer_phone} /> </td>
+            <td><EditCustomer customer={customer} UpdateCustomer={UpdateCustomer} fetchCustomers={fetchCustomers} /> </td>
           </tr>          
         ))}        
-        <RegisterCustomer />
       </tbody>
     </Table>
+        <RegisterCustomer postCustomer={postCustomer} />
       </div>
     
   );
