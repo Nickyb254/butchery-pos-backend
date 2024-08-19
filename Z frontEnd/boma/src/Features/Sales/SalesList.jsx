@@ -17,7 +17,7 @@ export default function SalesList() {
   if (fetchData) {
     axiosInstance.get('/sales')
     .then(response => {
-        console.log(response)
+        // console.log(response)
         setSales(response.data.saleProducts)
         setFetchData(false); // Reset fetchData to avoid continuous re-fetch       
     })      
