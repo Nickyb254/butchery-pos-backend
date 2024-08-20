@@ -131,8 +131,8 @@ export const employeeLogIn = async (request, response, next) => {
     if(isPasswordMatch){
       console.log('login successful!')
       return response.status(200).json({
-        message: 'Login successful!'
-    
+        message: 'Login successful!',
+        employee: employee
       });
       } else {
       return response.status(401).json({

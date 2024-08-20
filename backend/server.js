@@ -12,11 +12,20 @@ import cors from 'cors';
 
 
 const app = express();
-const PORT = process.env.MONGO_URI || 3000;
+const PORT = process.env.MONGO_URI || 3000 || 5173;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+
+// CORS configuration
+const corsOptions = {
+  origin: 'http://localhost:5173', // Frontend URL (adjust for production)
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials: false // Enable cookies and authorization headers with requests
+};
+
+app.use(cors(corsOptions));
 app.use(morgan('dev'));
 //bodyParser helps access data in the body; handle incoming post request
 //app.use(bodyParser.urlencoded({extended: true}));
