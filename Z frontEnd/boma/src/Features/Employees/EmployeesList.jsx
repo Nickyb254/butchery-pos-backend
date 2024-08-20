@@ -6,23 +6,33 @@ import axiosInstance from '../../api/axios';
 import RegisterEmployee from './RegisterEmployee';
 import EditEmployee from './EditEmployee';
 
-
-
 export default function EmployeeList() {
     const [employees, setEmployees] = useState([])
     const [fetchData, setFetchData] = useState(true); // State to trigger data re-fetch
       
-  
+  //create employee
+  const postEmployee= async(employeeData) => {
+    try{
+      await axiosInstance.post('/employees/signup', employeeData)
+      .then((result) => {
+        setFetchData(true)
+        console.log(result)
+      })
+    }
+    catch(error) {console.log(error)}
+  }
+
+ 
     //fetch All Employees
  useEffect(() => { 
   if (fetchData) {
     axiosInstance.get('/employees')
     .then(response => {
         setEmployees(response.data.result)
-        setFetchData(false); // Reset fetchData to avoid continuous re-fetch       
+        setFetchData(false); // Reset fetchData to avoid continuous re-fetch 
     })      
     .catch((error) => {
-        console.log(error);
+        console.log(response.data.result);
     })
   }}, [fetchData])
  
@@ -66,12 +76,12 @@ export default function EmployeeList() {
             <td>{employee.phone_number}</td>
             <td>{employee.email}</td>            
             <td><Button variant='danger' onClick={() => {onDelete(employee._id)}}> Delete </Button></td>
-            <td><EditEmployee employee={employee} /> </td>
+            <td><EditEmployee employee={employee}/> </td>
           </tr>          
         ))}        
       </tbody>
     </Table>
-        <RegisterEmployee />
+        <RegisterEmployee postEmployee={postEmployee} />
       </div>
     
   );
