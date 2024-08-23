@@ -1,27 +1,19 @@
 import React, {useState, useEffect} from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom' 
 import { Container, Card, Row, Col, Badge, Button } from 'react-bootstrap';
 import { addToCart } from '../../store/store';
-import axiosInstance from '../../api/axios'
+import { useContext } from 'react';
+import DataContext from '../../context/DataProvider';
 
 const ProductDetails = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState([])
     const [quantity, setQuantity] = useState(1);
-    const [stock, setStock] = useState([])
-    console.log(productId)
+    
+    const {stock} = useContext(DataContext)
+    // console.log(productId)
     const dispatch = useDispatch()
-
-    useEffect(()=>{
-        axiosInstance.get('/stock')
-        .then(response => {
-            setStock(response.data.doc)     
-        })      
-        .catch((error) => {
-            console.log(error);
-        })
-    },[])
 
     useEffect(()=>{
         const cartProduct = stock.filter(product => product._id === productId )
@@ -41,10 +33,15 @@ const ProductDetails = () => {
     }
     const handleAddToCart = () => {
         dispatch(addToCart({
-            _id: productId,
+            _id: product._id,
             quantity: quantity
         }));
     }
+
+    //testing the addition of arbitrary quantities to cart
+    const carts = useSelector(store => store.cart.items);
+    // console.log(carts)
+
   return (
     <div>
         <Container>
@@ -61,7 +58,7 @@ const ProductDetails = () => {
                         <small><Button onClick={handleMinusQuantity}> - </Button> </small> 
                         <Button>{quantity}</Button>
                         <small><Button onClick={handlePlusQuantity}> + </Button> </small> 
-                        <Badge onClick={handleAddToCart}> Add to Cart </Badge>
+                        <Button onClick={handleAddToCart}> Add to Cart </Button>
                         </Card.Text>
                     </Card.Body>
             </Card>
