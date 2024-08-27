@@ -1,42 +1,25 @@
 import  React, { useEffect, useState }  from 'react';
-import axiosInstance from '../../api/axios';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Badge, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../../components/Cart/cartSlice';
 
 function ProductDisplay() {
-    const carts = useSelector(store => store.cart.items);
-    console.log(carts)
-    const [stock, setStock] = useState([])
-    const [fetchData, setFetchData] = useState(true); // State to trigger data re-fetch     
-    
+    const stock = useSelector(state => state.stock.stock);
+        
     const dispatch = useDispatch()
 
-
-        
-    //fetch All Stock
-    useEffect(() => {
-        if(fetchData){
-             axiosInstance.get('/stock')
-        .then(response => {
-            setStock(response.data.doc)
-            setFetchData(false); // Reset fetchData to avoid continuous re-fetch       
-        })      
-        .catch((error) => {
-            console.log(error);
-        })
-        }
-    },[fetchData])
-
-    
-
-  const renderCard = (card, index) => {
     const handleAddToCart = () => {
         dispatch(addToCart({
             productId: 1,
             quantity: 1
         }))};
+        
+    
+    
+
+  const renderCard = (card, index) => {
+    
         return(
         <Col md={4} lg={3} className="mb-4" key={card._id}>
         <Card style={{ width: '18rem', margin: '1.25rem' }} >
