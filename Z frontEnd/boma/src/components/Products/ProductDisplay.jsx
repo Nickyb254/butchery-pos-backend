@@ -9,26 +9,25 @@ function ProductDisplay() {
         
     const dispatch = useDispatch()
 
-    const handleAddToCart = () => {
-        dispatch(addToCart({
-            productId: 1,
-            quantity: 1
-        }))};
-        
+    
     
     
 
-  const renderCard = (card, index) => {
+  const renderCard = (product, index) => {
     
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product));
+      };
+      
         return(
-        <Col md={4} lg={3} className="mb-4" key={card._id}>
+        <Col md={4} lg={3} className="mb-4" key={product._id}>
         <Card style={{ width: '18rem', margin: '1.25rem' }} >
-            <Card.Img variant="top" src={`http://localhost:5173/src/images/${card.stock_image}`} style={{ width: '17em', margin: '0.25em', height:'13em' }} />
+            <Card.Img variant="top" src={`http://localhost:5173/src/images/${product.stock_image}`} style={{ width: '17em', margin: '0.25em', height:'13em' }} />
                 <Card.Body>
-                    <Card.Title>{card.product_name}</Card.Title>
-                    <h3>Price: {card.price}</h3>
+                    <Card.Title>{product.product_name}</Card.Title>
+                    <h3>Price: {product.price}</h3>
                     <Card.Text>         
-                    <small><Button onClick={handleAddToCart}> Add to Cart</Button> </small> <br/>
+                    <small><Button onClick={() => handleAddToCart(product)}> Add to Cart</Button> </small> <br/>
                     <Badge > View </Badge>
                     </Card.Text>
                 </Card.Body>
