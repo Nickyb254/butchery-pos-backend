@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import Layout from './Layout.jsx';
 import AdminLayout from './section/AdminLayout.jsx';
 import Welcome from './Features/Auth/Welcome.jsx';
@@ -12,7 +12,7 @@ import SalesList from './Features/Sales/SalesList.jsx';
 import AddImages from './Features/Images/AddImages.jsx';
 import ProductDisplay from './components/Products/ProductDisplay.jsx';
 import ProductDetails from './components/Products/ProductDetails.jsx';
-import CartTab from './components/Cart/CartTab.jsx';
+import ProtectedRoute from './section/ProtectedRoute.jsx';
 
 function App() {
 
@@ -30,44 +30,44 @@ function App() {
     getEmployee()
   },[])
   
-
+  const isLoggedIn = window.localStorage.getItem("loggedIn")
   
 
   return (
         <Routes>          
+          {/* unprotected */}
           <Route path='/' element= {<Layout />}>
             <Route index element= {<Public />} />  
             <Route path='/:productId' element= {<ProductDetails />} />  
             <Route path='/beef' element= {<AddImages />} />  
-            <Route path='/goat' element= {<ProductDisplay />} />  
+            <Route path='/goat' element= {<ProductDisplay />} />
+            <Route path='login' element= {<AdminLogin/>} />  
+            <Route path='employees' element= {<EmployeeLogin onClick={getEmployee} />} />
     
-              <Route path='login'>
-                <Route index element= {<AdminLogin/>} />
-                <Route path='welcome' element={<AdminLayout/>} >   
-                <Route index element={<Welcome/>} />   
-                <Route path='employees' element={<EmployeeList/>} />   
-                <Route path='customers' element={<CustomerList/>} />   
-                <Route path='stock' element={<StockList/>} />   
-                <Route path='sales' element={<SalesList/>} />             
+          {/* Protected routes */}
+              <Route element={<ProtectedRoute/>} >                
+                <Route element={<AdminLayout/>} > 
+                <Route path='login/welcome' element={<Welcome/>} />    
+                <Route path='login/welcome/employees' element={<EmployeeList/>} />   
+                <Route path='login/welcome/customers' element={<CustomerList/>} />   
+                <Route path='login/welcome/stock' element={<StockList/>} />   
+                <Route path='login/welcome/sales' element={<SalesList/>} />             
                 </Route>
               </Route>
 
                 <Route path='employees'>
                   <Route path='register' element= {<EmployeeRegistration />} />
-                  <Route index element= {<EmployeeLogin onClick={getEmployee} />} />
-                  <Route path='profile' element= {<EmployeeProfile currentEmployee={currentEmployee} />} />
-                  <Route path='profile/stock' element={<StockList/>} />  
-                  <Route path='profile/register-customer' element= {<CustomerRegistration />} />
-                  <Route path='profile/customers' element={<CustomerList/>} />
+                  
+                    <Route path='profile' element= {<EmployeeProfile currentEmployee={currentEmployee} />} />
+                    <Route path='profile/stock' element={<StockList/>} />  
+                    <Route path='profile/register-customer' element= {<CustomerRegistration />} />
+                    <Route path='profile/customers' element={<CustomerList/>} />
+                    <Route path='profile/sales' element= {<SaleRegistration />} />
                 </Route>
 
                 <Route path='customers'>
                   <Route index element= {<CustomersLogin />} />
                   <Route path='register' element= {<CustomerSelfRegistration />} />
-                </Route>
-
-                <Route path='sales'>
-                  <Route index element= {<SaleRegistration />} />
                 </Route>
 
                 <Route path='stock'>

@@ -21,7 +21,8 @@ const EmployeeLogin = (props) => {
       const employee = await axiosInstance.post('/employees/login', { email, password})
       props.onClick(employee)
       navigate('profile')
-
+      window.localStorage.setItem("loggedIn", true)
+      console.log(employee)
     }catch(error) {console.log(error)}
   }
 

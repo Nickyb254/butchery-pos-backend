@@ -24,7 +24,8 @@ function AdminLogin () {
       const token = response.data.accessToken
      
       setAuth(JSON.stringify({token, email}));
-      console.log(response)
+      // console.log(response)
+      window.localStorage.setItem("loggedIn", true)
       navigate('welcome')
     }catch  (error) {
       console.log(error)
