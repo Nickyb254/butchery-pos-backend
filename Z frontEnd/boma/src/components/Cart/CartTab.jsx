@@ -58,11 +58,14 @@ function OffCanvasExample({ name, ...props }) {
 }
 
 function CartTab() {
-  // const carts = useSelector(state => state.cart.cartItems);
+  //useEffect solved error- cannot update a component while rendering a different component. To locate bad setState() call follow the stack trace...
+  const carts = useSelector(state => state.cart.cartItems);
   const dispatch = useDispatch()
+  
   useEffect(()=>{
     dispatch(getTotals())
-  }, [])
+  }, [carts, dispatch])
+
   return (
     <>
       {['end'].map((placement, idx) => (
