@@ -1,10 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux' 
 import CartItem from './CartItem';
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
+import { useState , useEffect } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { iconCart } from '../assets/all_products';
-import { cartTotalValue } from './cartSlice';
+import { getTotals } from './cartSlice';
 import { useNavigate } from 'react-router-dom';
 
 function OffCanvasExample({ name, ...props }) {
@@ -18,8 +17,11 @@ function OffCanvasExample({ name, ...props }) {
 
   const navigate = useNavigate()
    const goToCheckout = ()=>{
-    navigate('customers')
+    navigate('checkout')
    }
+
+ 
+   
 
   return (
     <>
@@ -56,6 +58,11 @@ function OffCanvasExample({ name, ...props }) {
 }
 
 function CartTab() {
+  // const carts = useSelector(state => state.cart.cartItems);
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getTotals())
+  }, [])
   return (
     <>
       {['end'].map((placement, idx) => (
