@@ -2,17 +2,16 @@ import { useState, useEffect } from 'react';
 import {Form, Button,  Modal} from 'react-bootstrap';
 import axiosInstance from '../../api/axios';
 
-function EditSale(props) {
+function EditSale({sale}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
    
-  const [product, setProduct] = useState(props.sale.product)
-  const [price, setPrice] = useState(props.sale.price)
-  const [mass_sold, setMass_sold] = useState(props.sale.mass)
-  const [transaction_by, setTransaction_by] = useState(props.sale.servedBy)
-  
+  const [product, setProduct] = useState(sale.product)
+  const [price, setPrice] = useState(sale.price)
+  const [mass_sold, setMass_sold] = useState(sale.mass)
+  const [transaction_by, setTransaction_by] = useState(sale.servedBy)
 
   const onProductChange = e => setProduct(e.target.value)
   const onPriceChange = e => setPrice(e.target.value)
@@ -21,12 +20,11 @@ function EditSale(props) {
 
   const data = {product, price, mass_sold, transaction_by}
 
-    
   
   const handleEditSale = async (e) => {  
   e.preventDefault()
   try{
-    await axiosInstance.patch(`/sales/${props.sale._id}`, data)
+    await axiosInstance.patch(`/sales/${sale._id}`, data)
     .then((result) => {
         // setFetchData(true)
         handleClose()
