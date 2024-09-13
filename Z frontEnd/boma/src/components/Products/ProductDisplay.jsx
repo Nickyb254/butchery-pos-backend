@@ -2,30 +2,38 @@ import  React, { useEffect, useState }  from 'react';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Badge, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../../components/Cart/cartSlice';
+import { addToCart } from '../../Features/Cart/cartSlice';
 import { useNavigate } from 'react-router-dom';
+import { useGetStockQuery } from '../../Features/Stock/stockApiSlice';
 
 function ProductDisplay() {
-    const stock = useSelector(state => state.stock.stock);
-        
+    const {data, error, isLoading } = useGetStockQuery()
     const dispatch = useDispatch()
+    const navigate = useNavigate()  
+    let stock;
 
-    
-   const navigate = useNavigate()
-   
-   const goToProductDetails = (productId)=>{
-    navigate(`/${productId}`)
-   }
-    
-    
+    if(isLoading) return <div>loading..</div>
 
-  const renderCard = (product, index) => {
-    let productId = product?._id
+    if(error) return <div>{error.message}</div>
+
+    if(data){        
+        const {ids, entities} = data
+         stock = ids.map(id => entities[id]);  
+            
+        }
+            
     
-    const handleAddToCart = (product) => {
-        dispatch(addToCart(product));
-      };
-      
+    const renderCard = (product, index) => {
+        let productId = product?._id
+        
+        const handleAddToCart = (product) => {
+            dispatch(addToCart(product));
+            };        
+         
+        const goToProductDetails = (productId)=>{
+            navigate(`/${productId}`)
+        }
+        
         return(
         <Col md={4} lg={3} className="mb-4" key={product._id}>
         <Card style={{ width: '18rem', margin: '1.25rem' }} >
@@ -47,7 +55,7 @@ function ProductDisplay() {
       <Container>
       {stock === null ? "" :
         <Row>
-            {stock.map(renderCard)}
+            {stock?.map(renderCard)}
         </Row>}
     </Container>
   );
