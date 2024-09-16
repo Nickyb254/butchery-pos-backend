@@ -1,8 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {Form, Button,  Modal} from 'react-bootstrap';
-import axiosInstance from '../../api/axios';
+import { useUpdateEmployeeMutation } from './EmployeeApiSlice';
 
-function EditEmployee({employee, UpdateEmployee}) {
+function EditEmployee({employee}) {
+  const [updateEmployee, {
+    isLoading,
+    isSuccess,
+    isError,
+    error
+}] = useUpdateEmployeeMutation()
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -20,20 +27,14 @@ function EditEmployee({employee, UpdateEmployee}) {
   const onEmailChange = e => setEmail(e.target.value)
   const onPasswordChange = e => setPassword(e.target.value)
 
-  const data = {employee_name, designation, phone_number, email, password}
 
-    
-   //update employee
-   const handleEditEmployee = async (e) => {  
+
+  const data = {id:employee._id, employee_name, designation, phone_number, email, password}
+
+  const handleEditEmployee = async(e) => {
     e.preventDefault()
-    try{
-      await axiosInstance.patch(`/employees/${employee._id}`, data)
-      .then((result) => {
-          handleClose()
-          // console.log(result)
-        })
-      }
-      catch(error) {console.log(error)}
+    await updateEmployee(data)
+    handleClose()
   }
 
 
@@ -53,7 +54,7 @@ function EditEmployee({employee, UpdateEmployee}) {
 
             <Form.Group className="mb-3" controlId="employee_name">
               <Form.Label>* Enter Full Names:</Form.Label>
-              <Form.Control type="string" onChange={onNameChange} value={employee_name}  />
+              <Form.Control type="string" onChange={onNameChange} value={employee_name} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="designation">
@@ -94,3 +95,38 @@ function EditEmployee({employee, UpdateEmployee}) {
 }
 
 export default EditEmployee;
+
+
+//ORIGINAL  CODE......................................................
+
+  // const [employeeDetails, setEmployeeDetails] = useState({
+  //   id:employee._id,
+  //   employee_name: employee.employee_name,
+  //   designation: employee.designation,
+  //   phone_number: employee.phone_number,
+  //   email: employee.email,
+  //   password: employee.password
+  // });
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setEmployeeDetails(prevState => ({
+  //     ...prevState,
+  //     [name]: value
+  //   }));
+  // };
+
+
+  
+   //update employee
+  //  const handleEditEmployee = async (e) => {  
+  //   e.preventDefault()
+  //   try{
+  //     await axiosInstance.patch(`/employees/${employee._id}`, data)
+  //     .then((result) => {
+  //         handleClose()
+  //         // console.log(result)
+  //       })
+  //     }
+  //     catch(error) {console.log(error)}
+  // }
