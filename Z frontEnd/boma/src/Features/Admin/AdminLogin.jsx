@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLoginMutation } from './AdminSlice';
+import { useLoginMutation } from './AdminApiSlice';
 import { useDispatch } from 'react-redux';
 
 import Button from 'react-bootstrap/Button';
