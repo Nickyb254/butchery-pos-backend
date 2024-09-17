@@ -1,23 +1,34 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import MyNavbar from "./components/Navbar";
 import AdminHeader from "./section/AdminHeader";
 
-import React from 'react'
+const ROUTES = {
+  ADMIN_REGEX: /\/login\/welcome/,
+  EMPLOYEE_REGEX: /\/employees\/profile/
+}
 
 const Layout = () => {
-  const isLoggedIn = window.localStorage.getItem("loggedIn")
-  let header1 = <MyNavbar/>
-  let header2 = <AdminHeader/>
+  const location = useLocation() //get current location from react-router-dom
+  const path = location.pathname //get current path
 
-  let content = header1 || header2
-  isLoggedIn ? 
-  content = header2
-            : content = header1 
+  let currentNavBar
   
+  switch(true){
+    case ROUTES.ADMIN_REGEX.test(path):
+    case ROUTES.EMPLOYEE_REGEX.test(path):
+
+      currentNavBar = <AdminHeader/>
+      break;
+
+    default: 
+      currentNavBar = <MyNavbar/>
+      break;
+  }
+    
   return (
     <>
-    {content}
-    <Outlet/>
+      {currentNavBar}
+      <Outlet/>
     </>
   )
 }
