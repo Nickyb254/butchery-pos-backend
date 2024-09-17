@@ -1,65 +1,27 @@
-import  React, { useEffect, useState }  from 'react';
 import Table from 'react-bootstrap/Table';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Button from 'react-bootstrap/esm/Button';
-import axiosInstance from '../../api/axios';
 import RegisterCustomer from './RegisterCustomer';
 import EditCustomer from './EditCustomer';
-
-
+import { useGetCustomersQuery } from './CustomerApiSlice';
 
 export default function CustomersList() {
-  const [customers, setCustomers] = useState([])  
-  
-  const postCustomer = async(data) => {
-    try{
-    await axiosInstance.post('/customers', data)
-    .then((result) => {      
-      fetchCustomers()
-      //  console.log(result)
+  const {data, error, isLoading} = useGetCustomersQuery('customersList', {
+        // pollingInterval: 15000,
+        refetchOnFocus: true,
+        refetchOnMountOrArgChange: true
     })
-    }catch(error) {console.log(error)}
-  }
-
-  const fetchCustomers =async ()=>{
-    try{
-   await axiosInstance.get('/customers')
-    .then(response => {
-        setCustomers(response.data.customers)
-        // console.log(response.data.customers)     
-    })      
-    }catch(error) {
-        console.log(error);
+  let customers
+    if(data){
+        const {ids, entities} = data
+        customers = ids.map(id=>entities[id])
     }
-  }
-
-    //fetch All customers
- useEffect(() => {   
-  fetchCustomers()
-  }, [])
-
-  
-    const UpdateCustomer = async (customer) => {  
-      try{
-        await axiosInstance.patch(`/customers/${customer.customer_id}`, customer)
-        .then((result) => {
-            fetchCustomers()
-            handleClose()
-            console.log(result)
-          })
-        }catch(error) {console.log(error)}
-      }
-
-
 
   return (
   
-    <div className="container mt-3">
-      
+  <div className="container mt-3">      
       <ListGroup>
         <ListGroup.Item><h1>List of Boma Butchery Customers</h1> </ListGroup.Item>
       </ListGroup>
-
     
     <Table striped bordered hover>
       <thead className="table-success">
@@ -70,18 +32,72 @@ export default function CustomersList() {
         </tr>
       </thead>
       <tbody>
-      {customers.map((customer, index) => ( 
-          <tr key={customer.customer_id}>
+      {customers?.map((customer, index) => ( 
+          <tr key={customer._id}>
             <td>{index + 1}</td> 
             <td>{customer.customer_name}</td>
             <td>{customer.customer_phone}</td>                    
-            <td><EditCustomer customer={customer} UpdateCustomer={UpdateCustomer} fetchCustomers={fetchCustomers} /> </td>
+            <td><EditCustomer id={customer._id} customer={customer}  /> </td>
           </tr>          
         ))}        
       </tbody>
     </Table>
-        <RegisterCustomer postCustomer={postCustomer} />
-      </div>
+   <RegisterCustomer />
+  </div>
     
   );
 }
+
+
+//ORIGNAL CODE........................................
+
+  // const axiosPrivate = useAxiosPrivate()
+  // const [customers, setCustomers] = useState([])  
+  // const [fetchData, setFetchData] = useState(true)
+  
+  //INITIALLY WAS PASSED AS PROP TO REGISTER EMPLOYEE COMPONENT
+  // const postCustomer = async(data) => {
+  //   try{
+  //   await axiosInstance.post('/customers', data)
+  //   .then((result) => {      
+  //     // fetchCustomers()
+  //     setFetchData(true)
+  //      console.log(result)
+  //   })
+  //   }catch(error) {console.log(error)}
+  // }
+
+    //update customer entry
+    // const UpdateCustomer = async (customer) => {  
+    //   try{
+    //     await axiosInstance.patch(`/customers/${customer.customer_id}`, customer)
+    //     .then((result) => {
+    //         // fetchCustomers()
+    //         setFetchData(true)
+    //         handleClose()
+    //         console.log(result)
+    //       })
+    //     }
+    //   catch(error) {console.log(error)}
+    // }
+
+
+  //get all customers
+ 
+  // const fetchCustomers =async ()=>{
+//     try{
+//    await axiosInstance.get('/customers')
+//     .then(response => {
+//         setCustomers(response.data.customers)
+//         setFetchData(false)
+//         console.log(response.data.customers)     
+//     })      
+//     }catch(error) {
+//         console.log(error);
+//     }
+//   }
+
+//     //fetch All customers
+//  useEffect(() => {   
+//   fetchCustomers()
+//   }, [fetchData])
