@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import EmployeeModel from "../models/employees.js";
 import bcrypt from 'bcrypt';
+import asyncErrorHandler from '../../utils/asyncErrorHandler.js';
 
 export const getAllEmployees = (request, response, next) => {
   EmployeeModel
@@ -41,6 +42,7 @@ export const createEmployee = (request, response, next) => {
             // employee_Id: new mongoose.Types.ObjectId,
             employee_name: request.body.employee_name,
             designation: request.body.designation,
+            bio: request.body.bio,
             phone_number: request.body.phone_number,
             email: request.body.email,
             password: hash
@@ -48,7 +50,7 @@ export const createEmployee = (request, response, next) => {
           employee
           .save()
           .then(result => {
-            console.log(result);
+            // console.log(result);
             response.status(201).json({
               message: 'New Employee created!',
               employee: employee,
@@ -127,6 +129,11 @@ export const employeeLogIn = async (request, response, next) => {
     }
 
     const employee = employees[0];
+    if(!employee.active){
+      return response.status(401).json({
+        message: 'Contact the Admin for Activation!'
+      })
+    }
     const isPasswordMatch = await bcrypt.compare(request.body.password, employee.password);
     if(isPasswordMatch){
       console.log('login successful!')
@@ -170,3 +177,27 @@ export const deleteEmployee = async (request, response, next)=>{
     })
   }  
 }
+
+
+//disable employee - soft delete
+  export const disableEmployee = asyncErrorHandler(async(request, response, next)=>{
+    const employeeId = request.params.id
+    // const updatedEmployee = await EmployeeModel.findByIdAndUpdate(employeeId, {active: false} )
+    const employee = await EmployeeModel.findById(employeeId)
+    if (!employee) {
+      return response.status(404).json({
+          status: 'fail',
+          message: 'Employee not found'
+      });
+  }
+
+  // Toggle the active status
+  employee.active = !employee.active;
+  
+  // Save the updated employee
+  await employee.save();
+    response.status(200).json({
+      status: 'success',
+      data: null
+    })
+  })
