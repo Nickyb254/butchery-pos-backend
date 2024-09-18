@@ -3,22 +3,33 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/esm/Button';
 import RegisterEmployee from './RegisterEmployee';
 import EditEmployee from './EditEmployee';
-import { useGetAllEmployeesQuery, useDeleteEmployeeMutation } from './EmployeeApiSlice';
+import { useGetAllEmployeesQuery, useDeleteEmployeeMutation} from './EmployeeApiSlice';
 
 export default function EmployeeList() {
-  const {data, error, isLoading} = useGetAllEmployeesQuery()
+  const {
+    data,
+    isLoading,
+    isSuccess,
+    isError,
+    error
+  } = useGetAllEmployeesQuery(undefined, {
+    // pollingInterval: 15000,
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange: true
+  })
+  
   let employees
 
   if(data){
     const {ids, entities} = data
     employees = ids.map(id => entities[id])
   }
-    
-const [deleteEmployee, {
-    isSuccess: isDelSuccess,
-    isError: isDelError,
-    error: delerror
-  }] = useDeleteEmployeeMutation()
+      
+  const [deleteEmployee, {
+      isSuccess: isDelSuccess,
+      isError: isDelError,
+      error: delerror
+    }] = useDeleteEmployeeMutation()
 
   return (
   
@@ -41,12 +52,12 @@ const [deleteEmployee, {
       </thead>
       <tbody>
         {employees?.map((employee, index) => (
-          <tr key={employee._id}>
+          <tr key={employee._id} className={!employee.active ? 'table-light' : ''}>
             <td>{index + 1}</td> 
             <td>{employee.employee_name}</td>
             <td>{employee.designation}</td>
             <td>{employee.phone_number}</td>
-            <td>{employee.email}</td>            
+            <td>{employee.email}</td>          
             <td><Button variant='danger' onClick={() => {deleteEmployee(employee._id)}}> Delete </Button></td>
             <td><EditEmployee employee={employee} /> </td>
           </tr>          

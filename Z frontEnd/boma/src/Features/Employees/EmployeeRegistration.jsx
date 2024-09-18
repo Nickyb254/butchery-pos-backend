@@ -14,17 +14,19 @@ export default function EmployeeRegistration() {
  
   const [employee_name, setEmployee_name] = useState()
   const [designation, setDesignation] = useState()
+  const [bio, setBio] = useState()
   const [phone_number, setPhone_number] = useState()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
  
   const onNameChange = e => setEmployee_name(e.target.value)
   const onDesignationChange = e => setDesignation(e.target.value)
+  const onBioChange = e => setBio(e.target.value)
   const onPhoneNumberChange = e => setPhone_number(e.target.value)
   const onEmailChange = e => setEmail(e.target.value)
   const onPasswordChange = e => setPassword(e.target.value)
 
-  const data = {employee_name, designation, phone_number, email, password}
+  const data = {employee_name, designation, bio, phone_number, email, password}
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -49,6 +51,11 @@ export default function EmployeeRegistration() {
      <Form.Group className="mb-3" controlId="designation">
        <Form.Label>* Enter your designation / role:</Form.Label>
        <Form.Control type="string" onChange={onDesignationChange}  />
+     </Form.Group>
+
+     <Form.Group className="mb-3" controlId="designation">
+       <Form.Label>* Enter your bio:</Form.Label>
+       <Form.Control type="string" onChange={onBioChange}  />
      </Form.Group>
 
      <Form.Group className="mb-3" controlId="phone_number">

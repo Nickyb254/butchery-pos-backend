@@ -4,20 +4,26 @@ import { staff_icon } from '../../components/assets/all_products';
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { selectEmployee } from './EmployeeSlice';
+import { useEmployeeLogOutMutation } from './EmployeeApiSlice';
+import EditEmployee from './EditEmployee'
 
 const EmployeeProfile = () => {
+  const [employeeLogOut, {
+    isLoading,
+    isSuccess,
+    isError,
+    error
+}] = useEmployeeLogOutMutation()
+
   const navigate = useNavigate()
   const employee = useSelector(selectEmployee)
   
   return (
-    <Container className='container ' style={{minHeight:'50vh'}}>
-   
+    <Container className='container ' style={{minHeight:'50vh'}}>   
     <Row className="justify-content-center m-5" >
-
       <Col className='pt-3' >
-          <Link to={''}> <Button className='border-white w-100' >Dashboard</Button></Link>
-          <Button onClick={()=>{navigate('stock')}} className='border-white w-100'>Edit Stock</Button>
-          <Button onClick={()=>{navigate('register-customer')}} className='border-white w-100'>Add Customers</Button>
+          <Button onClick={()=>{navigate('stock')}} className='border-white w-100'>Stock</Button>
+          <Button onClick={()=>{navigate('register-customer')}} className='border-white w-100'>Customers</Button>
           <Link to={''}> <Button className='border-white w-100'>Daily Stock</Button></Link>
           <Link to={'sales'}> <Button className='border-white w-100'>Sales</Button></Link>
           <Link to={''}> <Button className='border-white w-100'>Place Order</Button></Link>
@@ -30,7 +36,7 @@ const EmployeeProfile = () => {
             <h6 className='mx-5'>Employee Dashboard</h6>
             <div className='d-inline mx-5'>
               <h6 className='d-inline mx-4' >Welcome: {employee.employee_name}!</h6>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <svg onClick={()=>employeeLogOut()} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-box-arrow-right" viewBox="0 0 16 16">
                 <path fillRule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
                 <path fillRule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
               </svg>
@@ -78,13 +84,13 @@ const EmployeeProfile = () => {
                 <Row className='d-inline-block justify-content-lg-start'>
                   <Col className='h-50 p-0.2'>
                   <div className='p-1 mt-3 m-2 border border-primary rounded'>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                    <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                  </svg>
-                  
-                  <p>BIO</p> 
-                  <p>I am a seasoned sales professional with over 10 years of experience in driving revenue growth and building strong client relationships. Known for his strategic mindset and exceptional communication skills, John excels at identifying customer needs and delivering tailored solutions, ensuring high levels of satisfaction and loyalty.</p>
+                    <div></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                      <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>                  
+                    <p>BIO</p> 
+                    <p>{employee.bio}</p>
                   </div>
                   </Col>
                  
@@ -98,13 +104,9 @@ const EmployeeProfile = () => {
                 </Row>
               </Col>
             </Row>
-          <Card.Body>
-              {/* <br/><Link to="stock"> View Stock </Link> <br/>
-              <Link to="register-customer"> Register Customer </Link>
-              <br/><Link to="customers">All customers</Link>  */}
-            <div className="mt-3">
-              <Button variant="outline-primary" className="me-2">EDIT</Button>
-              <Button variant="outline-secondary">SAVE</Button>
+          <Card.Body>              
+            <div className="mt-3">   
+              <EditEmployee employee={employee} /> 
             </div>
           </Card.Body>
         </Card>
