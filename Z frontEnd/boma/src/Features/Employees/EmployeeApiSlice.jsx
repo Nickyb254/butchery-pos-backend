@@ -77,7 +77,7 @@ export const employeeApiSlice = apiSlice.injectEndpoints({
         }),
         disableEmployee: builder.mutation({
             query: ( id ) => ({
-                url: `/employees/${id}/disable`,
+                url: `/user/disable/${id}`,
                 method: 'PATCH',
                 body: { id }
             }),
