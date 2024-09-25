@@ -1,15 +1,21 @@
-import mongoose from 'mongoose';
 import stockModel from '../models/stock.js';
 
 
 export const getAllStock = (request, response, next)=>{
   stockModel.find()
     .exec()
-    .then(doc =>{
-      console.log(doc);
+    .then(docs =>{
+      // console.log(doc);
         response.status(200).json({
           message: 'Get request from stock successful!',
-          doc: doc          
+          doc: docs.map(dos =>{
+            return {
+              _id: dos._id,
+              product_name: dos.product_name,
+              price: dos.price,
+              stock_image: dos.stock_image
+            }
+          })          
         });
     })
     .catch(error => {
@@ -25,6 +31,7 @@ export const getAllStock = (request, response, next)=>{
 
 
 export const createStockItem = (request, response, next) =>{
+  try{ 
   console.log(request.file);
   const stockItem = new stockModel ({
     product_name: request.body.product_name,
@@ -32,20 +39,21 @@ export const createStockItem = (request, response, next) =>{
     mass_bought: request.body.mass_bought,
     mass_available: request.body.mass_available,
     supplier_name: request.body.supplier_name,
-    stock_image: request.file.path
+    stock_image: request.file.filename
   });
     stockItem
     .save()
     .then(doc => {
       console.log(doc);
     })
-    .catch(error => {
+    response.status(200).json({
+      message: 'Post request from stock successful!',
+      stockItem: stockItem
+    });
+  }
+    catch(error) {
       console.log(error);
-    })
-  response.status(200).json({
-    message: 'Post request from stock successful!',
-    stockItem: stockItem
-  });
+  } 
 }
 
 

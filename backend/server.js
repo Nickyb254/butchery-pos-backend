@@ -8,10 +8,14 @@ import stockRoutes from './api/routes/stockRoutes.js';
 import morgan from "morgan";
 import userRoutes from './api/routes/userRoutes.js';
 // import imagesRoutes from './api/routes/imagesRoutes.js'
+import stripeRoutes from './api/routes/stripeRoutes.js'
 import { configDotenv } from "dotenv";
 import cors from 'cors';
+import cookieParser from "cookie-parser";
+import customError from "./utils/customError.js";
+import globalErrorHandler from "./api/controllers/errorController.js"
 
-
+configDotenv()
 const app = express();
 const PORT = process.env.MONGO_URI || 3000 || 5173;
 
@@ -23,7 +27,7 @@ const corsOptions = {
   origin: 'http://localhost:5173', 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: 'Content-Type, Authorization',
-  credentials: false
+  credentials: true
 };
 
 app.use(cors(corsOptions));
@@ -31,7 +35,7 @@ app.use(morgan('dev'));
 //bodyParser helps access data in the body; handle incoming post request
 //app.use(bodyParser.urlencoded({extended: true}));
 //app.use(bodyParser.json());
-
+app.use(cookieParser());
 
 // ------------------------------------------------------------------------------------
 import multer from 'multer';
@@ -99,12 +103,15 @@ app.use(errHandler)
 
 //CORS errors- CROSS-ORIGIN RESOURCE SHARING
 app.use((request, response, next) => {
-  response.header('Access-Control-Allow-Origin', '*');
+   // Set CORS origin & headers
+  response.header('Access-Control-Allow-Origin', 'http://localhost:5173');
   response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+   // Handle preflight OPTIONS requests
   if (request.method === 'OPTIONS'){
       response.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE GET');
     return response.status(200).json({});
   }
+  // Proceed to the next middleware or route handler
   next();
 });
 
@@ -120,25 +127,21 @@ app.use('/sales/Id', salesRoutes);
 app.use('/stock/Id', stockRoutes);
 app.use('/user', userRoutes);
 app.use('/login', userRoutes);
+app.use('/refresh', userRoutes);
 // app.use('/images', imagesRoutes);
+app.use('/stripe', stripeRoutes);
 
 //handling any request not in the above routers
-app.use((request, response, next)=>{
-  const error = new error('Not found');
-  error.status(404);
+app.all('*',(request, response, next)=>{
+  // const error = new error('Not found');
+  // error.status(404);
+  const error = new customError(`Can't find ${request.originalUrl} on the server`, 404)
   next(error);
 });
 
-//next passes 404 error and any other error down
+//next passes 404 error and any other error down to global error handler below
 
-app.use((error, request, response, next)=>{
-  response.status(error.status || 500);
-  response.json({
-    error:{
-      message: error.message
-    }
-  });
-});
+app.use(globalErrorHandler);
 
  
 app.listen(PORT, () => {

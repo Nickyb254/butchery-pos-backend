@@ -11,7 +11,7 @@ import {deleteSale} from  '../controllers/sales.js';
 router.get('/', getAllSales);
 router.get ('/:salesId', getOneSale);
 router.post('/',  createSale);//checkAuth,
-router.patch('/:salesId', checkAuth,  updateSale);
-router.delete('/:salesId', checkAuth,  deleteSale);
+router.patch('/:salesId',  updateSale); // checkAuth,
+router.delete('/:salesId', deleteSale); //checkAuth,  
 
 export default router;

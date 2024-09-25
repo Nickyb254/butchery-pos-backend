@@ -1,25 +1,15 @@
 import mongoose from 'mongoose';
 import { v4 as uuidv4 } from 'uuid';
-
+import stockModel from './stock.js';
+import CustomerModel from './customers.js';
 
 const OrderSchema = new mongoose.Schema({
   _id: {type: String, default: uuidv4, required: true },
-  customerId: {type: String, required: true },
+  customerId: [{ type: String, required: true, ref: 'CustomerModel' }],
+  products: [{ type: String, required: true, ref: 'stockModel' }],
   stripeCustomerId: {type: String},
-  email:  {type: String,  unique: true },
-  phone: {type: String},
+  sessionId: {type: String},
   paymentIntent: {type: String},
-  products: [
-        {
-            id: {type: Object},
-            product_name: {type: String, required: true },
-            desc: {type: String},
-            price: {type: Number, required: true, trim: true, min:0},
-            // order_image: { type: String},
-            quantity: {type: Number, required: true},
-
-        }
-    ],
     subtotal:{type: Number},
     total:{type: Number},
     shipping: {type: Object},

@@ -190,7 +190,9 @@ export const customerLogIn = asyncErrorHandler(async (request, response, next) =
   console.log('New refresh token saved with user', result)
 
     return response.status(200).json({
-      accessToken
+      accessToken,
+      name: customer.customer_name,
+      id: customer._id
     });
 })
 

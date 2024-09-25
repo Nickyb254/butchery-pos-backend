@@ -1,23 +1,26 @@
 import express from "express";
 const router = express.Router();
 
-import mongoose from "mongoose";
-import CustomerModel  from '../models/customers.js';
 import checkAuth from '../middleware/check-auth.js';
 
 //controllers
-import {customers_get_all} from '../controllers/customers.js';
-import {getOneCstomer} from '../controllers/customers.js';
+import {getAllCustomers, getOneCstomer} from '../controllers/customers.js';
+import {customerLogIn} from '../controllers/customers.js';
 import {createCustomer} from '../controllers/customers.js';
 import {updateCustomer} from '../controllers/customers.js';
 import {deleteCustomer} from '../controllers/customers.js';
+import {handleRefreshToken} from '../controllers/customers.js';
+import {customerLogOut} from '../controllers/customers.js';
 
 //routes
-router.get('/', customers_get_all);
+router.get('/',  getAllCustomers);//checkAuth,
 router.get('/:customerId', getOneCstomer);
+router.get('/refresh', handleRefreshToken);
 router.post('/', createCustomer);
-router.patch('/:customersId', checkAuth, updateCustomer);
-router.delete('/:customersId', checkAuth,  deleteCustomer);
+router.post('/login', customerLogIn);
+router.post('/log-out', customerLogOut);
+router.patch('/:customersId', updateCustomer); // checkAuth,
+router.delete('/:customersId', deleteCustomer); //checkAuth,  
 
 
 

@@ -3,10 +3,18 @@ import userModel from '../models/user.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import asyncErrorHandler from '../../utils/asyncErrorHandler.js';
+import customError from '../../utils/customError.js'
+import sendEmail from '../../utils/email.js';
+import crypto from 'crypto'
 
+export const createUser = async(request, response, next) => {
+  const {email, password, confirmPassword} = request.body
 
-export const createUser = (request, response, next) => {
-  userModel.find({email: request.body.email})
+  if (password !== confirmPassword) {
+    return res.status(400).json({ message: 'Passwords do not match' });
+  }
+
+  await userModel.find({email})
   .exec()
   .then(user => {
     if( user.length >= 1 ){
@@ -15,7 +23,7 @@ export const createUser = (request, response, next) => {
       });
     }
     else {
-      bcrypt.hash(request.body.password, 2, (err, hash) => {
+      bcrypt.hash(password, 2, (err, hash) => {
         if(err){
           return response.status(500).json({
             error: err
@@ -99,7 +107,7 @@ export const createUser = (request, response, next) => {
 // return res.status(404).json({
 //message: 'Mail not found, user doesn\'t exist'})
 // .......................................................................................
-export const handleRefreshToken = asyncErrorHandler(async (request, response) => {
+export const handleRefreshToken = asyncErrorHandler(async (request, response, next) => {
   const cookies = request.cookies
 
   if (!cookies?.jwt) return response.sendStatus(401).json({ message: 'Unauthorized! The user has no cookie' })
@@ -138,7 +146,7 @@ export const handleRefreshToken = asyncErrorHandler(async (request, response) =>
 })
 
 //log out........................................................................
-export const logOut = asyncErrorHandler(async (request, response) => {
+export const userLogOut = asyncErrorHandler(async (request, response, next) => {
   
     const cookies = request.cookies
     if(!cookies?.jwt) return response.sendStatus(204) //no content
@@ -166,7 +174,7 @@ export const deleteUser = (request, response, next) => {
   userModel.deleteOne({ _id: request.params.userId })
   .exec()
   .then(result => {
-    response.status(200).jsons({
+    response.status(200).json({
       message: 'User deleted!'
     });
   })
@@ -177,3 +185,87 @@ export const deleteUser = (request, response, next) => {
     });
   })
 }
+
+//FORGOT PASSWORD....................................................................
+export const forgotPassword = asyncErrorHandler(async(request, response, next) => {
+  //find user using email
+  const user = await userModel.findOne({email: request.body.email})
+  
+  if(!user){
+    const error = new customError('No user with given email!', 404)
+    next(error)
+  }
+
+  //create reset token
+  const resetToken = user.createResetPasswordToken()
+  await user.save({validateBeforeSave: false})
+
+  const resetUrl = `${request.protocol}://${request.get('host')}/users/password-reset/${resetToken}`
+  const message = `Hi ${user.name},\n\nWe have received your password reset request.\n\nKindly click the link provided to reset your password.\n\n${resetUrl}\n\nThe link is valid for 10 mins.\n\nIf you did not initiate this request kindly ignore. Regards\n\nBoma Butchery\n\nICT Support`
+
+  //send email with reset link to user
+  try{
+    await sendEmail({
+      email: user.email,
+      subject: 'BOMA BUTCHERY PASSWORD RESET',
+      message
+    })
+
+    response.status(200).json({
+      status: 'sucess',
+      message: 'Check your email for password reset link.'
+    })
+  }catch(error){
+    user.passwordResetToken = undefined
+    user.passwordResetTokenExpires = undefined
+    user.save({validateBeforeSave: false})
+    // console.log('this is the error',error)
+    next(new customError('There was an error sending password reset email!', 500))
+  }  
+})
+
+//RESET PASSWORD....................................................................
+export const resetPassword = asyncErrorHandler(async(request, response, next) => {
+  // getting token from params & hashing it to match copy in DB
+  const token = crypto.createHash('sha256').update(request.params.token).digest('hex')
+
+  // find user with valid token
+  const user = await userModel.findOne({passwordResetToken: token, passwordResetTokenExpires: {$gt: Date.now()}})
+  console.log(user)
+
+  if(!user){
+    const error = new customError('Invalid token or has expired', 400)
+    console.log(error)
+    return next(error)
+  }
+
+  //setting new password
+  user.password = request.body.password
+  user.confirmPassword = request.body.confirmPassword
+  user.passwordResetToken = undefined
+  user.passwordResetTokenExpires = undefined
+  user.passwordChangedAt = Date.now()
+
+  //automatic log in user
+  const accessToken = jwt.sign(
+    {email: user.email, userId: user._id },
+    process.env.JWT_SECRET_KEY,
+    {expiresIn: "13s"});
+
+  const refreshToken = jwt.sign(
+    {email: user.email, userId: user.user_id  },
+    process.env.REFRESH_TOKEN_SECRET,
+    { expiresIn: '15min' })
+
+// Create secure cookie with refresh token 
+  response.cookie('jwt', refreshToken, {httpOnly: true, secure: false, sameSite: 'None', maxAge: 15 * 60 * 1000 })
+
+// Saving refreshToken with current user //cookie expiry: set to match rT 7 * 24 * 60 * 60 * 1000
+  user.refreshToken = refreshToken
+  const result = user.save({validateBeforeSave: false})
+  console.log('New refresh token saved with user', result)
+
+  return response.status(200).json({
+     accessToken
+  });
+})

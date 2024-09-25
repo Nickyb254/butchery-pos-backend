@@ -117,7 +117,7 @@ export const updateEmployee = async (request, response) => {
  }
 }
 
-
+//EMPLOYEE LOG IN...............................................................................
 export const employeeLogIn = async (request, response, next) => {
   try {
     const employees = await EmployeeModel.find({ email: request.body.email }).exec();
@@ -134,6 +134,7 @@ export const employeeLogIn = async (request, response, next) => {
         message: 'Contact the Admin for Activation!'
       })
     }
+
     const isPasswordMatch = await bcrypt.compare(request.body.password, employee.password);
     if(isPasswordMatch){
       console.log('login successful!')
@@ -179,7 +180,7 @@ export const deleteEmployee = async (request, response, next)=>{
 }
 
 
-//disable employee - soft delete
+//disable employee - soft delete................................................................
   export const disableEmployee = asyncErrorHandler(async(request, response, next)=>{
     const employeeId = request.params.id
     // const updatedEmployee = await EmployeeModel.findByIdAndUpdate(employeeId, {active: false} )
@@ -198,6 +199,35 @@ export const deleteEmployee = async (request, response, next)=>{
   await employee.save();
     response.status(200).json({
       status: 'success',
-      data: null
+      data: employee
     })
   })
+
+
+  //ADDING ROLES TO EMPLOYEE...............................................................
+  // Add roles to an employee
+export const addRolesToEmployee = asyncErrorHandler(async (req, res, next) => {
+  const { employeeId, roles } = req.body;
+  
+  // Validate the input
+  if (!employeeId || !roles.length> 0) {
+    return res.status(400).json({ message: 'Invalid input! Confirm and try again' });
+  }
+
+  // try {
+    // Find the employee and update the roles
+    const employee = await EmployeeModel.findById({_id: employeeId});
+    if (!employee) {
+      return res.status(404).json({ message: 'Employee not found' });
+    }
+
+    // Add roles, avoiding duplicates
+    // employee.roles = [...new Set([...employee.roles, ...roles])];
+    employee.roles = [...roles, "Employee"];
+    await employee.save({validateBeforeSave: false});
+
+    return res.status(200).json({ message: 'Roles updated successfully', employee });
+  // } catch (error) {
+  //   return res.status(500).json({ message: 'Server error', error: error.message });
+  // }
+});

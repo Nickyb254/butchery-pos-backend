@@ -12,7 +12,7 @@ export const getAllSales = (request, response, next) => {
     .select('product price mass_sold transaction_by')
     .exec()
     .then(result => {
-      console.log(result);      
+      // console.log(result);      
       if(result.length < 1){
         return response.status(200).json({message: 'No sales records available!'});
       }
