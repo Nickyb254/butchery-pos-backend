@@ -5,6 +5,7 @@ import customerRoutes from './api/routes/customerRoutes.js';
 import employeesRoutes from './api/routes/employeesRoutes.js';
 import salesRoutes from './api/routes/salesRoutes.js';
 import stockRoutes from './api/routes/stockRoutes.js';
+import orderRoutes from './api/routes/orderRoutes.js'
 import morgan from "morgan";
 import userRoutes from './api/routes/userRoutes.js';
 // import imagesRoutes from './api/routes/imagesRoutes.js'
@@ -130,6 +131,7 @@ app.use('/login', userRoutes);
 app.use('/refresh', userRoutes);
 // app.use('/images', imagesRoutes);
 app.use('/stripe', stripeRoutes);
+app.use('/orders', orderRoutes);
 
 //handling any request not in the above routers
 app.all('*',(request, response, next)=>{

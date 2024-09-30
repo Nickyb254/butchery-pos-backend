@@ -24,8 +24,7 @@ export const getAllOrders = (request, response, next)=>{
       response.status(500).json({
         error: error
       });
-    });
-  
+    });  
 }
 
 
