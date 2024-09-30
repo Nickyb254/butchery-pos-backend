@@ -52,7 +52,7 @@ function ProductDisplay() {
   }
 
   return (
-      <Container>
+      <Container className='main-container'>
       {stock === null ? "" :
         <Row>
             {stock?.map(renderCard)}

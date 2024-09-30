@@ -1,8 +1,15 @@
 import { useState, useEffect } from 'react';
 import {Form, Button,  Modal} from 'react-bootstrap';
-import axiosInstance from '../../api/axios';
+import { useUpdateSaleMutation } from './SalesApiSlice';
 
 function EditSale({sale}) {
+  const [updateSale, {
+    isLoading,
+    isSuccess,
+    isError,
+    error
+}] = useUpdateSaleMutation()
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -18,21 +25,14 @@ function EditSale({sale}) {
   const onMassChange = e => setMass_sold(e.target.value)
   const onTransaction_byChange = e => setTransaction_by(e.target.value)
 
-  const data = {product, price, mass_sold, transaction_by}
+  const data = {id:sale._id, product, price, mass_sold, transaction_by}
 
-  
   const handleEditSale = async (e) => {  
-  e.preventDefault()
-  try{
-    await axiosInstance.patch(`/sales/${sale._id}`, data)
-    .then((result) => {
-        // setFetchData(true)
-        handleClose()
-        console.log(result)
-      })
-    }catch(error) {console.log(error)}
+    e.preventDefault()
+    await updateSale(data)
+    handleClose()
   }
-
+  
     return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -84,3 +84,18 @@ function EditSale({sale}) {
 }
 
 export default EditSale;
+
+
+
+//ORIGINAL CODE................................
+// const handleEditSale = async (e) => {  
+  // e.preventDefault()
+  // try{
+  //   await axiosInstance.patch(`/sales/${sale._id}`, data)
+  //   .then((result) => {
+  //       // setFetchData(true)
+  //       handleClose()
+  //       console.log(result)
+  //     })
+  //   }catch(error) {console.log(error)}
+  // }
