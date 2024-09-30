@@ -1,84 +1,91 @@
-import React, {useState, useEffect} from 'react';
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import Layout from './Layout.jsx';
-import AdminLayout from './section/AdminLayout.jsx';
-import Welcome from './Features/Auth/Welcome.jsx';
-import { CustomerRegistration, CustomerSelfRegistration, CheckOut, CustomersLogin, EmployeeRegistration, Public, SaleRegistration, StockRegistration, EmployeeLogin, EmployeeProfile} from './section';
-import AdminLogin from './Features/Auth/AdminLogin.jsx';
-import EmployeeList from './Features/Employees/EmployeesList.jsx';
-import CustomerList from './Features/Customers/CustomersList.jsx';
+import {AdminProfile, AdminLogin} from './Features/Admin';
+import {Public, SaleRegistration, StockRegistration, EmployeeProfile} from './section';
+import {EmployeeList, EmployeeRegistration, EmployeeLogin,} from './Features/Employees';
+import {CustomerRegistration, CustomerSelfRegistration, CustomersLogin, CustomersList, CheckOut} from './Features/Customers/index.js';
 import StockList from './Features/Stock/StockList.jsx';
 import SalesList from './Features/Sales/SalesList.jsx';
 import AddImages from './Features/Images/AddImages.jsx';
 import ProductDisplay from './components/Products/ProductDisplay.jsx';
 import ProductDetails from './components/Products/ProductDetails.jsx';
 import ProtectedRoute from './section/ProtectedRoute.jsx';
+import Prefetch from './Features/Prefetch.jsx'
+import {Dashboard, AdminLayout, Home} from './components/Admin';
+import {EmployeeLayout, EmployeeHome} from './components/Employee/index.js';
+import {CustomerLayout, CustomerDashboard} from './components/Customer/index.js';
+import OrdersList from './Features/Orders/OrdersList.jsx';
+import OrderForCustomer from './Features/Orders/OrderForCustomer.jsx';
+import CustomerProfile from './components/Customer/CustomerProfile.jsx';
 
 function App() {
 
-  const [currentEmployee, setCurrentEmployee] = useState([])
-
-  function getEmployee (employee){
-    if(employee){
-      setCurrentEmployee(employee.data.employee)
-    } 
-    return   
-  //  else {console.log('no employee')}
-  }
-
-  useEffect(()=>{
-    getEmployee()
-  },[])
-  
-  const isLoggedIn = window.localStorage.getItem("loggedIn")
-  
-
   return (
-        <Routes>          
-          {/* unprotected */}
-          <Route path='/' element= {<Layout />}>
-            <Route index element= {<Public />} />  
-            <Route path='/:productId' element= {<ProductDetails />} />  
-            <Route path='/beef' element= {<AddImages />} />  
-            <Route path='/goat' element= {<ProductDisplay />} />
-            <Route path='login' element= {<AdminLogin/>} />  
-            <Route path='employees' element= {<EmployeeLogin onClick={getEmployee} />} />
-    
-          {/* Protected routes */}
-              <Route element={<ProtectedRoute/>} >                
-                <Route element={<AdminLayout/>} > 
-                <Route path='login/welcome' element={<Welcome/>} />    
-                <Route path='login/welcome/employees' element={<EmployeeList/>} />   
-                <Route path='login/welcome/customers' element={<CustomerList/>} />   
-                <Route path='login/welcome/stock' element={<StockList/>} />   
-                <Route path='login/welcome/sales' element={<SalesList/>} />             
-                </Route>
-              </Route>
+    <Routes>          
+      {/* unprotected */}
+      <Route element={<Prefetch/>} >
+      <Route path='/' element= {<Layout />}>
+        <Route index element= {<Public />} />  
+        <Route path='/:productId' element= {<ProductDetails />} />  
+        <Route path='/beef' element= {<AddImages />} />  
+        <Route path='/goat' element= {<ProductDisplay />} />
+        <Route path='login' element= {<AdminLogin/>} />  
+        {/* <Route path='employees' element= {<EmployeeLogin onClick={getEmployee} />} /> */}
+        </Route>
 
-                <Route path='employees'>
-                  <Route path='register' element= {<EmployeeRegistration />} />
-                  
-                    <Route path='profile' element= {<EmployeeProfile currentEmployee={currentEmployee} />} />
-                    <Route path='profile/stock' element={<StockList/>} />  
-                    <Route path='profile/register-customer' element= {<CustomerRegistration />} />
-                    <Route path='profile/customers' element={<CustomerList/>} />
-                    <Route path='profile/sales' element= {<SaleRegistration />} />
-                </Route>
-
-                <Route path='customers'>
-                  <Route index element= {<CustomersLogin />} />
-                  <Route path='register' element= {<CustomerSelfRegistration />} />
-                </Route>
-
-                <Route path='stock'>
-                  <Route index element= {<StockRegistration />} />
-                </Route>              
+        {/* Protected routes */}
+          <Route element={<ProtectedRoute/>} >                
+            <Route element={<AdminLayout/>} > 
+              <Route path='/admin/dashboard' element={<Dashboard/>} >
               
-                <Route path='checkout'>
-                <Route index element= {<CheckOut />} />
-                </Route>
+                <Route index element={<Home/>} />   
+                <Route path='employees' element={<EmployeeList/>} />   
+                <Route path='customers' element={<CustomersList/>} />   
+                <Route path='stock' element={<StockList/>} />   
+                <Route path='sales' element={<SalesList/>} />             
+                <Route path='orders' element={<OrdersList/>} />             
+              </Route>
+            </Route>
           </Route>
-        </Routes>
+
+            <Route path='employees'>
+              <Route index element= {<EmployeeLogin />} />
+              <Route path='register' element= {<EmployeeRegistration />} />
+              
+                <Route path='profile' element={<EmployeeLayout/>} >
+                  <Route index element={<EmployeeHome/>} />
+                  <Route path='edit'  element= {<EmployeeProfile />} />
+                  <Route path='stock' element={<StockList/>} />  
+                  <Route path='register-customer' element= {<CustomerRegistration />} />
+                  <Route path='customers' element={<CustomersList/>} />
+                  <Route path='sales' element= {<SaleRegistration />} />
+                  <Route path='orders' element={<OrdersList/>} />  
+                </Route>
+            </Route>
+
+            <Route path='customers'>
+              <Route index element= {<CustomersLogin />} />
+              <Route path='register' element= {<CustomerSelfRegistration />} />
+
+              <Route path='profile' element={<CustomerLayout/>} >
+                <Route index element= {<CustomerDashboard />} />
+                <Route path='edit' element= {<CustomerProfile />} />
+                <Route path='checkout' element= {<CheckOut />} />
+                <Route path='shop' element={<ProductDisplay/>} /> 
+                <Route path='orders' element={<OrderForCustomer/>} />  
+                <Route path='settings' element={<CustomerProfile/>} />  
+              </Route>
+            </Route>
+
+            <Route path='stock'>
+              <Route index element= {<StockRegistration />} />
+            </Route> 
+            <Route path='dashboard'>
+              <Route index element={ <AdminProfile/>} />
+            </Route>
+      
+      </Route>
+    </Routes>
      
   )
 }

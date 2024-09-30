@@ -7,12 +7,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { iconCart } from './assets/all_products';
 import { Link } from 'react-router-dom';
-import CartTab from './Cart/CartTab';
+import CartTab from '../Features/Cart/CartTab';
 
-function MyNavbar() {
-  const cart = useSelector(store => store.cart.cartItems);
+function HomeNavbar() {
+  // const cart = useSelector(store => store.cart.cartItems);
  
-  let totalQuantity = cart.length
+  // let totalQuantity = cart.length
 
   const Navstyle ={
     fontweight: '900'
@@ -55,4 +55,4 @@ function MyNavbar() {
   );
 }
 
-export default MyNavbar;
+export default HomeNavbar;

@@ -1,9 +1,9 @@
 import { Outlet, useLocation } from "react-router-dom";
-import MyNavbar from "./components/Navbar";
-import AdminHeader from "./section/AdminHeader";
+import HomeNavbar from "./components/Navbar";
+import EmployeeHeader from "./components/Employee/EmployeeHeader";
 
 const ROUTES = {
-  ADMIN_REGEX: /\/login\/welcome/,
+  ADMIN_REGEX: /\/admin\/dashboard/,
   EMPLOYEE_REGEX: /\/employees\/profile/
 }
 
@@ -15,13 +15,16 @@ const Layout = () => {
   
   switch(true){
     case ROUTES.ADMIN_REGEX.test(path):
-    case ROUTES.EMPLOYEE_REGEX.test(path):
-
-      currentNavBar = <AdminHeader/>
+      currentNavBar = null
       break;
 
+    // case ROUTES.EMPLOYEE_REGEX.test(path):
+
+    //   currentNavBar = null
+    //   break;
+
     default: 
-      currentNavBar = <MyNavbar/>
+      currentNavBar = <HomeNavbar/>
       break;
   }
     
