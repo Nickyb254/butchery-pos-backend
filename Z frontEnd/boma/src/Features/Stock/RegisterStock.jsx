@@ -33,6 +33,7 @@ function RegisterStock({createStock}) {
     if (!stock_image) {
      console.log('No image selected!')
     }
+    // console.log('image selected!', stock_image)
      // Create an image URL for preview
     //  const reader = new FileReader();
     //  reader.onloadend = () => {

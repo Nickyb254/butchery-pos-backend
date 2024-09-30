@@ -15,7 +15,7 @@ const stockApiSlice = apiSlice.injectEndpoints({
                 return response.status === 200 && !result.isError
             },
             // keepUnUsedDataFor: 5,
-            transformResponse: responseData => {               
+            transformResponse: responseData => {                          
                 const loadedStock = responseData.doc.map(stock =>{
                     stock.id = stock._id                    
                     return stock
@@ -31,13 +31,25 @@ const stockApiSlice = apiSlice.injectEndpoints({
                 } else {return [{type:'stock', id:'LIST'}] }
             }
         }),
+        updateStock: builder.mutation({
+            query: initialStock => ({
+                url: `/stock/${initialStock._id}`,
+                method: 'PATCH',
+                body: {
+                    ...initialStock,
+                }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Stock', id: arg.id }
+            ]
+        }),
     })
 })
 
-export const {useGetStockQuery} = stockApiSlice;
+export const {useGetStockQuery, useUpdateStockMutation} = stockApiSlice;
 
 //this is the query result object
-export const selectStockResult = stockApiSlice.endpoints.getStock?.select
+export const selectStockResult = stockApiSlice.endpoints.getStock.select()
 
 //creates a memoized selector
 const selectStockData = createSelector(
@@ -53,4 +65,4 @@ export const {
     selectIds: selectStockIds
 } = stockAdapter.getSelectors(state => selectStockData(state) ?? initialState )
 
-export default stockApiSlice;
+export default stockApiSlice

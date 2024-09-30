@@ -1,7 +1,16 @@
 import { useState } from 'react';
 import {Form, Button,  Modal, Image} from 'react-bootstrap';
+import { useUpdateStockMutation } from './stockApiSlice';
 
-function EditStock({onUpdate, card}) {
+function EditStock({card}) {
+  
+  const [updateStock, {
+    isLoading,
+    isSuccess,
+    isError,
+    error
+  }] = useUpdateStockMutation()
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -13,7 +22,7 @@ function EditStock({onUpdate, card}) {
   const [mass_available, setMass_available] = useState(card.mass_available);
   const [supplier_name, setSupplier_name] = useState(card.supplier_name);
   const [transaction_by, setTransaction_by] = useState(card.transaction_by);
-  const [stock_image, setStock_image] = useState(card.stock_image);
+  const [stock_image, setStock_image] = useState(null);
 
   const [imageURL, setImageURL] = useState(null);
 
@@ -23,34 +32,39 @@ function EditStock({onUpdate, card}) {
   const onMassChange = (e) => setMass_available(e.target.value)
   const onSupplierChange = (e) => setSupplier_name(e.target.value)
   const onTransactionByChange = (e) => setTransaction_by(e.target.value)
-  const onFileChange = (e) => setStock_image(e.target.files[0])
+  // const onFileChange = (e) => setStock_image(e.target.files[0])
+  const onFileChange = (e) => {
+    const file = e.target.files[0];
+    // console.log('Selected file:', file);
+    setStock_image(file);
+}
 
-  // const data = {product_name, price, mass_bought, mass_available, supplier_name, transaction_by, stock_image}
-
-    
-  const handleRegister = (e) =>{
-    e.preventDefault();
-    if (!stock_image) {
-     console.log('No image selected!')
-    }
-     // Create an image URL for preview
-    //  const reader = new FileReader();
-    //  reader.onloadend = () => {
-    //    setImageURL(reader.result);
-    //  };
-    //  reader.readAsDataURL(stock_image);
-   
+  const handleUpdate = (e) =>{
+    // e.preventDefault();  
     const formData = new FormData()
-    formData.append('image' , stock_image)
+
+    if (stock_image) {
+      formData.append('image', stock_image);
+      // const data = {id: card._id, product_name, price, mass_bought, mass_available, supplier_name, transaction_by, stock_image}
+      // console.log('Selected stock file:', data);
+      // setShow(false)
+    } else {
+        console.error('No file selected');
+    }
+
+    formData.append('_id', card._id)
+    formData.append('image', stock_image)
     formData.append('product_name', product_name);
     formData.append('price', price);
     formData.append('mass_bought', mass_bought);
     formData.append('mass_available', mass_available);
     formData.append('supplier_name', supplier_name);
     formData.append('transaction_by', transaction_by);
-    createStock(formData)
-    setShow(false)
-  }
+  
+    updateStock({formData})
+    
+     
+      }
 
   return (
     <>
@@ -64,7 +78,7 @@ function EditStock({onUpdate, card}) {
         </Modal.Header>
         <Modal.Body>
         
-            <Form style={{paddingTop: '2em'}} onSubmit={handleRegister} >
+            <Form style={{paddingTop: '2em'}} onSubmit={handleUpdate} >
 
                 <Form.Group className="mb-3" controlId="product_name">
                 <Form.Label>* Enter Product Names:</Form.Label>
@@ -99,18 +113,16 @@ function EditStock({onUpdate, card}) {
                 <Form.Group controlId="formFile" className="mb-3">
                 <Form.Label>Default file input example</Form.Label>
                 <Form.Control type="file" accept='image/*' onChange={onFileChange} />
-                <Image src={imageURL} />
+                <Image src={stock_image}  />
                 </Form.Group>
-                <Button variant="primary" type="submit" >Register</Button>
+                {/* <Button variant="primary" type="submit" >Update</Button> */}
             </Form>
           
 
         </Modal.Body>
         <Modal.Footer>
-          {/* <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button> */}
-          {/* <Button variant="primary" type="submit" >Register</Button> */}
+          {/* <Button variant="secondary" onClick={handleClose}>Close</Button> */}
+          <Button variant="primary" onClick={handleUpdate} >Update</Button>
         </Modal.Footer>
       </Modal>
     </>
@@ -118,3 +130,11 @@ function EditStock({onUpdate, card}) {
 }
 
 export default EditStock;
+
+
+ // Create an image URL for preview
+    //  const reader = new FileReader();
+    //  reader.onloadend = () => {
+    //    setImageURL(reader.result);
+    //  };
+    //  reader.readAsDataURL(stock_image);
