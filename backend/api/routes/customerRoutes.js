@@ -11,10 +11,12 @@ import {updateCustomer} from '../controllers/customers.js';
 import {deleteCustomer} from '../controllers/customers.js';
 import {handleRefreshToken} from '../controllers/customers.js';
 import {customerLogOut} from '../controllers/customers.js';
+import { getCustomerOrders } from "../controllers/customerOrders.js";
 
 //routes
 router.get('/',  getAllCustomers);//checkAuth,
 router.get('/:customerId', getOneCstomer);
+router.get('/:customerId/orders', getCustomerOrders);
 router.get('/refresh', handleRefreshToken);
 router.post('/', createCustomer);
 router.post('/login', customerLogIn);

@@ -6,6 +6,7 @@ import CustomerModel from './customers.js';
 const OrderSchema = new mongoose.Schema({
   _id: {type: String, default: uuidv4, required: true },
   customerId: [{ type: String, required: true, ref: 'CustomerModel'}],
+  stripeCustomerId: { type: String, unique: true },
   email: { type: String, unique: true },
   products: [{ type: String, required: true, ref: 'stockModel' }],
   stripeCustomerId: {type: String},

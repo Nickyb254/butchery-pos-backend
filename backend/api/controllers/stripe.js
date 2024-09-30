@@ -112,11 +112,12 @@ export const checkOut = ('/create-checkout-session', async (req, res) => {
 });
 
 // FUNCTION TO CREATE ORDER IN DB..............................................................
-const createOrder = async(cartItemsIds, session) => {
+const createOrder = async(cartItemsIds, session, userId) => {
   //parse creates array of cart obj
   // const cartItems = JSON.parse(customer.metadata.cart) //removed cart from customer metadata
   const newOrder = new OrderModel({
-    customerId: session.customer,
+    stripeCustomerId: session.customer,
+    customerId: userId,
     email: session.customer_details["email"],
     paymentIntent: session.payment_intent,
     products: cartItemsIds,
@@ -184,7 +185,7 @@ export const stripeWebhook = (express.raw({type: 'application/json'}), (request,
         const session = event.data.object      
         // console.log('session creating order:', session)
         // console.log('Data creating order:', data.customer_details.email) //data failed
-        createOrder( cartItemsIds, session, )
+        createOrder( cartItemsIds, session, userId )
       }
       catch(error) {
         console.log(error)
