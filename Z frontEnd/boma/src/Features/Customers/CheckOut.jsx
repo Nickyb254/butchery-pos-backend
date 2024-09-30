@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import {Row, Col, Nav, Button, ButtonGroup} from 'react-bootstrap';
 import { Card, Form, FormLabel, NavLink } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { useCheckOutMutation } from './CustomerApiSlice';
 import { selectCustomer } from './CustomerSlice';
 import { selectCart } from '../Cart/cartSlice';
 import CartItem from '../Cart/CartItem';
+import {getTotals, clearCart } from '../Cart/cartSlice';
 
 function CheckOut() {
+  const dispatch = useDispatch()
   const carts = useSelector(selectCart);
   const cartState = useSelector((state) => state.cart)
   
@@ -21,54 +21,67 @@ function CheckOut() {
     isSuccess,
     isError,
     error
-  }] = useCheckOutMutation()
+  }] = useCheckOutMutation()  
 
     const handleCheckOut = (e) => {
       e.preventDefault()
       checkOut({carts, userId: customer?.id})
         .then((res)=>{
             if(res?.data?.url){
+              console.log('this is response in button', res)
               window.location.href = res.data.url
+              dispatch(clearCart())
             }
             console.log(res)
         })
         .catch((error)=> console.log(error))
     }
-  return (
-    <Container className="p-5">
-      <Nav className='d-flex align-content-between'>
-      <h5>Welcome {customer?.name}!</h5>
-      <h5>Inquiries: 0701305276</h5>
-      <h5>Log Out</h5>
-      </Nav>
-      <Row>
-        <Col xs={12} md={8}>
-         
-          <Card className="container p-3">
-            <ButtonGroup aria-label="Basic example">
-              {/* <Button variant="secondary">Make Payment</Button> */}
-            <Button variant="secondary">Cart Items</Button>
-            </ButtonGroup>
-              <div>
-              {carts?.map((item, key) => 
-                  <CartItem key={key} item={item}/>
-                  )}
-              </div>
-            {/* <Form.Control type="text" placeholder="eg. johnrigijii@gmail.com" /><br/> */}
-        </Card>
-        </Col>
 
-        <Col xs={6} md={4}>
-          <h6>Cart Summary</h6>
-          <Card className="container p-3">  
-          <strong>Total value: {cartState?.totalCartValue} </strong>
-          <small>Boma Butchery offers delivery services within the vicinity</small>
-          <small>Delivery may attract additional charges<br/> ***affordable****reliable***convinient</small>
-          <Button onClick={handleCheckOut} >Check Out</Button>
-        </Card>
-        </Col>
-      </Row>
-    </Container>
+    //end outdated totals
+    useEffect(()=>{
+      dispatch(getTotals())
+    }, [carts, dispatch])
+  
+    const resetCart = ()=>{dispatch(clearCart())} 
+    
+    //dynamic content
+    const content = carts?.length >= 1 
+
+      ? 
+
+        <Row>
+          <Col xs={12} md={8}>
+            
+            <Card className="container p-3">
+                <div>
+                {carts?.map((item, key) => 
+                    <CartItem key={key} item={item}/>
+                    )}
+                </div>
+                <br/>
+                <button className='btn btn-danger flex-fill' onClick={resetCart} >RESET CART</button>
+          </Card>
+          </Col>
+  
+          <Col xs={6} md={4}>
+            <Card className="container p-3">  
+              <h6 style={{textDecoration: 'underline'}} >Cart Summary</h6>
+              <strong>Total value: {cartState?.totalCartValue} </strong>
+              <small>Boma Butchery offers delivery services within the vicinity</small>
+              <small>Delivery may attract additional charges<br/> ***affordable****reliable***convinient</small>
+              <Button onClick={handleCheckOut} >PAY</Button>
+            </Card>
+          </Col>
+        </Row>
+
+      : <strong>No Items in the Cart</strong>;
+      
+    return (    
+      <main className='main-container'>
+        <Container>
+          {content}
+        </Container>
+      </main>
   );
 }
 
