@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    employee: {}
+    employee: localStorage.getItem("employee") ? JSON.parse(localStorage.getItem("employee")) : null,
 }
 
 const employeeSlice = createSlice({
@@ -10,7 +10,7 @@ const employeeSlice = createSlice({
     reducers: {
         sendProfile(state, action){
             state.employee = action.payload.data.employee
-            // console.log(action)
+            localStorage.setItem('employee', JSON.stringify(state.employee))
         }
     }
 })

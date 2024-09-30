@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/esm/Button';
 import RegisterEmployee from './RegisterEmployee';
 import EditEmployee from './EditEmployee';
 import { useGetAllEmployeesQuery, useDeleteEmployeeMutation} from './EmployeeApiSlice';
+import { Container } from 'react-bootstrap';
 
 export default function EmployeeList() {
   const {
@@ -34,42 +35,42 @@ export default function EmployeeList() {
   let changeColor
   
   return (
-  
-    <div className="container mt-3">      
-      <ListGroup>
-        <ListGroup.Item><h1>List of Boma Butchery Employees</h1> </ListGroup.Item>
-      </ListGroup>
-    
-    <Table striped bordered hover>
-      <thead className="table-success">
-        <tr>
-          <th>#</th>
-          <th className='text-primary' >Employee Names</th>
-          <th className='text-primary' >Designation</th>
-          <th className='text-primary'>Phone Number</th>
-          <th className='text-primary'>Email</th>
-          <th className='text-primary' colSpan={2}>Modify Entry</th>
-        </tr>
-      </thead>
-      <tbody>
-        {employees?.map((employee, index) => {    
-           employee.active ? changeColor = null : changeColor = 'text-secondary';
-          return(
-          <tr key={employee._id}>
-            <td>{index + 1}</td> 
-            <td  className={changeColor}>{employee.employee_name}</td>
-            <td  className={changeColor}>{employee.designation}</td>
-            <td  className={changeColor}>{employee.phone_number}</td>
-            <td  className={changeColor}>{employee.email}</td>          
-            <td><Button variant='danger' onClick={() => {deleteEmployee(employee._id)}}> Delete </Button></td>
-            <td><EditEmployee employee={employee} /> </td>  
-          </tr>  
-        )})}        
-      </tbody>
-    </Table>
-        <RegisterEmployee />
+    <Container className='main-container'>
+      <div className="container mt-3">      
+        <ListGroup>
+          <ListGroup.Item><h1>List of Boma Butchery Employees</h1> </ListGroup.Item>
+        </ListGroup>
+      
+      <Table striped bordered hover>
+        <thead className="table-success">
+          <tr>
+            <th>#</th>
+            <th className='text-primary' >Employee Names</th>
+            <th className='text-primary' >Designation</th>
+            <th className='text-primary'>Phone Number</th>
+            <th className='text-primary'>Email</th>
+            <th className='text-primary' colSpan={2}>Modify Entry</th>
+          </tr>
+        </thead>
+        <tbody>
+          {employees?.map((employee, index) => {    
+            employee.active ? changeColor = null : changeColor = 'text-secondary';
+            return(
+            <tr key={employee._id}>
+              <td>{index + 1}</td> 
+              <td  className={changeColor}>{employee.employee_name}</td>
+              <td  className={changeColor}>{employee.designation}</td>
+              <td  className={changeColor}>{employee.phone_number}</td>
+              <td  className={changeColor}>{employee.email}</td>          
+              <td><Button variant='danger' onClick={() => {deleteEmployee(employee._id)}}> Delete </Button></td>
+              <td><EditEmployee employee={employee} /> </td>  
+            </tr>  
+          )})}        
+        </tbody>
+      </Table>
+          <RegisterEmployee />
       </div>
-    
+    </Container>
   );
 }
 

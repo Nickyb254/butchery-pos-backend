@@ -1,8 +1,17 @@
+// ADMIN ADDS EMPLOYEES DIRECTLY IN THE EMPLOYEE LIST
 import { useState } from 'react';
 import {Form, Button,  Modal} from 'react-bootstrap';
 import axiosInstance from '../../api/axios';
+import { useAddNewEmployeeMutation } from './EmployeeApiSlice';
 
 function RegisterEmployee() {
+  const [addNewEmployee, {
+    isLoading,
+    isSuccess,
+    isError,
+    error
+}] = useAddNewEmployeeMutation()
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -23,14 +32,11 @@ function RegisterEmployee() {
 
   const data = {employee_name, designation, phone_number, email, password}
 
-  const handleRegister = (e) => {
+  const handleRegister = async(e) => {
     e.preventDefault();
-    axiosInstance.post('/employees/signup', data)
-    .then((result) => {
-      handleClose()
-       console.log(result)
-    })
-    .catch(error => console.log(error))
+    // postEmployee(data)
+    await addNewEmployee(data)
+    setShow(false)
   }
 
   return (

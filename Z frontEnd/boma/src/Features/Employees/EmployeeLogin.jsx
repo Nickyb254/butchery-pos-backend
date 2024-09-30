@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 //props updates parent NavBar
 
 const EmployeeLogin = (props) => { 
-  const [login, isLoading] = useEmployeeLoginMutation()
+  const [login, {isLoading}] = useEmployeeLoginMutation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -22,6 +22,7 @@ const EmployeeLogin = (props) => {
     try{     
        const data = await login({email, password}).unwrap()
        navigate('profile')
+       window.localStorage.setItem("loggedIn", true)
        dispatch(sendProfile({data}))
       }catch  (error) {
        console.log(error)

@@ -1,19 +1,16 @@
-import CustomerRegistration from './CustomerRegistration';
-import EmployeeRegistration from './EmployeeRegistration';
 import Footer from './Footer';
 import Public from './Public';
-import SaleRegistration from './SaleRegistration';
+import SaleRegistration from '../Features/Sales/SaleRegistration';
 import StockRegistration from './StockRegistration';
-import EmployeeLogin from './EmployeeLogin';
+import EmployeeLogin from '../Features/Employees/EmployeeLogin';
+import EmployeeProfile from '../Features/Employees/EmployeeProfile';
 
-
-
-export {
-  CustomerRegistration,
-  EmployeeRegistration,
+export {  
   Footer,
   Public,
   SaleRegistration,
   StockRegistration,  
-  EmployeeLogin
+  EmployeeLogin,
+  EmployeeProfile
+  
 }

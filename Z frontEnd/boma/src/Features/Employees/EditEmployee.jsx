@@ -33,8 +33,6 @@ function EditEmployee({employee}) {
   const onPhoneNumberChange = e => setPhone_number(e.target.value)
   const onEmailChange = e => setEmail(e.target.value)
 
-
-
   const data = {id:employee._id, employee_name, designation, bio, phone_number, email}
 
   const handleEditEmployee = async(e) => {
@@ -49,7 +47,7 @@ function EditEmployee({employee}) {
     handleClose()
   }
 
-//dynamic button labeling
+ //dynamic button labeling
   let label = {content: ''}
   switch(true){
     case employee.active:
@@ -64,7 +62,7 @@ function EditEmployee({employee}) {
     return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Edit Employee
+        Edit Profile
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -74,7 +72,6 @@ function EditEmployee({employee}) {
         <Modal.Body>
         
         <Form style={{paddingTop: '2em'}} >
-
             <Form.Group className="mb-3" controlId="employee_name">
               <Form.Label>* Enter Full Names:</Form.Label>
               <Form.Control type="string" onChange={onNameChange} value={employee_name} />
@@ -98,10 +95,8 @@ function EditEmployee({employee}) {
             <Form.Group className="mb-3" controlId="email">
               <Form.Label>Enter Your Email address:</Form.Label>
               <Form.Control autoComplete='true' type="email"  onChange={onEmailChange} value={email} />
-            </Form.Group>                       
-
-          </Form>
-          
+            </Form.Group> 
+        </Form>         
 
         </Modal.Body>
         <Modal.Footer>

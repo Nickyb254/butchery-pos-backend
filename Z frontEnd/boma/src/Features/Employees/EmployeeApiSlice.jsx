@@ -1,6 +1,6 @@
 import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
 import { apiSlice } from "../../api/apiSlice";
-import { logOut, setCredentials } from "../Auth/AuthSlice";
+import { logOut } from "../Auth/AuthSlice";
 
 const employeesAdapter = createEntityAdapter({})
 
@@ -23,7 +23,7 @@ export const employeeApiSlice = apiSlice.injectEndpoints({
             async onQueryStarted (arg, {dispatch, queryFulfilled}){
                 try{
                     const data = await queryFulfilled
-                    console.log(data)
+                    // console.log(data)
                     dispatch(logOut())
                 } catch (error){
                     console.log(error)
