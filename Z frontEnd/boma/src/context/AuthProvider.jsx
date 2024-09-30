@@ -1,15 +1,17 @@
-import { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-const AuthContext = createContext({});
+// Create the context with default values
+const AuthContext = createContext();
 
+// Create a provider component
 export const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState({});
-
+    const [auth, setAuth] = useState({ token: null });   
+    // console.log(auth)
     return (
         <AuthContext.Provider value={{ auth, setAuth }}>
             {children}
         </AuthContext.Provider>
     )
 }
-
-export default AuthContext;
+// Custom hook to use the context
+export const useAuth = () => useContext(AuthContext);
