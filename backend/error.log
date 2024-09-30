@@ -1,0 +1,797 @@
+{"body":{"api_version":"2024-06-20","created":1727160725,"data":{"object":{"address":null,"balance":0,"created":1727160725,"currency":null,"default_source":null,"delinquent":false,"description":null,"discount":null,"email":null,"id":"cus_QuH9pW4zVIYke4","invoice_prefix":"9FB1796F","invoice_settings":{"custom_fields":null,"default_payment_method":null,"footer":null,"rendering_options":null},"livemode":false,"metadata":{"cart":"[{\"_id\":\"ee3f16aa-4663-484d-a2ae-57c8b5c41e77\",\"product_name\":\"Bone\",\"price\":75000,\"stock_image\":\"1726556805594--Meance Meat.jpg\",\"id\":\"ee3f16aa-4663-484d-a2ae-57c8b5c41e77\",\"quantity\":1}]","userId":"6d592976-07bc-4747-b7c3-be326f3d9c35"},"name":null,"next_invoice_sequence":1,"object":"customer","phone":null,"preferred_locales":[],"shipping":null,"tax_exempt":"none","test_clock":null}},"id":"evt_1Q2SbRK55OROjnvZBfAXYTDy","livemode":false,"object":"event","pending_webhooks":2,"request":{"id":"req_Fqq1QAmj9f3AiJ","idempotency_key":"stripe-node-retry-3a8ef95b-1ec3-494d-bd35-ecc0935aec67"},"type":"customer.created"},"level":"error","message":"Can't find /stripe/webhook on the server","method":"POST","stack":"Error: Can't find /stripe/webhook on the server\n    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17\n    at Layer.handle [as handle_request] (C:\\Users\\HP\\Desktop\\butchery-pos-backend\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\HP\\Desktop\\butchery-pos-backend\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at next (C:\\Users\\HP\\Desktop\\butchery-pos-backend\\backend\\node_modules\\express\\lib\\router\\route.js:145:7)\n    at next (C:\\Users\\HP\\Desktop\\butchery-pos-backend\\backend\\node_modules\\express\\lib\\router\\route.js:145:7)\n    at next (C:\\Users\\HP\\Desktop\\butchery-pos-backend\\backend\\node_modules\\express\\lib\\router\\route.js:145:7)\n    at next (C:\\Users\\HP\\Desktop\\butchery-pos-backend\\backend\\node_modules\\express\\lib\\router\\route.js:145:7)\n    at next (C:\\Users\\HP\\Desktop\\butchery-pos-backend\\backend\\node_modules\\express\\lib\\router\\route.js:145:7)\n    at next (C:\\Users\\HP\\Desktop\\butchery-pos-backend\\backend\\node_modules\\express\\lib\\router\\route.js:145:7)\n    at next (C:\\Users\\HP\\Desktop\\butchery-pos-backend\\backend\\node_modules\\express\\lib\\router\\route.js:145:7)","statusCode":404,"url":"/stripe/webhook"}
+2024-09-24 10:05:26 [error] Can't find /stripe/webhook on the server 
+Error: Can't find /stripe/webhook on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhook
+2024-09-24 10:16:59 [error] res is not defined 
+ReferenceError: res is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:184:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-24 14:28:25 [error] Can't find /stripe/create-checkout-session on the server 
+Error: Can't find /stripe/create-checkout-session on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/create-checkout-session
+2024-09-24 14:30:40 [error] Can't find /stripe/create-checkout-session on the server 
+Error: Can't find /stripe/create-checkout-session on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/create-checkout-session
+2024-09-24 14:31:20 [error] Can't find /stripe/create-checkout-session on the server 
+Error: Can't find /stripe/create-checkout-session on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/create-checkout-session
+2024-09-24 17:26:31 [error] Can't find /stripe/check-out on the server 
+Error: Can't find /stripe/check-out on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/check-out
+2024-09-24 18:55:49 [error] req is not defined 
+ReferenceError: req is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:130:5)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-24 18:55:49 [error] req is not defined 
+ReferenceError: req is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:130:5)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-24 18:55:49 [error] req is not defined 
+ReferenceError: req is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:130:5)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-24 18:55:52 [error] req is not defined 
+ReferenceError: req is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:130:5)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-24 18:56:42 [error] req is not defined 
+ReferenceError: req is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:130:5)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-24 18:57:37 [error] req is not defined 
+ReferenceError: req is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:130:5)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-24 18:57:37 [error] req is not defined 
+ReferenceError: req is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:130:5)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-24 18:57:37 [error] req is not defined 
+ReferenceError: req is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:130:5)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-24 18:57:37 [error] req is not defined 
+ReferenceError: req is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:130:5)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-24 18:57:37 [error] req is not defined 
+ReferenceError: req is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:130:5)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-24 18:57:40 [error] req is not defined 
+ReferenceError: req is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:130:5)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-26 18:48:21 [error] Can't find /employees/logout on the server 
+Error: Can't find /employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
+2024-09-27 08:34:07 [error] Can't find /employees/logout on the server 
+Error: Can't find /employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
+2024-09-27 10:47:33 [error] Can't find /customers/logout on the server 
+Error: Can't find /customers/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /customers/logout
+2024-09-27 16:45:20 [error] Can't find /stripe/webhookstripe on the server 
+Error: Can't find /stripe/webhookstripe on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhookstripe
+2024-09-27 16:45:20 [error] Can't find /stripe/webhookstripe on the server 
+Error: Can't find /stripe/webhookstripe on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhookstripe
+2024-09-27 16:45:20 [error] Can't find /stripe/webhookstripe on the server 
+Error: Can't find /stripe/webhookstripe on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhookstripe
+2024-09-27 16:45:22 [error] Can't find /stripe/webhookstripe on the server 
+Error: Can't find /stripe/webhookstripe on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhookstripe
+2024-09-28 13:13:33 [error] customerEmail is not defined 
+ReferenceError: customerEmail is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:183:19)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:14:05 [error] customerEmail is not defined 
+ReferenceError: customerEmail is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:183:19)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:14:05 [error] customerEmail is not defined 
+ReferenceError: customerEmail is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:183:19)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:14:06 [error] customerEmail is not defined 
+ReferenceError: customerEmail is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:183:19)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:14:06 [error] customerEmail is not defined 
+ReferenceError: customerEmail is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:183:19)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:14:06 [error] customerEmail is not defined 
+ReferenceError: customerEmail is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:183:19)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:14:08 [error] customerEmail is not defined 
+ReferenceError: customerEmail is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:183:19)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:27:41 [error] Invalid left-hand side in assignment 
+ReferenceError: Invalid left-hand side in assignment
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:182:13)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:28:22 [error] Invalid left-hand side in assignment 
+ReferenceError: Invalid left-hand side in assignment
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:182:13)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:28:22 [error] Invalid left-hand side in assignment 
+ReferenceError: Invalid left-hand side in assignment
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:182:13)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:28:22 [error] Invalid left-hand side in assignment 
+ReferenceError: Invalid left-hand side in assignment
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:182:13)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:28:22 [error] Invalid left-hand side in assignment 
+ReferenceError: Invalid left-hand side in assignment
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:182:13)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:28:22 [error] Invalid left-hand side in assignment 
+ReferenceError: Invalid left-hand side in assignment
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:182:13)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 13:28:24 [error] Invalid left-hand side in assignment 
+ReferenceError: Invalid left-hand side in assignment
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:182:13)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 16:26:04 [error] Can't find /stripe/webhookstripe on the server 
+Error: Can't find /stripe/webhookstripe on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhookstripe
+2024-09-28 16:26:54 [error] Can't find /stripe/webhookstripe on the server 
+Error: Can't find /stripe/webhookstripe on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhookstripe
+2024-09-28 16:26:54 [error] Can't find /stripe/webhookstripe on the server 
+Error: Can't find /stripe/webhookstripe on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhookstripe
+2024-09-28 16:26:54 [error] Can't find /stripe/webhookstripe on the server 
+Error: Can't find /stripe/webhookstripe on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhookstripe
+2024-09-28 16:26:54 [error] Can't find /stripe/webhookstripe on the server 
+Error: Can't find /stripe/webhookstripe on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhookstripe
+2024-09-28 16:26:54 [error] Can't find /stripe/webhookstripe on the server 
+Error: Can't find /stripe/webhookstripe on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhookstripe
+2024-09-28 16:26:56 [error] Can't find /stripe/webhookstripe on the server 
+Error: Can't find /stripe/webhookstripe on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:138:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /stripe/webhookstripe
+2024-09-28 17:56:27 [error] data is not defined 
+ReferenceError: data is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:176:11)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 17:57:19 [error] data is not defined 
+ReferenceError: data is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:176:11)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 17:57:19 [error] data is not defined 
+ReferenceError: data is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:176:11)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 17:57:19 [error] data is not defined 
+ReferenceError: data is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:176:11)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 17:57:19 [error] data is not defined 
+ReferenceError: data is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:176:11)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 17:57:19 [error] data is not defined 
+ReferenceError: data is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:176:11)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-28 17:57:21 [error] data is not defined 
+ReferenceError: data is not defined
+    at stripeWebhook (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/stripe.js:176:11)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:47:12) Method: POST URL: /stripe/webhook
+2024-09-30 06:38:50 [error] Can't find /employees/logout on the server 
+Error: Can't find /employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:140:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
+2024-09-30 09:07:35 [error] Error fetching orders: products is not defined 
+Error: Error fetching orders: products is not defined
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:13:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/6d592976-07bc-4747-b7c3-be326f3d9c35/orders
+2024-09-30 09:30:56 [error] Error fetching orders: Parameter "filter" to find() must be an object, got "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type object) 
+Error: Error fetching orders: Parameter "filter" to find() must be an object, got "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type object)
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:18:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/6d592976-07bc-4747-b7c3-be326f3d9c35/orders
+2024-09-30 09:39:32 [error] Error fetching orders: Cast to string failed for value "{ productId: [ 'c700d2c0-9f02-41e8-b4e0-7c366749705a' ] }" (type Object) at path "_id" for model "Stock" 
+Error: Error fetching orders: Cast to string failed for value "{ productId: [ 'c700d2c0-9f02-41e8-b4e0-7c366749705a' ] }" (type Object) at path "_id" for model "Stock"
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:18:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/6d592976-07bc-4747-b7c3-be326f3d9c35/orders
+2024-09-30 09:42:12 [error] Error fetching orders: Parameter "filter" to findOne() must be an object, got "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type object) 
+Error: Error fetching orders: Parameter "filter" to findOne() must be an object, got "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type object)
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:18:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/6d592976-07bc-4747-b7c3-be326f3d9c35/orders
+2024-09-30 09:44:43 [error] Error fetching orders: Parameter "filter" to find() must be an object, got "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type object) 
+Error: Error fetching orders: Parameter "filter" to find() must be an object, got "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type object)
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:18:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/6d592976-07bc-4747-b7c3-be326f3d9c35/orders
+2024-09-30 09:46:28 [error] Error fetching orders: Parameter "filter" to find() must be an object, got "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type object) 
+Error: Error fetching orders: Parameter "filter" to find() must be an object, got "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type object)
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:20:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/6d592976-07bc-4747-b7c3-be326f3d9c35/orders
+2024-09-30 09:51:17 [error] Error fetching orders: Parameter "filter" to find() must be an object, got "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type object) 
+Error: Error fetching orders: Parameter "filter" to find() must be an object, got "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type object)
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:19:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/6d592976-07bc-4747-b7c3-be326f3d9c35/orders
+2024-09-30 09:55:15 [error] Error fetching orders: Cannot access 'orders' before initialization 
+Error: Error fetching orders: Cannot access 'orders' before initialization
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:21:15)
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:30
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/utils/asyncErrorHandler.js:4:9
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:376:14) Method: GET URL: /customers/6d592976-07bc-4747-b7c3-be326f3d9c35/orders
+2024-09-30 09:55:59 [error] Error fetching orders: Cannot read properties of undefined (reading 'map') 
+Error: Error fetching orders: Cannot read properties of undefined (reading 'map')
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:22:15)
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:30
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/utils/asyncErrorHandler.js:4:9
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:376:14) Method: GET URL: /customers/6d592976-07bc-4747-b7c3-be326f3d9c35/orders
+2024-09-30 09:57:55 [error] Error fetching orders: Cannot access 'products' before initialization 
+Error: Error fetching orders: Cannot access 'products' before initialization
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:19:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/6d592976-07bc-4747-b7c3-be326f3d9c35/orders
+2024-09-30 10:12:02 [error] Can't find /stock/1e940ced-58ea-48f9-b7cd-ba4f05feb4a4 on the server 
+Error: Can't find /stock/1e940ced-58ea-48f9-b7cd-ba4f05feb4a4 on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:140:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /stock/1e940ced-58ea-48f9-b7cd-ba4f05feb4a4
+2024-09-30 10:58:15 [error] Can't find /employees/logout on the server 
+Error: Can't find /employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:140:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
+2024-09-30 11:41:09 [error] Can't find /employees/logout on the server 
+Error: Can't find /employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:140:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
+2024-09-30 11:44:20 [error] Can't find /employees/logout on the server 
+Error: Can't find /employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:140:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
+2024-09-30 11:50:44 [error] Can't find /employees/logout on the server 
+Error: Can't find /employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:140:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
+2024-09-30 11:54:18 [error] Can't find /employees/logout on the server 
+Error: Can't find /employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:140:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
+2024-09-30 12:31:19 [error] Can't find /employees/logout on the server 
+Error: Can't find /employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:140:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
+2024-09-30 12:52:32 [error] Can't find /employees/logout on the server 
+Error: Can't find /employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:140:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
