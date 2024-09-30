@@ -1,8 +1,16 @@
+//COMPONENT used in the customerList to add new customer
 import { useState } from 'react';
 import {Form, Button,  Modal} from 'react-bootstrap';
-import axiosInstance from '../../api/axios';
+import { useAddNewCustomerMutation } from './CustomerApiSlice';
 
-function RegisterCustomer({postCustomer}) {
+function RegisterCustomer() {
+  const [addNewCustomer, {
+    isLoading,
+    isSuccess,
+    isError,
+    error
+}] = useAddNewCustomerMutation()
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -17,9 +25,10 @@ function RegisterCustomer({postCustomer}) {
   
   const data = {customer_name, customer_phone}
 
-  const handleRegister = (e) => {
+  const handleRegister = async(e) => {
     e.preventDefault();
-    postCustomer(data)
+    // postCustomer(data)
+    await addNewCustomer(data)
     handleClose()
   }
 
@@ -47,8 +56,7 @@ function RegisterCustomer({postCustomer}) {
                 <Form.Control type="string" onChange={onPhoneNumberChange}   />
                 </Form.Group>
 
-            </Form>
-          
+            </Form>          
 
         </Modal.Body>
         <Modal.Footer>

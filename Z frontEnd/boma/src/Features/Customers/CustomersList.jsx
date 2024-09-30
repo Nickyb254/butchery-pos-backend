@@ -1,4 +1,4 @@
-import Table from 'react-bootstrap/Table';
+import {Table, Container} from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
 import RegisterCustomer from './RegisterCustomer';
 import EditCustomer from './EditCustomer';
@@ -17,34 +17,36 @@ export default function CustomersList() {
     }
 
   return (
-  
-  <div className="container mt-3">      
-      <ListGroup>
-        <ListGroup.Item><h1>List of Boma Butchery Customers</h1> </ListGroup.Item>
-      </ListGroup>
-    
-    <Table striped bordered hover>
-      <thead className="table-success">
-        <tr>
-          <th>#</th>
-          <th>Customer Names</th>          
-          <th>Phone Number</th>          
-        </tr>
-      </thead>
-      <tbody>
-      {customers?.map((customer, index) => ( 
-          <tr key={customer._id}>
-            <td>{index + 1}</td> 
-            <td>{customer.customer_name}</td>
-            <td>{customer.customer_phone}</td>                    
-            <td><EditCustomer id={customer._id} customer={customer}  /> </td>
-          </tr>          
-        ))}        
-      </tbody>
-    </Table>
-   <RegisterCustomer />
-  </div>
-    
+    <Container className='main-container'>
+      <div className="container mt-3">      
+          <ListGroup>
+            <ListGroup.Item><h1>List of Boma Butchery Customers</h1> </ListGroup.Item>
+          </ListGroup>
+        
+        <Table striped bordered hover>
+          <thead className="table-success">
+            <tr>
+              <th>#</th>
+              <th>Customer Names</th>          
+              <th>Email</th>          
+              <th>Phone Number</th>          
+            </tr>
+          </thead>
+          <tbody>
+          {customers?.map((customer, index) => ( 
+              <tr key={customer._id}>
+                <td>{index + 1}</td> 
+                <td>{customer.customer_name}</td>
+                <td>{customer.email}</td>                    
+                <td>{customer.customer_phone}</td>                    
+                <td><EditCustomer id={customer._id} customer={customer}  /> </td>
+              </tr>          
+            ))}        
+          </tbody>
+        </Table>
+      <RegisterCustomer />
+      </div>
+    </Container>
   );
 }
 

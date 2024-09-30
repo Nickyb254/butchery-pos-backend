@@ -62,6 +62,56 @@ export const customerApiSlice = apiSlice.injectEndpoints({
                 { type: 'Customer', id: arg.id }
             ]
         }),
+        customerLogin: builder.mutation({
+            query: credentials =>({
+                url: 'customers/login',
+                method: 'POST',
+                body: {...credentials}
+            })
+        }),
+        customerLogOut: builder.mutation({
+            query: ()=>({
+                url: 'customers/log-out',
+                method: 'POST',
+            }),
+            async onQueryStarted(arg,{dispatch, queryFulfilled}) {
+                try{
+                const data = await queryFulfilled
+                console.log(data)
+                dispatch(logOut())
+                }catch(error){
+                    console.log(error)
+                }
+            }
+        }),
+        refresh: builder.mutation({
+            query: ()=> ({
+                url: '/customers/refresh',
+                method: 'GET'
+            }),
+            async onQueryStarted(arg, {dispatch, queryFulfilled}){
+                try{
+                    const {data} = queryFulfilled
+                    const {accessToken} = data
+                    dispatch(setCredentials({accessToken}))
+                }catch (error){
+                    console.log(error)
+                }
+            }
+        }),
+        //stripe checkout hook
+        checkOut: builder.mutation({
+            query: cartItems => ({
+                url: '/stripe/create-checkout',
+                method: 'POST',
+                body: {
+                    ...cartItems,
+                }
+            }),
+            invalidatesTags: [
+                { type: 'Cart', id: "LIST" }
+            ]
+        }),
     })
 })
 
@@ -70,7 +120,11 @@ export const {
     useGetCustomersQuery, 
     useAddNewCustomerMutation, 
     useUpdateCustomerMutation,
-    useDeleteCustomerMutation
+    useDeleteCustomerMutation,
+    useCustomerLoginMutation,
+    useRefreshMutation,
+    useCustomerLogOutMutation,
+    useCheckOutMutation
 } = customerApiSlice
 
 // query result object
