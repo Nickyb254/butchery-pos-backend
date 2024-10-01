@@ -18,10 +18,10 @@ const Layout = () => {
       currentNavBar = null
       break;
 
-    // case ROUTES.EMPLOYEE_REGEX.test(path):
+    case ROUTES.EMPLOYEE_REGEX.test(path):
 
-    //   currentNavBar = null
-    //   break;
+      currentNavBar = null
+      break;
 
     default: 
       currentNavBar = <HomeNavbar/>

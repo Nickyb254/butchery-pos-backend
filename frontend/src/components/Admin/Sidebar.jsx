@@ -26,7 +26,7 @@ const Sidebar = () => {
             </li>
             <li className='sidebar-list-item'>
                 <Link to ="/admin/dashboard/stock">
-                    <BsFillArchiveFill className='icon'/> Products
+                    <BsFillArchiveFill className='icon'/> Stock
                 </Link>
             </li>
             <li className='sidebar-list-item'>

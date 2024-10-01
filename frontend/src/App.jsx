@@ -1,9 +1,9 @@
 import { Routes, Route} from 'react-router-dom';
 import Layout from './Layout.jsx';
-import {AdminProfile, AdminLogin} from './Features/Admin';
-import {Public, SaleRegistration, StockRegistration, EmployeeProfile} from './section';
+import  AdminLogin from './Features/Admin/AdminLogin.jsx';
+import {Public, SaleRegistration, EmployeeProfile} from './section';
 import {EmployeeList, EmployeeRegistration, EmployeeLogin,} from './Features/Employees';
-import {CustomerRegistration, CustomerSelfRegistration, CustomersLogin, CustomersList, CheckOut} from './Features/Customers/index.js';
+import { CustomerSelfRegistration, CustomersLogin, CustomersList, CheckOut} from './Features/Customers/index.js';
 import StockList from './Features/Stock/StockList.jsx';
 import SalesList from './Features/Sales/SalesList.jsx';
 import AddImages from './Features/Images/AddImages.jsx';
@@ -13,10 +13,8 @@ import ProtectedRoute from './section/ProtectedRoute.jsx';
 import Prefetch from './Features/Prefetch.jsx'
 import {Dashboard, AdminLayout, Home} from './components/Admin';
 import {EmployeeLayout, EmployeeHome} from './components/Employee/index.js';
-import {CustomerLayout, CustomerDashboard} from './components/Customer/index.js';
-import OrdersList from './Features/Orders/OrdersList.jsx';
-import OrderForCustomer from './Features/Orders/OrderForCustomer.jsx';
-import CustomerProfile from './components/Customer/CustomerProfile.jsx';
+import {CustomerLayout, CustomerDashboard, CustomerProfile} from './components/Customer/index.js';
+import {OrdersList, OrderForCustomer} from './Features/Orders/Order.js';
 
 function App() {
 
@@ -30,7 +28,8 @@ function App() {
         <Route path='/beef' element= {<AddImages />} />  
         <Route path='/goat' element= {<ProductDisplay />} />
         <Route path='login' element= {<AdminLogin/>} />  
-        {/* <Route path='employees' element= {<EmployeeLogin onClick={getEmployee} />} /> */}
+        <Route path='employees' element= {<EmployeeLogin />} />
+        <Route path='customers' element= {<CustomersLogin />} />
         </Route>
 
         {/* Protected routes */}
@@ -49,14 +48,14 @@ function App() {
           </Route>
 
             <Route path='employees'>
-              <Route index element= {<EmployeeLogin />} />
+              {/* <Route index element= {<EmployeeLogin />} /> */}
               <Route path='register' element= {<EmployeeRegistration />} />
               
                 <Route path='profile' element={<EmployeeLayout/>} >
                   <Route index element={<EmployeeHome/>} />
                   <Route path='edit'  element= {<EmployeeProfile />} />
                   <Route path='stock' element={<StockList/>} />  
-                  <Route path='register-customer' element= {<CustomerRegistration />} />
+                  {/* <Route path='register-customer' element= {<CustomerRegistration />} /> */}
                   <Route path='customers' element={<CustomersList/>} />
                   <Route path='sales' element= {<SaleRegistration />} />
                   <Route path='orders' element={<OrdersList/>} />  
@@ -64,24 +63,16 @@ function App() {
             </Route>
 
             <Route path='customers'>
-              <Route index element= {<CustomersLogin />} />
+              {/* <Route index element= {<CustomersLogin />} /> */}
               <Route path='register' element= {<CustomerSelfRegistration />} />
 
               <Route path='profile' element={<CustomerLayout/>} >
                 <Route index element= {<CustomerDashboard />} />
-                <Route path='edit' element= {<CustomerProfile />} />
                 <Route path='checkout' element= {<CheckOut />} />
                 <Route path='shop' element={<ProductDisplay/>} /> 
                 <Route path='orders' element={<OrderForCustomer/>} />  
                 <Route path='settings' element={<CustomerProfile/>} />  
               </Route>
-            </Route>
-
-            <Route path='stock'>
-              <Route index element= {<StockRegistration />} />
-            </Route> 
-            <Route path='dashboard'>
-              <Route index element={ <AdminProfile/>} />
             </Route>
       
       </Route>

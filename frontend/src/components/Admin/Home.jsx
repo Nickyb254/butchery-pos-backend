@@ -49,7 +49,7 @@ const Home = () => {
   return (
     <main className='main-container'>
         <div className='main-title' style={{ color: 'red'}}>
-            <h1>DASHBOARD</h1>
+            <strong>ADMIN DASHBOARD: </strong>
         </div>
 
         <div className='main-cards'>

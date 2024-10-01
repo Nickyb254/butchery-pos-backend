@@ -9,21 +9,20 @@ function RegisterCustomer() {
     isSuccess,
     isError,
     error
-}] = useAddNewCustomerMutation()
+  }] = useAddNewCustomerMutation()
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
    
-  const [customer_name, setCustomer_name] = useState()
-  const [customer_phone, setCustomer_phone] = useState()
-  
+  const [customer_name, setCustomer_name] = useState();
+  const [email, setEmail] = useState();
+  const [customer_phone, setCustomer_phone] = useState();
+  const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
 
-  const onNameChange = e => setCustomer_name(e.target.value)
-  const onPhoneNumberChange = e => setCustomer_phone(e.target.value)
-  
-  const data = {customer_name, customer_phone}
+  const data = {customer_name, email, customer_phone, password, confirmPassword}
 
   const handleRegister = async(e) => {
     e.preventDefault();
@@ -44,20 +43,34 @@ function RegisterCustomer() {
         </Modal.Header>
         <Modal.Body>
         
-            <Form style={{paddingTop: '2em'}} >
+        <Form style={{paddingTop: '2em'}} >
 
-                <Form.Group className="mb-3" controlId="customer_name">
-                <Form.Label>* Enter Names:</Form.Label>
-                <Form.Control type="string" onChange={onNameChange}  />
-                </Form.Group>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Names</Form.Label>
+            <Form.Control type="string" onChange = {(e) => setCustomer_name(e.target.value)}/>
+          </Form.Group>
 
-                <Form.Group className="mb-3" controlId="phone_number">
-                <Form.Label>* Phone Number:</Form.Label>
-                <Form.Control type="string" onChange={onPhoneNumberChange}   />
-                </Form.Group>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email" name="email" onChange = {(e) => setEmail(e.target.value)}/>
+          </Form.Group>
 
-            </Form>          
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Phone Number</Form.Label>
+            <Form.Control type="string" name='phone' onChange = {(e) => setCustomer_phone(e.target.value)}/>
+          </Form.Group>
 
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="string" name='password' onChange = {(e) => setPassword(e.target.value)}/>
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control type="string" name='confirmPassword' onChange = {(e) => setConfirmPassword(e.target.value)}/>
+          </Form.Group>
+
+          </Form>          
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
