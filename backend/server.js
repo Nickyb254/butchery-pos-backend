@@ -43,7 +43,7 @@ import multer from 'multer';
 //adjust how files are stored
 const storage = multer.diskStorage({
   destination: function(req, file, callback){
-    callback(null, '../Z frontEnd/boma/src/images/');
+    callback(null, '../frontend/src/images/');
   },
   filename: function(req, file, callback){
     callback(null, Date.now() + '--' + file.originalname);
