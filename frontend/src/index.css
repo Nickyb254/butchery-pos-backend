@@ -36,13 +36,20 @@ h4{
 .grid-container {
   display: grid;
   grid-template-columns: 80px 180px 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 3fr;
+  grid-template-rows: 0.2fr 3fr 0.5fr;
   grid-template-areas: 
     'sidebar sidebar header header header'
-    'sidebar sidebar main main main';
+    'sidebar sidebar main main main'
+    'sidebar sidebar footer footer footer';
   height: 100vh;
 }
 
+.footer {
+  grid-area: footer;
+  background-color: #f1f1f1; 
+  padding: 10px; 
+  text-align: center; 
+}
 /* Header */
 
 .header {
