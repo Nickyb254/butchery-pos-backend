@@ -861,3 +861,15 @@ Error: ENOENT: no such file or directory, open 'C:\Users\HP\Desktop\butchery-pos
 Error: ENOENT: no such file or directory, open 'C:\Users\HP\Desktop\butchery-pos-backend\Z frontEnd\boma\src\images\1727777877380--BCE Sept 2024 Trainers TT Fin-4_page-0001.jpg' Method: POST URL: /stock
 2024-10-01 13:35:37 [error] ENOENT: no such file or directory, open 'C:\Users\HP\Desktop\butchery-pos-backend\Z frontEnd\boma\src\images\1727778937458--pork-1296x728-feature.jpg' 
 Error: ENOENT: no such file or directory, open 'C:\Users\HP\Desktop\butchery-pos-backend\Z frontEnd\boma\src\images\1727778937458--pork-1296x728-feature.jpg' Method: POST URL: /stock
+2024-10-05 21:29:13 [error] Can't find /employees/logout on the server 
+Error: Can't find /employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/server.js:140:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
