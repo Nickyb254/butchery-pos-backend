@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { v4 as uuidv4, validate } from 'uuid';
+// import { v4 as uuidv4, validate } from 'uuid';
 import crypto from 'crypto'
 
 // Custom validation function in global scope
@@ -9,7 +9,7 @@ import crypto from 'crypto'
 
 const userSchema = new mongoose.Schema({
   // user_id: { type: mongoose.Types.ObjectId, default: new mongoose.Types.ObjectId()},
-    _id: { type: String, default: uuidv4, required: true },
+    // _id: { type: String, default: uuidv4, required: true },
     email: { type: String, 
     required: [true, "Email is required"],
     unique: true,

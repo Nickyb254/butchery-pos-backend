@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken'
 
 export const getAllCustomers = (request, response, next) => {
   CustomerModel.find()
-    .select('customer_id customer_name email customer_phone refreshToken')
+    .select('_id customer_name email customer_phone')
     .exec()
     .then(docs => {
       //console.log(doc);
@@ -44,8 +44,14 @@ export const getAllCustomers = (request, response, next) => {
 
 export const getOneCstomer = (request, response, next) => {
   const id = request.params.customerId;
+
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: 'Invalid ID format' });
+  }
+
   CustomerModel.findById(id)
-    .select('customer_id customer_name customer_phone refreshToken')
+    .select('_id customer_name customer_phone email')
     .exec()
     .then(doc =>{
       //console.log('From database',doc);
