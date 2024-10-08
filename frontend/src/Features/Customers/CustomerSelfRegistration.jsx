@@ -24,7 +24,7 @@ export default function CustomerSelfRegistration() {
   const handleRegister =  (e) => {
     e.preventDefault();
     addNewCustomer(data)
-    navigate('/checkout')   
+    navigate('/customers')   
   }
 
   // const canSave = Boolean(employee_name) && Boolean(phone_number) && Boolean(password);
