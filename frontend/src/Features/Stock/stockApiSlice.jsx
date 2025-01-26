@@ -43,10 +43,20 @@ const stockApiSlice = apiSlice.injectEndpoints({
                 { type: 'Stock', id: arg.id }
             ]
         }),
+        deleteStock: builder.mutation({
+            query: ( id ) => ({
+                url: `/stock/${id}`,
+                method: 'DELETE',
+                body: { id }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Stock', id: arg.id }
+            ]
+        }),
     })
 })
 
-export const {useGetStockQuery, useUpdateStockMutation} = stockApiSlice;
+export const {useGetStockQuery, useUpdateStockMutation, useDeleteStockMutation} = stockApiSlice;
 
 //this is the query result object
 export const selectStockResult = stockApiSlice.endpoints.getStock.select()
