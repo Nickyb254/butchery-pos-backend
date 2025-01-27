@@ -1,44 +1,79 @@
+import {useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom' 
 import { Container, Card, Row, Col, Badge, Button } from 'react-bootstrap';
-import { useGetStockQuery } from '../../Features/Stock/stockApiSlice';
-
+import { useGetStockQuery,  } from '../../Features/Stock/stockApiSlice';
+import ProductDisplay from './ProductDisplay';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../../Features/Cart/cartSlice';
+import {selectMyproduct} from '../../Features/Products/productSlice'
+import { selectStock } from '../../Features/Stock/StockSlice';
 
 const ProductDetails = () => {
-    const {productId} = useParams()
-    const {data, error, isLoading} = useGetStockQuery()
-    let stock
-    if(data){
-        const {ids, entities} = data
-        stock = ids.map(id => entities[id])
-    }
-    // const stock = useSelector((state)=>state.stock.stock) 
-    
-const findItembyId = (productId)  => {
-  return stock?.find(stock => stock._id === productId)
-}
+  const productId = useSelector(selectMyproduct)
+  const dispatch = useDispatch()
+  const stock = useSelector(selectStock) 
+  const [selected, setSelected] = useState()
+  const [listItems, setListItems] = useState()
 
-const item = findItembyId(productId)
-// console.log(product)
+  let item
+  useEffect(()=>{
+      if(stock && productId){    
+        item = stock?.find(i => i._id === productId)
+        setSelected(item)
+      }
+      setListItems(stock)
+  },[productId, stock])
+
+   const handleAddToCart = (product) => {
+      dispatch(addToCart(product));
+   };   
+ 
 
   return (
-    <div>
-    <Container>
-        <Row>          
-        <Card style={{ width: '40%', height: '100%' }} >              
-            <Card.Img variant="top" src={`http://localhost:5173/src/images/${item?.stock_image}`}  style={{ height: '23em', objectFit: 'cover' }} />
-          
+    <div >
+    <div >
+        <Row style={{display:'flex', marginTop:'1%', marginBottom:'1%'}}> 
+        {
+          productId ?
+             (         
+          <Card style={{ width: '90%', marginTop:'5%', marginBottom:'5%', margin:'auto', display:'flex', flexDirection:'row', }} >              
+              <div className='image-container' style={{flexGrow: 1}}>
+                <Card.Img variant="top" src={`http://localhost:5173/src/images/${selected?.stock_image}`}  style={{ height: '23em', objectFit: 'contain', paddingTop:'2%',  }} />
+              </div>          
+                <div>
                 <Card.Body>
-                    <Card.Title>{item?.product_name}</Card.Title>
-                    <h3>Price: {item?.price}</h3>
-                    <Card.Text>         
-                    <p>All product details here</p>
-                    </Card.Text>
+                    <div><h2><small>Product Name:</small> <b>{selected?.product_name}</b> </h2></div>
+                    <h3><small> Price:</small> <b>{selected?.price}/=</b></h3>
+                    <div>         
+                    <p style={{paddingLeft:'5em'}}><i>From farm to table, our fresh cuts are packed with flavor and quality</i> </p>
+                    <p style={{paddingLeft:'5em'}}><i>Taste the difference with every bite—premium, locally sourced meat, just for you</i> </p>
+                    <p style={{paddingLeft:'5em'}}><i>Savor freshness at its finest—perfectly butchered, ready to cook!</i> </p>
+                    </div>
+                    <Card.Footer>
+                      <Button onClick={()=>handleAddToCart(selected)} >Add to Cart</Button>
+                    </Card.Footer>
                 </Card.Body>
+            </div>             
+          </Card>
+          )
+          :
+          (<div style={{marginLeft:'40%'}}><p> Select products below to preview & Add to cart</p></div>)
+        }
+        <Card>
+          <ProductDisplay stock={listItems} />
         </Card>
         </Row>
-    </Container>
+    </div>
 </div>
   )
 }
 
 export default ProductDetails
+
+
+// const {data, error, isLoading} = useGetStockQuery()
+ // let stock
+// if(data){
+    //     const {ids, entities} = data
+    //     stock = ids.map(id => entities[id])
+    // }

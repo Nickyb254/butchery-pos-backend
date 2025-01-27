@@ -1,27 +1,17 @@
-import  React, { useEffect, useState }  from 'react';
+import  React, {useState} from 'react';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col, Badge, Button } from 'react-bootstrap';
-import { useSelector, useDispatch } from 'react-redux';
+
 import { addToCart } from '../../Features/Cart/cartSlice';
-import { useNavigate } from 'react-router-dom';
-import { useGetStockQuery } from '../../Features/Stock/stockApiSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { sendMyproduct } from '../../Features/Products/productSlice';
 
-function ProductDisplay() {
-    const {data, error, isLoading } = useGetStockQuery()
+function ProductDisplay({stock}) {
+    const [next, setNext] = useState(false)
+    const location = useLocation(); 
     const dispatch = useDispatch()
-    const navigate = useNavigate()  
-    let stock;
-
-    if(isLoading) return <div>loading..</div>
-
-    if(error) return <div>{error.message}</div>
-
-    if(data){        
-        const {ids, entities} = data
-         stock = ids.map(id => entities[id]);  
-            
-        }
-            
+    const navigate = useNavigate()      
     
     const renderCard = (product, index) => {
         let productId = product?._id
@@ -30,9 +20,15 @@ function ProductDisplay() {
             dispatch(addToCart(product));
             };        
          
+        
         const goToProductDetails = (productId)=>{
-            navigate(`/${productId}`)
-        }
+            dispatch(sendMyproduct(productId))
+              if(location.pathname.includes('customers')){
+                  navigate('/customers/profile/shop')
+                }else{
+                    navigate(`/shop`)
+                }
+        } 
         
         return(
         <Col md={4} lg={3} className="mb-4" key={product._id}>
@@ -43,7 +39,7 @@ function ProductDisplay() {
                     <h3>Price: {product.price}</h3>
                     <Card.Text>         
                     <small><Button onClick={() => handleAddToCart(product)}> Add to Cart</Button> </small> <br/>
-                    <Badge onClick={()=>goToProductDetails(productId)}> View </Badge>
+                    {/* <Badge onClick={()=>goToProductDetails(productId)}> View </Badge> */}
                     </Card.Text>
                 </Card.Body>
         </Card>
