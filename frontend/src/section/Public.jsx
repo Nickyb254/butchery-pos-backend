@@ -43,8 +43,8 @@ function Public () {
   return (
     <>
       <main className="text-center bg-dark text-white">
-        <Card.Body>
-          <Card.Title style={{ fontSize: '2rem' }}>Meat Your Needs With Us!</Card.Title>
+        <Card.Body className='ticker-container' >
+          <Card.Title className='ticker-text' style={{ fontSize: '1.2em', padding:'0.2em'}}> Welcome to Boma! &nbsp; Meat Your Needs With Us! &nbsp; Always fresh & tasty! &nbsp; We are committed to supplying you with healthy, tasty and safe animal products.</Card.Title>
         </Card.Body>
         <Container className='mb-5'>
           <Carousel>
