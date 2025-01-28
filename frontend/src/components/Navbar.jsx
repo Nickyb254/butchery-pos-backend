@@ -10,47 +10,49 @@ import { Link } from 'react-router-dom';
 import CartTab from '../Features/Cart/CartTab';
 
 function HomeNavbar() {
-  // const cart = useSelector(store => store.cart.cartItems);
+  const cart = useSelector(store => store.cart.cartItems);
  
-  // let totalQuantity = cart.length
+  let totalQuantity = cart.length
+
+  const text_Clr = {
+    fontColor:'#ffffff',
+    fontWeight: 'bold',
+    fontSize: '1.8em'
+  }
 
   const Navstyle ={
-    fontweight: '900'
+   
+    display:'flex', 
+    fontColor:'white',
+    justifyContent:'space-between'
   }
   return (
     <Navbar expand="lg" className="bg-body-tertiary" style={Navstyle} bg="primary" data-bs-theme="dark" sticky="top">
-      <Container>  
-
+       
+     <Container>
         <Nav variant="tabs" defaultActiveKey="/home">
           <Nav.Item>
-            <Nav.Link className='bg-primary' href="/">BOMA BUTCHERY</Nav.Link>
+            <Nav.Link className='bg-primary' href="/"><span  style={text_Clr}>BOMA BUTCHERY</span></Nav.Link>
           </Nav.Item>      
-        
+        </Nav>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">          
-            <Nav.Link href="beef">Beef Products</Nav.Link>
-            <Nav.Link href="goat">Goat Products</Nav.Link>
-            <Nav.Link href="#link3">Chicken Products</Nav.Link>
-            <Nav.Link href="#link4">Seafoods</Nav.Link>
-            <Nav.Link href="#link5">Delivery Services</Nav.Link>
-
-            <NavDropdown title="Portals" id="basic-nav-dropdown">
+        <Navbar.Collapse id="basic-navbar-nav" style={{paddingLeft: '2em'}} >
+          <Nav className="me-auto flex justify-between">          
+            <Nav.Link href="/shop"><span  style={text_Clr}>Shop Now</span></Nav.Link>                     
+          </Nav>
+          <Nav style={{marginRight:'1em'}}>
+          <NavDropdown title="Portals" id="basic-nav-dropdown">
               <NavDropdown.Item href="/login">Admin</NavDropdown.Item>
               <NavDropdown.Item href="/employees"> Employees </NavDropdown.Item>
               <NavDropdown.Item href="/customers">Customers</NavDropdown.Item>
-
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/stock"> Stock </NavDropdown.Item>
-              <NavDropdown.Item href="/sales"> Sales </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        </Nav>
             <div className="w-40 h-40 bg-light rounded-circle d-flex justify-content-center align-items-center position-relative">
-              <CartTab />
+              {totalQuantity > 0 ? <CartTab /> : null}
             </div>            
-      </Container>
+       
+       </Container>
     </Navbar>
   );
 }

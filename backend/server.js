@@ -18,7 +18,7 @@ import globalErrorHandler from "./api/controllers/errorController.js"
 
 configDotenv()
 const app = express();
-const PORT = process.env.MONGO_URI || 3000 || 5173;
+const PORT = process.env.SERVER_PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

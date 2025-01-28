@@ -31,8 +31,10 @@ export const getAllStock = (request, response, next)=>{
 
 
 export const createStockItem = (request, response, next) =>{
+  const {product_name, price, mass_bought, mass_available, supplier_name } = request.body
+  if(!product_name || !price || !mass_bought || !mass_available || !supplier_name)return response.status(400).json({message: 'All fields are required!'})
   try{ 
-  console.log(request.file);
+  if(!request.file)return response.status(400).json({message: 'Image is required!'})
   const stockItem = new stockModel ({
     product_name: request.body.product_name,
     price: request.body.price,
@@ -52,6 +54,7 @@ export const createStockItem = (request, response, next) =>{
     });
   }
     catch(error) {
+      response.status(500).json({message: 'Error posting stock item!'})
       console.log(error);
   } 
 }

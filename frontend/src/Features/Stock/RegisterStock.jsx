@@ -3,6 +3,8 @@ import {Form, Button,  Modal, Image} from 'react-bootstrap';
 
 function RegisterStock({createStock}) {
   const [show, setShow] = useState(false);
+  
+  
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -102,7 +104,7 @@ function RegisterStock({createStock}) {
                 <Form.Control type="file" accept='image/*' onChange={onFileChange} />
                 <Image src={imageURL} />
                 </Form.Group>
-                <Button variant="primary" type="submit" >Register</Button>
+                <Button variant="primary" type="submit" >Upload</Button>
             </Form>
           
 

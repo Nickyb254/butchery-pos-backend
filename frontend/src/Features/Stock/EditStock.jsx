@@ -1,15 +1,9 @@
 import { useState } from 'react';
 import {Form, Button,  Modal, Image} from 'react-bootstrap';
-import { useUpdateStockMutation } from './stockApiSlice';
 
-function EditStock({card}) {
+function EditStock({card , onUpdate}) {
   
-  const [updateStock, {
-    isLoading,
-    isSuccess,
-    isError,
-    error
-  }] = useUpdateStockMutation()
+  
 
   const [show, setShow] = useState(false);
 
@@ -52,6 +46,8 @@ function EditStock({card}) {
         console.error('No file selected');
     }
 
+    const id = JSON.stringify(card._id);
+console.log('id', id)
     formData.append('_id', card._id)
     formData.append('image', stock_image)
     formData.append('product_name', product_name);
@@ -61,7 +57,7 @@ function EditStock({card}) {
     formData.append('supplier_name', supplier_name);
     formData.append('transaction_by', transaction_by);
   
-    updateStock({formData})
+    onUpdate(id, formData)
     
      
       }

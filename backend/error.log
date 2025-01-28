@@ -873,3 +873,25 @@ Error: Can't find /employees/logout on the server
     at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
     at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7)
     at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /employees/logout
+2024-10-08 16:19:51 [error] _id is not defined 
+ReferenceError: _id is not defined
+    at getOneCstomer (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customers.js:47:26)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\backend\node_modules\express\lib\router\index.js:280:10) Method: GET URL: /customers/67052dea406572c6792ee43
+2025-01-26 20:27:14 [error] Error fetching orders: Cast to ObjectId failed for value "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type string) at path "_id" for model "Stock" 
+Error: Error fetching orders: Cast to ObjectId failed for value "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type string) at path "_id" for model "Stock"
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:20:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/:id/orders
+2025-01-27 10:44:10 [error] Error fetching orders: Cast to ObjectId failed for value "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type string) at path "_id" for model "Stock" 
+Error: Error fetching orders: Cast to ObjectId failed for value "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type string) at path "_id" for model "Stock"
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:20:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/:id/orders

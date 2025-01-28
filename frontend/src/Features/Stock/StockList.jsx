@@ -1,4 +1,4 @@
-import { useGetStockQuery } from './stockApiSlice';
+import { useGetStockQuery,useUpdateStockMutation, useDeleteStockMutation } from './stockApiSlice';
 import  React, { useEffect, useState }  from 'react';
 import axiosInstance from '../../api/axios';
 import Button from 'react-bootstrap/Button';
@@ -8,38 +8,52 @@ import { Container, Row, Col } from 'react-bootstrap';
 import EditStock from './EditStock';
 
 function StockList() {
+        
+    //fetch All Stock using custom hook
+    const {data, error, isLoading, refetch} = useGetStockQuery()
+
+    //delete item using custom hook
+    const [deleteStock, {
+          isSuccess: isDelSuccess,
+          isError: isDelError,
+          error: delerror
+        }] = useDeleteStockMutation()
     
-    // const [stock, setStock] = useState([])
-    const [fetchData, setFetchData] = useState(true); // State to trigger data re-fetch     
-    
-    const createStock = async(formdata) =>{
-        // console.log(formdata)
-        try{
-             await axiosInstance.post('/stock', formdata, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }},
-        )
-        .then(result => setFetchData(true))
-        }
-        catch(error) {console.log(error)}
-    }
-    
-    //fetch All Stock
-    const {data, error, isLoading} = useGetStockQuery()
-    let stock
+    const [updateStock, {
+        isFetching,
+        isFulfilled,
+        isError,
+        error: updateError
+        }] = useUpdateStockMutation()
+
+    let stock = []
     if(data)  {
         const {ids, entities} = data        
 
         stock = ids.map(id=>entities[id])
     } 
+        
     
+    const createStock = async(formdata) =>{
+        try{
+            const result = await axiosInstance.post('/stock', formdata, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }},
+        )
+        .then(result => refetch())
+        }
+        catch(error) {console.log(error)}
+    }
+    
+
     
 //update Stock
-const onUpdate = async (stockId) =>{   
+const onUpdate = async (stockId, formData) =>{ 
+    console.log('sent id', stockId)
     try{
-     await axiosInstance.patch(`/stock/${stockId}`)
-     .then(() => {setFetchData(true)})
+     await updateStock(formData)
+     .then(() => {refetch()})
     } catch (error){
      console.log(error)
     }
@@ -47,10 +61,10 @@ const onUpdate = async (stockId) =>{
     
 
 //delete Stock
-  const onDelete = async (stockId) =>{   
+  const onDelete = async (stockId) =>{  
      try{
-      await axiosInstance.delete(`/stock/${stockId}`)
-      .then(() => {setFetchData(true)})
+      await deleteStock(stockId)
+      .then(() => {refetch()})
      } catch (error){
       console.log(error)
      }
@@ -78,7 +92,9 @@ const onUpdate = async (stockId) =>{
 
   return (
       <Container className='main-container'>
-      {stock === null ? "" :
+        {stock.length === 0 ? (
+            <div>No stock available</div>
+        ) :
         <Row>
             {stock?.map(renderCard)}
             <RegisterStock createStock={createStock} />

@@ -6,8 +6,6 @@ import {EmployeeList, EmployeeRegistration, EmployeeLogin,} from './Features/Emp
 import { CustomerSelfRegistration, CustomersLogin, CustomersList, CheckOut} from './Features/Customers/index.js';
 import StockList from './Features/Stock/StockList.jsx';
 import SalesList from './Features/Sales/SalesList.jsx';
-import AddImages from './Features/Images/AddImages.jsx';
-import ProductDisplay from './components/Products/ProductDisplay.jsx';
 import ProductDetails from './components/Products/ProductDetails.jsx';
 import ProtectedRoute from './section/ProtectedRoute.jsx';
 import Prefetch from './Features/Prefetch.jsx'
@@ -25,8 +23,7 @@ function App() {
       <Route path='/' element= {<Layout />}>
         <Route index element= {<Public />} />  
         <Route path='/:productId' element= {<ProductDetails />} />  
-        <Route path='/beef' element= {<AddImages />} />  
-        <Route path='/goat' element= {<ProductDisplay />} />
+        <Route path='/shop' element= {<ProductDetails />} /> 
         <Route path='login' element= {<AdminLogin/>} />  
         <Route path='employees' element= {<EmployeeLogin />} />
         <Route path='customers' element= {<CustomersLogin />} />
@@ -55,7 +52,6 @@ function App() {
                   <Route index element={<EmployeeHome/>} />
                   <Route path='edit'  element= {<EmployeeProfile />} />
                   <Route path='stock' element={<StockList/>} />  
-                  {/* <Route path='register-customer' element= {<CustomerRegistration />} /> */}
                   <Route path='customers' element={<CustomersList/>} />
                   <Route path='sales' element= {<SaleRegistration />} />
                   <Route path='orders' element={<OrdersList/>} />  
@@ -63,13 +59,12 @@ function App() {
             </Route>
 
             <Route path='customers'>
-              {/* <Route index element= {<CustomersLogin />} /> */}
               <Route path='register' element= {<CustomerSelfRegistration />} />
 
               <Route path='profile' element={<CustomerLayout/>} >
                 <Route index element= {<CustomerDashboard />} />
                 <Route path='checkout' element= {<CheckOut />} />
-                <Route path='shop' element={<ProductDisplay/>} /> 
+                <Route path='shop' element={<ProductDetails/>} /> 
                 <Route path='orders' element={<OrderForCustomer/>} />  
                 <Route path='settings' element={<CustomerProfile/>} />  
               </Route>
