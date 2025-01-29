@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
  
 export default async function connectDB() {
-  const url = process.env.MONGO_URL;
+  // const url = process.env.MONGO_URL;
+  const url = process.env.MONGO_ATLAS_URL;
   if (!url) {
     console.error("MONGO_URI is not defined in .env file");
     process.exit(1);
