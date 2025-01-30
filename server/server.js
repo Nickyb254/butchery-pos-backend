@@ -16,6 +16,12 @@ import cookieParser from "cookie-parser";
 import customError from "./utils/customError.js";
 import globalErrorHandler from "./api/controllers/errorController.js"
 
+//__dirname is not defined in ES module scope; it is available using require (below is workaround)
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 configDotenv()
 const app = express();
 const PORT = process.env.SERVER_PORT || 3000;
@@ -43,7 +49,7 @@ import multer from 'multer';
 //adjust how files are stored
 const storage = multer.diskStorage({
   destination: function(req, file, callback){
-    callback(null, '../frontend/src/images/');
+    callback(null, 'client/public/images/');
   },
   filename: function(req, file, callback){
     callback(null, Date.now() + '--' + file.originalname);
@@ -76,7 +82,7 @@ import mongoose from "mongoose";
 
 const Images = mongoose.model('Images')
 app.post('/upload-image',  upload.single('image'), async(request, response, next) => {
-  console.log(request.body)
+  
   const imageName = request.file.filename
   try {
     await Images.create({imagez: imageName})
@@ -117,6 +123,8 @@ app.use((request, response, next) => {
 });
 
 connectDB();
+//serve images from node
+app.use('/images' ,express.static(path.join('client/public/images')));
 
 app.use('/customers', customerRoutes);
 app.use('/employees', employeesRoutes);
@@ -132,6 +140,12 @@ app.use('/refresh', userRoutes);
 // app.use('/images', imagesRoutes);
 app.use('/stripe', stripeRoutes);
 app.use('/orders', orderRoutes);
+
+//use the client app
+app.use(express.static(path.join(__dirname, '/client/dist')))
+
+//Render client for any path 
+app.get('*', (req, res)=> res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html')))
 
 //handling any request not in the above routers
 app.all('*',(request, response, next)=>{
