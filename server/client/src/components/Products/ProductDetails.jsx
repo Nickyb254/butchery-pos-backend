@@ -5,14 +5,14 @@ import { useGetStockQuery,  } from '../../Features/Stock/stockApiSlice';
 import ProductDisplay from './ProductDisplay';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../Features/Cart/cartSlice';
-import {selectMyproduct} from '../../Features/Products/productSlice'
+import {selectMyproduct, clearSelectedProduct} from '../../Features/Products/productSlice'
 import { selectStock } from '../../Features/Stock/StockSlice';
 
 const ProductDetails = () => {
   const productId = useSelector(selectMyproduct)
   const dispatch = useDispatch()
   const stock = useSelector(selectStock) 
-  const [selected, setSelected] = useState()
+  const [selected, setSelected] = useState(null)
   const [listItems, setListItems] = useState()
 
   let item
@@ -28,6 +28,10 @@ const ProductDetails = () => {
       dispatch(addToCart(product));
    };   
  
+   const handleClearSelectedProduct = ()=>{
+    dispatch(clearSelectedProduct())
+    setSelected(null)
+   }
 
   return (
     <div >
@@ -38,10 +42,11 @@ const ProductDetails = () => {
              (         
           <Card style={{ width: '90%', marginTop:'5%', marginBottom:'5%', margin:'auto', display:'flex', flexDirection:'row', }} >              
               <div className='image-container' style={{flexGrow: 1}}>
-                <Card.Img variant="top" src={`http://localhost:5173/src/images/${selected?.stock_image}`}  style={{ height: '23em', objectFit: 'contain', paddingTop:'2%',  }} />
+                <Card.Img variant="top" src={`http://localhost:3000/images/${selected?.stock_image}`}  style={{ height: '23em', objectFit: 'contain', paddingTop:'2%',  }} />
               </div>          
-                <div>
-                <Card.Body>
+                <div style={{display:'flex', flexDirection: 'row-reverse', justifyContent:'start'}}>
+                <Button style={{alignSelf:'flex-start' , marginTop: '0.54em'}} variant='danger' onClick={handleClearSelectedProduct}>X</Button>
+                <Card.Body>                  
                     <div><h2><small>Product Name:</small> <b>{selected?.product_name}</b> </h2></div>
                     <h3><small> Price:</small> <b>{selected?.price}/=</b></h3>
                     <div>         
@@ -50,6 +55,7 @@ const ProductDetails = () => {
                     <p style={{paddingLeft:'5em'}}><i>Savor freshness at its finest—perfectly butchered, ready to cook!</i> </p>
                     </div>
                     <Card.Footer>
+                    
                       <Button onClick={()=>handleAddToCart(selected)} >Add to Cart</Button>
                     </Card.Footer>
                 </Card.Body>

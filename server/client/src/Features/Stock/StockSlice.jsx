@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    name: localStorage.getItem('stock') ? JSON.parse(localStorage.getItem('stock')) : null
+    stock: localStorage.getItem('stock') ? JSON.parse(localStorage.getItem('stock')) : null
 }
 
 const stockSlice = createSlice({
@@ -15,6 +15,6 @@ const stockSlice = createSlice({
     }
 })
 
-export const selectStock = (state) => state.stock.name
+export const selectStock = (state) => state.stock.stock
 export const {putStock} = stockSlice.actions
 export default stockSlice.reducer

@@ -17,11 +17,11 @@ function Public () {
   let stock;
   
   // Use useEffect to dispatch the stock update after the component mounts
-  useEffect(() => {
-    if (stock) {
-      dispatch(putStock(stock));
-    }
-  }, [stock, dispatch]);  // Ensure this runs only when stock is updated
+  // useEffect(() => {
+  //   if (stock) {
+  //     dispatch(putStock(stock));
+  //   }
+  // }, [stock, dispatch]);  // Ensure this runs only when stock is updated
        
  
 
@@ -32,6 +32,7 @@ function Public () {
   if (data) {        
     const { ids, entities } = data;
     stock = ids.map(id => entities[id]); 
+    dispatch(putStock(stock));
   }
 
 
