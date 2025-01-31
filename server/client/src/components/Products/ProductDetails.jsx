@@ -42,7 +42,7 @@ const ProductDetails = () => {
              (         
           <Card style={{ width: '90%', marginTop:'5%', marginBottom:'5%', margin:'auto', display:'flex', flexDirection:'row', }} >              
               <div className='image-container' style={{flexGrow: 1}}>
-                <Card.Img variant="top" src={`http://localhost:3000/images/${selected?.stock_image}`}  style={{ height: '23em', objectFit: 'contain', paddingTop:'2%',  }} />
+                <Card.Img variant="top" src={`${import.meta.env.VITE_IMAGE_BASE_URL}/${selected?.stock_image}`}  style={{ height: '23em', objectFit: 'contain', paddingTop:'2%',  }} />
               </div>          
                 <div style={{display:'flex', flexDirection: 'row-reverse', justifyContent:'start'}}>
                 <Button style={{alignSelf:'flex-start' , marginTop: '0.54em'}} variant='danger' onClick={handleClearSelectedProduct}>X</Button>

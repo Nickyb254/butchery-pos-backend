@@ -33,7 +33,7 @@ function ProductDisplay({stock}) {
         return(
         <Col md={4} lg={3} className="mb-4" key={product._id}>
         <Card style={{ width: '18rem', margin: '1.25rem' }} >
-            <Card.Img variant="top" src={`http://localhost:3000/images/${product.stock_image}`} style={{ width: '17em', margin: '0.25em', height:'13em' }} onClick={()=>goToProductDetails(productId)} />
+            <Card.Img variant="top" src={`${import.meta.env.VITE_IMAGE_BASE_URL}/${product.stock_image}`} style={{ width: '17em', margin: '0.25em', height:'13em' }} onClick={()=>goToProductDetails(productId)} />
                 <Card.Body>
                     <Card.Title>{product.product_name}</Card.Title>
                     <h3>Price: {product.price}</h3>

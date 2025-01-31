@@ -74,7 +74,7 @@ const onUpdate = async (stockId, formData) =>{
     return(
         <Col md={4} lg={3} className="mb-4" key={card._id}>
         <Card style={{ width: '18rem', margin: '1.25rem' }} >
-            <Card.Img variant="top" src={`http://localhost:5173/src/images/${card.stock_image}`} style={{ width: '17em', margin: '0.25em', height:'13em' }} />
+            <Card.Img variant="top" src={`${import.meta.env.VITE_IMAGE_BASE_URL}/${card.stock_image}`} style={{ width: '17em', margin: '0.25em', height:'13em' }} />
                 <Card.Body>
                     <Card.Title>{card.product_name}</Card.Title>
                     <h3>Price: {card.price}</h3>

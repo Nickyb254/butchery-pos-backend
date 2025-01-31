@@ -1,7 +1,6 @@
 {
   "name": "boma",
   "private": true,
-  "proxy": "http://127.0.0.1:3000",
   "version": "0.0.0",
   "type": "module",
   "homepage": ".",

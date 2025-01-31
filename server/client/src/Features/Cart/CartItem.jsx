@@ -25,7 +25,7 @@ const CartItem = ({item}) => {
         <Container className="bg-dark text-white p-2 border-bottom border-secondary rounded">
             <Row className="d-flex align-items-center">
                 
-                <img src={`http://localhost:5173/src/images/${item?.stock_image}`} alt="" className="w-25" />
+                <img src={`${import.meta.env.VITE_IMAGE_BASE_URL}/${item?.stock_image}`} alt="" className="w-25" />
                 
                 <Col>
                     <strong>{item?.product_name}</strong>
