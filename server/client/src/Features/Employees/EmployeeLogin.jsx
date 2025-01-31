@@ -21,7 +21,7 @@ const EmployeeLogin = (props) => {
     e.preventDefault();
     try{     
        const data = await login({email, password}).unwrap()
-       navigate('profile')
+       navigate('/employees/profile/')
        window.localStorage.setItem("loggedIn", true)
        dispatch(sendProfile({data}))
       }catch  (error) {

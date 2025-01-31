@@ -24,7 +24,7 @@ const CustomersLogin = () => {
         const {name, id, accessToken } = data
         // window.localStorage.setItem('jwtToken', accessToken)
         dispatch(customerProfile({name, id}))
-        navigate('profile')
+        navigate('/customers/profile')
     }catch (error){console.log(error)}
   }
   

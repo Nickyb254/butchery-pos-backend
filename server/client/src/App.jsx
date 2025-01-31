@@ -42,10 +42,8 @@ function App() {
                 <Route path='orders' element={<OrdersList/>} />             
               </Route>
             </Route>
-          </Route>
 
             <Route path='employees'>
-              {/* <Route index element= {<EmployeeLogin />} /> */}
               <Route path='register' element= {<EmployeeRegistration />} />
               
                 <Route path='profile' element={<EmployeeLayout/>} >
@@ -69,6 +67,7 @@ function App() {
                 <Route path='settings' element={<CustomerProfile/>} />  
               </Route>
             </Route>
+          </Route>
       
       </Route>
     </Routes>
