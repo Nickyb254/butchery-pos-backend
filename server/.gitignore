@@ -1,6 +1,8 @@
 node_modules
 nodemon.json
 .env
+.env.development
+.env.production
 uploads
 
 client/node_modules

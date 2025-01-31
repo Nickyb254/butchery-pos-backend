@@ -4,7 +4,7 @@ export default async function connectDB() {
   // const url = process.env.MONGO_URL;
   const url = process.env.MONGO_ATLAS_URL;
   if (!url) {
-    console.error("MONGO_URI is not defined in .env file");
+    console.error("MONGO_ATLAS_URL is not defined in .env file", url);
     process.exit(1);
   }
 

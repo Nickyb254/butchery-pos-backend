@@ -22,7 +22,14 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-configDotenv()
+// configDotenv()
+// Load environment variables from appropriate .env file
+if (process.env.NODE_ENV !== 'production') {
+  configDotenv({
+    path: `.env.${process.env.NODE_ENV || 'development'}`,
+  });
+}
+
 const app = express();
 const PORT = process.env.SERVER_PORT || 3000;
 
@@ -31,7 +38,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // CORS configuration
 const corsOptions = {
-  origin: 'http://localhost:5173', 
+  origin: [`${process.env.CLIENT_URL}` ,`${process.env.FRONT_END_URL}`],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: 'Content-Type, Authorization',
   credentials: true
@@ -111,7 +118,7 @@ app.use(errHandler)
 //CORS errors- CROSS-ORIGIN RESOURCE SHARING
 app.use((request, response, next) => {
    // Set CORS origin & headers
-  response.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  response.header('Access-Control-Allow-Origin', `${process.env.CLIENT_URL}` ,`${process.env.FRONT_END_URL}`);
   response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
    // Handle preflight OPTIONS requests
   if (request.method === 'OPTIONS'){
@@ -148,12 +155,12 @@ app.use(express.static(path.join(__dirname, '/client/dist')))
 app.get('*', (req, res)=> res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html')))
 
 //handling any request not in the above routers
-app.all('*',(request, response, next)=>{
-  // const error = new error('Not found');
-  // error.status(404);
-  const error = new customError(`Can't find ${request.originalUrl} on the server`, 404)
-  next(error);
-});
+// app.all('*',(request, response, next)=>{
+//   // const error = new error('Not found');
+//   // error.status(404);
+//   const error = new customError(`Can't find ${request.originalUrl} on the server`, 404)
+//   next(error);
+// });
 
 //next passes 404 error and any other error down to global error handler below
 
