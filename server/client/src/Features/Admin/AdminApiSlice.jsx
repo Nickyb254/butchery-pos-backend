@@ -5,14 +5,14 @@ export const adminApiSlice = apiSlice.injectEndpoints({
     endpoints: builder=> ({
         login: builder.mutation({
             query: credentials =>({
-                url: 'user/login',
+                url: 'api/v1/user/login',
                 method: 'POST',
                 body: {...credentials}
             })
         }),
         sendLogOut: builder.mutation({
             query: ()=>({
-                url: 'user/logout',
+                url: 'api/v1/user/logout',
                 method: 'POST',
             }),
             async onQueryStarted(arg,{dispatch, queryFulfilled}) {
@@ -27,7 +27,7 @@ export const adminApiSlice = apiSlice.injectEndpoints({
         }),
         refresh: builder.mutation({
             query: ()=> ({
-                url: '/user/refresh',
+                url: 'api/v1/user/refresh',
                 method: 'GET'
             }),
             async onQueryStarted(arg, {dispatch, queryFulfilled}){

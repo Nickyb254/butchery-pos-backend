@@ -1,5 +1,4 @@
 import express from "express";
-const router = express.Router();
 import connectDB from'./config/boma_db.js';
 import customerRoutes from './api/routes/customerRoutes.js';
 import employeesRoutes from './api/routes/employeesRoutes.js';
@@ -31,20 +30,41 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const app = express();
-const PORT = process.env.SERVER_PORT || 3000;
+const PORT = process.env.SERVER_PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// CORS configuration
-const corsOptions = {
-  origin: [`${process.env.CLIENT_URL}` ,`${process.env.FRONT_END_URL}`],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'Content-Type, Authorization',
-  credentials: true
-};
+//ORDER MATTERS CORS - PREFLIGHT - STATIC FILES
+// CORS configuration- CROSS-ORIGIN RESOURCE SHARING
+const allowedOrigins = [`${process.env.CLIENT_URL}` ,`${process.env.FRONT_END_URL}`, "http://localhost:3000",  "http://127.0.0.1:3000"].filter(Boolean);
 
-app.use(cors(corsOptions));
+// Compatibility with build
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+  })
+);
+
+// Express route specifically for OPTIONS requests- preflight
+app.options("*", (req, res) => {
+  const origin = req.headers.origin;
+  res.header("Access-Control-Allow-Origin", origin);
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true"); // Needed for cookies/auth headers
+  res.sendStatus(200);
+});
+
 app.use(morgan('dev'));
 //bodyParser helps access data in the body; handle incoming post request
 //app.use(bodyParser.urlencoded({extended: true}));
@@ -115,52 +135,33 @@ function errHandler(err, req, res, next){
 app.use(errHandler)
 // ------------------------------------------------------------------------------------
 
-//CORS errors- CROSS-ORIGIN RESOURCE SHARING
-app.use((request, response, next) => {
-   // Set CORS origin & headers
-  response.header('Access-Control-Allow-Origin', `${process.env.CLIENT_URL}` ,`${process.env.FRONT_END_URL}`);
-  response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-   // Handle preflight OPTIONS requests
-  if (request.method === 'OPTIONS'){
-      response.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE GET');
-    return response.status(200).json({});
-  }
-  // Proceed to the next middleware or route handler
-  next();
-});
-
 connectDB();
 //serve images from node
 app.use('/images' ,express.static(path.join('client/public/images')));
 
-app.use('/customers', customerRoutes);
-app.use('/employees', employeesRoutes);
-app.use('/sales', salesRoutes);
-app.use('/stock', upload.single('image'), stockRoutes);
-app.use('/customers/Id', customerRoutes);
-app.use('/employees/Id', employeesRoutes);
-app.use('/sales/Id', salesRoutes);
-app.use('/stock/Id', stockRoutes);
-app.use('/user', userRoutes);
-app.use('/login', userRoutes);
-app.use('/refresh', userRoutes);
-// app.use('/images', imagesRoutes);
-app.use('/stripe', stripeRoutes);
-app.use('/orders', orderRoutes);
+app.use('/api/v1/customers', customerRoutes);
+app.use('/api/v1/employees', employeesRoutes);
+app.use('/api/v1/sales', salesRoutes);
+app.use('/api/v1/stock', upload.single('image'), stockRoutes);
+app.use('/api/v1/user', userRoutes);
+// app.use('/api/v1/images', imagesRoutes);
+app.use('/api/v1/stripe', stripeRoutes);
+app.use('/api/v1/orders', orderRoutes);
 
-//use the client app
+
+//Serve frontend as static files
 app.use(express.static(path.join(__dirname, '/client/dist')))
 
 //Render client for any path 
 app.get('*', (req, res)=> res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html')))
 
 //handling any request not in the above routers
-// app.all('*',(request, response, next)=>{
-//   // const error = new error('Not found');
-//   // error.status(404);
-//   const error = new customError(`Can't find ${request.originalUrl} on the server`, 404)
-//   next(error);
-// });
+app.all('*',(request, response, next)=>{
+  // const error = new error('Not found');
+  // error.status(404);
+  const error = new customError(`Can't find ${request.originalUrl} on the server`, 404)
+  next(error);
+});
 
 //next passes 404 error and any other error down to global error handler below
 

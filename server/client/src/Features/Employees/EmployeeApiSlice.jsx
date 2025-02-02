@@ -10,14 +10,14 @@ export const employeeApiSlice = apiSlice.injectEndpoints({
     endpoints: builder =>({
         employeeLogin: builder.mutation({
             query: credentials => ({
-                url: 'employees/login',
+                url: 'api/v1/employees/login',
                 method: 'POST',
                 body: {...credentials}
             })
         }),
         employeeLogOut: builder.mutation({
             query: ()=>({
-                url: 'employees/logout',
+                url: 'api/v1/employees/logout',
                 method: 'POST'
             }),
             async onQueryStarted (arg, {dispatch, queryFulfilled}){
@@ -31,7 +31,7 @@ export const employeeApiSlice = apiSlice.injectEndpoints({
             }
         }),
         getAllEmployees: builder.query({
-            query: ()=>'/employees',
+            query: ()=>'api/v1/employees',
                 validateStatus: (response, result)=>{
                     return response.status === 200 && !result.error
                 },
@@ -53,7 +53,7 @@ export const employeeApiSlice = apiSlice.injectEndpoints({
         }),
         addNewEmployee: builder.mutation({
             query: initialEmployee => ({
-                url: '/employees/signup',
+                url: 'api/v1/employees/signup',
                 method: 'POST',
                 body: {
                     ...initialEmployee,
@@ -65,7 +65,7 @@ export const employeeApiSlice = apiSlice.injectEndpoints({
         }),
         updateEmployee: builder.mutation({
             query: initialEmployee => ({
-                url: `/employees/${initialEmployee.id}`,
+                url: `api/v1/employees/${initialEmployee.id}`,
                 method: 'PATCH',
                 body: {
                     ...initialEmployee,
@@ -77,7 +77,7 @@ export const employeeApiSlice = apiSlice.injectEndpoints({
         }),
         disableEmployee: builder.mutation({
             query: ( id ) => ({
-                url: `/user/disable/${id}`,
+                url: `api/v1/user/disable/${id}`,
                 method: 'PATCH',
                 body: { id }
             }),
@@ -87,7 +87,7 @@ export const employeeApiSlice = apiSlice.injectEndpoints({
         }),
         deleteEmployee: builder.mutation({
             query: ( id ) => ({
-                url: `/employees/${id}`,
+                url: `api/v1//employees/${id}`,
                 method: 'DELETE',
                 body: { id }
             }),

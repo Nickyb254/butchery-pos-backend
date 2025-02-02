@@ -10,7 +10,7 @@ const initialState = stockAdapter.getInitialState()
 const stockApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getStock: builder.query({
-            query: () => '/stock',
+            query: () => 'api/v1/stock',
             validateStatus: (response, result) => {                
                 return response.status === 200 && !result.isError
             },
@@ -33,7 +33,7 @@ const stockApiSlice = apiSlice.injectEndpoints({
         }),
         updateStock: builder.mutation({
             query: initialStock => ({
-                url: `/stock/${initialStock._id}`,
+                url: `api/v1/stock/${initialStock._id}`,
                 method: 'PATCH',
                 body: {
                     ...initialStock,
@@ -45,7 +45,7 @@ const stockApiSlice = apiSlice.injectEndpoints({
         }),
         deleteStock: builder.mutation({
             query: ( id ) => ({
-                url: `/stock/${id}`,
+                url: `api/v1/stock/${id}`,
                 method: 'DELETE',
                 body: { id }
             }),

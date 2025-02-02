@@ -8,7 +8,7 @@ const initialState = customerAdapter.getInitialState()
 export const customerApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getCustomers: builder.query ({
-            query: ()=> '/customers',
+            query: ()=> 'api/v1/customers',
                 validateStatus: (response, result)=>{
                 return response.status === 200 && !result.error
             },
@@ -30,7 +30,7 @@ export const customerApiSlice = apiSlice.injectEndpoints({
         }),
         addNewCustomer: builder.mutation({
             query: initialCustomer => ({
-                url: '/customers',
+                url: 'api/v1/customers',
                 method: 'POST',
                 body: {
                     ...initialCustomer,
@@ -42,7 +42,7 @@ export const customerApiSlice = apiSlice.injectEndpoints({
         }),
         updateCustomer: builder.mutation({
             query: initialCustomer => ({
-                url: `/customers/${initialCustomer.id}`,
+                url: `api/v1/customers/${initialCustomer.id}`,
                 method: 'PATCH',
                 body: {
                     ...initialCustomer,
@@ -54,7 +54,7 @@ export const customerApiSlice = apiSlice.injectEndpoints({
         }),
         deleteCustomer: builder.mutation({
             query: ( id ) => ({
-                url: `/customers/${id}`,
+                url: `api/v1/customers/${id}`,
                 method: 'DELETE',
                 body: { id }
             }),
@@ -64,14 +64,14 @@ export const customerApiSlice = apiSlice.injectEndpoints({
         }),
         customerLogin: builder.mutation({
             query: credentials =>({
-                url: 'customers/login',
+                url: 'api/v1/customers/login',
                 method: 'POST',
                 body: {...credentials}
             })
         }),
         customerLogOut: builder.mutation({
             query: ()=>({
-                url: 'customers/log-out',
+                url: 'api/v1customers/log-out',
                 method: 'POST',
             }),
             async onQueryStarted(arg,{dispatch, queryFulfilled}) {
@@ -86,7 +86,7 @@ export const customerApiSlice = apiSlice.injectEndpoints({
         }),
         refresh: builder.mutation({
             query: ()=> ({
-                url: '/customers/refresh',
+                url: 'api/v1/customers/refresh',
                 method: 'GET'
             }),
             async onQueryStarted(arg, {dispatch, queryFulfilled}){
@@ -102,7 +102,7 @@ export const customerApiSlice = apiSlice.injectEndpoints({
         //stripe checkout hook
         checkOut: builder.mutation({
             query: cartItems => ({
-                url: '/stripe/create-checkout',
+                url: 'api/v1/stripe/create-checkout',
                 method: 'POST',
                 body: {
                     ...cartItems,
