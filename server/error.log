@@ -895,3 +895,400 @@ Error: Error fetching orders: Cast to ObjectId failed for value "c700d2c0-9f02-4
     at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/services/orderService.js:20:15)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async file:///C:/Users/HP/Desktop/butchery-pos-backend/backend/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/:id/orders
+2025-01-30 08:07:04 [error] Can't find / on the server 
+Error: Can't find / on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /
+2025-01-30 08:07:04 [error] Can't find /favicon.ico on the server 
+Error: Can't find /favicon.ico on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /favicon.ico
+2025-01-30 08:07:54 [error] Can't find / on the server 
+Error: Can't find / on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /
+2025-01-30 08:08:28 [error] Can't find /client/dist/index.html on the server 
+Error: Can't find /client/dist/index.html on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /client/dist/index.html
+2025-01-30 08:08:32 [error] Can't find /client/dist/index.html on the server 
+Error: Can't find /client/dist/index.html on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /client/dist/index.html
+2025-01-30 08:09:47 [error] Can't find / on the server 
+Error: Can't find / on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /
+2025-01-30 08:16:18 [error] Can't find /shop on the server 
+Error: Can't find /shop on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /shop
+2025-01-30 08:54:33 [error] Can't find / on the server 
+Error: Can't find / on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /
+2025-01-30 08:55:05 [error] Can't find / on the server 
+Error: Can't find / on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /
+2025-01-30 08:56:23 [error] Can't find / on the server 
+Error: Can't find / on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /
+2025-01-30 08:57:47 [error] Can't find / on the server 
+Error: Can't find / on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /
+2025-01-30 08:57:49 [error] Can't find / on the server 
+Error: Can't find / on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /
+2025-01-30 08:58:51 [error] Can't find / on the server 
+Error: Can't find / on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:146:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at Route.dispatch (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:119:3) Method: GET URL: /
+2025-01-30 12:48:51 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /
+2025-01-30 12:49:50 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 12:54:46 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 12:55:01 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 12:55:05 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 12:55:22 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 12:55:34 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 12:55:36 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 12:56:46 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 12:57:27 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 13:02:30 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 13:45:28 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 17:23:46 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 17:32:43 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 17:51:51 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:10:47 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:18:28 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:19:16 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:20:51 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:21:50 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:21:59 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:24:00 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:24:42 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:25:06 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:26:52 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:27:47 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:27:52 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:28:12 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:28:25 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:28:46 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:30:52 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:31:12 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:31:32 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:36:22 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:37:55 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:38:15 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:39:29 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:42:19 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:43:18 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:45:47 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:47:32 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:48:02 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:49:53 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 18:50:14 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 19:15:57 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 19:16:02 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 20:20:17 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 20:26:27 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 20:26:29 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 20:26:31 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 20:26:34 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 20:26:36 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 20:29:58 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 20:37:32 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 20:37:57 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:06:10 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:12:42 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:13:15 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:15:41 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:15:52 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:16:37 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:20:05 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:20:07 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:20:30 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:20:39 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:20:59 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:21:03 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:22:14 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:23:05 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-30 21:26:43 [error] ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' 
+Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\butchery-pos-backend\server\client\dist\index.html' Method: GET URL: /images/undefined
+2025-01-31 15:57:37 [error] Error fetching orders: Cast to ObjectId failed for value "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type string) at path "_id" for model "Stock" 
+Error: Error fetching orders: Cast to ObjectId failed for value "c700d2c0-9f02-41e8-b4e0-7c366749705a" (type string) at path "_id" for model "Stock"
+    at getOrdersByCustomerId (file:///C:/Users/HP/Desktop/butchery-pos-backend/server/api/services/orderService.js:20:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///C:/Users/HP/Desktop/butchery-pos-backend/server/api/controllers/customerOrders.js:9:24 Method: GET URL: /customers/:id/orders
+2025-02-01 15:26:47 [error] origins is not defined 
+ReferenceError: origins is not defined
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:132:31
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:91:12)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12) Method: GET URL: /
+2025-02-01 15:26:47 [error] origins is not defined 
+ReferenceError: origins is not defined
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:132:31
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:91:12)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12) Method: GET URL: /favicon.ico
+2025-02-01 15:27:28 [error] req is not defined 
+ReferenceError: req is not defined
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:132:20
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:91:12)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12) Method: GET URL: /
+2025-02-01 15:27:28 [error] req is not defined 
+ReferenceError: req is not defined
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:132:20
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:91:12)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12) Method: GET URL: /favicon.ico
+2025-02-01 15:27:33 [error] req is not defined 
+ReferenceError: req is not defined
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:132:20
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:91:12)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12) Method: GET URL: /
+2025-02-01 15:27:33 [error] req is not defined 
+ReferenceError: req is not defined
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:132:20
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:280:10)
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:91:12)
+    at trim_prefix (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\index.js:346:12) Method: GET URL: /favicon.ico
+2025-02-02 14:31:08 [error] Can't find /api/v1customers/log-out on the server 
+Error: Can't find /api/v1customers/log-out on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:164:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /api/v1customers/log-out
+2025-02-02 14:31:26 [error] Can't find /api/v1customers/log-out on the server 
+Error: Can't find /api/v1customers/log-out on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:164:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /api/v1customers/log-out

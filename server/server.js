@@ -151,6 +151,8 @@ app.use('/api/v1/orders', orderRoutes);
 
 //Serve frontend as static files
 app.use(express.static(path.join(__dirname, '/client/dist')))
+app.use('/images', express.static(path.join(__dirname, 'client', 'dist', 'images')));
+
 
 //Render client for any path 
 app.get('*', (req, res)=> res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html')))
