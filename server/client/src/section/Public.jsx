@@ -17,11 +17,11 @@ function Public () {
   let stock;
   
   // Use useEffect to dispatch the stock update after the component mounts
-  // useEffect(() => {
-  //   if (stock) {
-  //     dispatch(putStock(stock));
-  //   }
-  // }, [stock, dispatch]);  // Ensure this runs only when stock is updated
+  useEffect(() => {
+    if (stock) {
+      dispatch(putStock(stock));
+    }
+  }, [stock, dispatch]);  // Ensure this runs only when stock is updated
        
  
 
@@ -45,7 +45,7 @@ function Public () {
     <>
       <main className="text-center bg-dark text-white">
         <Card.Body className='ticker-container' >
-          <Card.Title className='ticker-text' style={{ fontSize: '1.2em', padding:'0.2em'}}> Welcome to Boma! &nbsp; Meat Your Needs With Us! &nbsp; Always fresh & tasty! &nbsp; We are committed to supplying you with healthy, tasty and safe animal products.</Card.Title>
+          <Card.Title className='ticker-text' style={{ fontSize: '1.2em', padding:'0.2em'}}> Welcome to Boma! &nbsp; Meat Your Needs With Us! &nbsp; Always fresh & tasty! &nbsp; We are committed to supplying you with healthy, tasty and safe animal products.Log in as admin billy258@gmail.com Ninawes230.</Card.Title>
         </Card.Body>
         <Container className='mb-5'>
           <Carousel>

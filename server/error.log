@@ -1292,3 +1292,39 @@ Error: Can't find /api/v1customers/log-out on the server
     at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
     at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
     at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /api/v1customers/log-out
+2025-02-27 09:34:37 [error] Can't find /api/v1/employees/logout on the server 
+Error: Can't find /api/v1/employees/logout on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:165:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /api/v1/employees/logout
+2025-02-27 09:43:14 [error] Can't find /api/v1customers/log-out on the server 
+Error: Can't find /api/v1customers/log-out on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:165:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /api/v1customers/log-out
+2025-02-27 09:46:11 [error] Can't find /api/v1customers/log-out on the server 
+Error: Can't find /api/v1customers/log-out on the server
+    at file:///C:/Users/HP/Desktop/butchery-pos-backend/server/server.js:165:17
+    at Layer.handle [as handle_request] (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:149:13)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7)
+    at next (C:\Users\HP\Desktop\butchery-pos-backend\server\node_modules\express\lib\router\route.js:145:7) Method: POST URL: /api/v1customers/log-out
